@@ -141,4 +141,38 @@ c11 = Contract.create(rent_start: "15/04/2014", renter_id: 10, flat_id: 9,
  rent_amount: 1278.56, warranty_amount: 600, pay_day: 20, active: "Yes",
   days_to_reminder: 15)
 
+#Documents
+doc1 = Document.create(contract_id: 1, doc_type: "Rent contract", name: "Bail")
+doc2 = Document.create(contract_id: 2, doc_type: "PEB", name: "Niveau D", 
+  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019", 
+  days_to_reminder: 60)
+doc3 = Document.create(contract_id: 3, doc_type: "Entretien", name: "Chaudière",
+ reminder_sent_date: "15/10/2019", days_to_reminder: 20)
+doc4 = Document.create(contract_id: 3, doc_type: "Rent contract", name: "Bail", 
+  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014", 
+  days_to_reminder: 60)
+doc5 = Document.create(contract_id: 3, doc_type: "Insurance", name: "Home", 
+  expiration_date: "15/12/2016", days_to_reminder: 60)
+doc6 = Document.create(contract_id: 4, doc_type: "Rent contract", name: "Bail")
+doc7 = Document.create(contract_id: 5, doc_type: "PEB", name: "Niveau D", 
+  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019", 
+  days_to_reminder: 60)
+doc8 = Document.create(contract_id: 6, doc_type: "Entretien", name: "Chaudière",
+ reminder_sent_date: "15/10/2019", days_to_reminder: 20)
+doc9 = Document.create(contract_id: 6, doc_type: "Rent contract", name: "Bail", 
+  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014", 
+  days_to_reminder: 60)
+doc10 = Document.create(contract_id: 7, doc_type: "Insurance", name: "Home", 
+  expiration_date: "15/12/2016", days_to_reminder: 60)
+doc11 = Document.create(contract_id: 8, doc_type: "Rent contract", name: "Bail")
+doc12 = Document.create(contract_id: 9, doc_type: "PEB", name: "Niveau D", 
+  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019", 
+  days_to_reminder: 60)
+doc13 = Document.create(contract_id: 10, doc_type: "Entretien", name: "Chaudière",
+ reminder_sent_date: "15/10/2019", days_to_reminder: 20)
+doc14 = Document.create(contract_id: 10, doc_type: "Rent contract", name: "Bail", 
+  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014", 
+  days_to_reminder: 60)
+doc15 = Document.create(contract_id: 10, doc_type: "Insurance", name: "Home", 
+  expiration_date: "15/12/2016", days_to_reminder: 60)
 
