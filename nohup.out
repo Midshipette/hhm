@@ -1,0 +1,6 @@
+=> Booting Puma
+=> Rails 4.2.6 application starting in development on http://localhost:3000
+=> Run `rails server -h` for more startup options
+=> Ctrl-C to shutdown server
+A server is already running. Check /home/maxence/code/LeWagon_Projects/hhm/tmp/pids/server.pid.
+Exiting
