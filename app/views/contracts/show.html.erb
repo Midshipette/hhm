@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class='container'>
+  <p>
+    <strong>Rent start:</strong>
+    <%= @contract.rent_start %>
+  </p>
+
+  <p>
+    <strong>Rent end:</strong>
+    <%= @contract.rent_end %>
+  </p>
+
+  <p>
+    <strong>Renter:</strong>
+    <%= @contract.renter %>
+  </p>
+
+  <p>
+    <strong>Rent amount:</strong>
+    <%= @contract.rent_amount %>
+  </p>
+
+  <p>
+    <strong>Warranty amount:</strong>
+    <%= @contract.warranty_amount %>
+  </p>
+
+  <p>
+    <strong>Pay day:</strong>
+    <%= @contract.pay_day %>
+  </p>
+
+  <p>
+    <strong>Active:</strong>
+    <%= @contract.active %>
+  </p>
+
+  <p>
+    <strong>Days to reminder:</strong>
+    <%= @contract.days_to_reminder %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_contract_path(@contract) %> |
+<%= link_to 'Back', contracts_path %>

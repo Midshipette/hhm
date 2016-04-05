@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :documents
-  resources :documents
-  resources :flats
+
+  resources :contracts
   devise_for :renters
   devise_for :owners
   root to: 'pages#home'
@@ -9,7 +8,8 @@ Rails.application.routes.draw do
 
   resources :flats do
       resources :contracts do
-          resources :renters
+      resources :renters
+      resources :documents
     end
   end
 
