@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :documents
+  resources :documents
   resources :flats
   devise_for :renters
   devise_for :owners
@@ -7,8 +9,7 @@ Rails.application.routes.draw do
 
   resources :flats do
       resources :contracts do
-      resources :documents
-      resources :renters
+          resources :renters
     end
   end
 
