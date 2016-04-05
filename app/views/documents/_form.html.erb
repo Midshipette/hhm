@@ -1,0 +1,16 @@
+<%= simple_form_for(@document) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :contract %>
+    <%= f.input :type %>
+    <%= f.input :expiration_date %>
+    <%= f.input :name %>
+    <%= f.input :reminder_sent_date %>
+    <%= f.input :days_to_reminder %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
