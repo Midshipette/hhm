@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20160405120013) do
   create_table "documents", force: :cascade do |t|
     t.integer  "contract_id"
     t.string   "doc_type"
-    t.date     "expiration_date"
+    t.date     "expiration_date"     default: ""
     t.string   "name"
-    t.date     "reminder_sent_date"
+    t.date     "reminder_sent_date"  default: ""
     t.integer  "days_to_reminder"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
