@@ -37,3 +37,26 @@ o9 = Owner.create(first_name: "Alan", last_name: "09", phone_number: "0400475121
 o10 = Owner.create(first_name: "Alan", last_name: "O10", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue dix", postal_code: "1000", city: "Gent", 
 	country: "Belgique", email: "O10@gmail.com", password:"blablabla")
+
+# Renters
+r1 = Renter.create(email: "r1@gmail.com", password: "blablabla", first_name: "Val",
+ last_name: "r1", phone_number: "003223004455", gender: "male", birthday: "26/03/1970")
+r2 = Renter.create(email: "r2@gmail.com", password: "blablabla", first_name: "Hed",
+ last_name: "r2", phone_number: "003223004455", gender: "female", birthday: "26/04/1970")
+r3 = Renter.create(email: "r3@gmail.com", password: "blablabla", first_name: "Max",
+ last_name: "r3", phone_number: "003223004455", gender: "male", birthday: "26/05/1970")
+r4 = Renter.create(email: "r4@gmail.com", password: "blablabla", first_name: "Jean-Mich",
+ last_name: "r4", phone_number: "003223004455", gender: "male", birthday: "26/06/1970")
+r5 = Renter.create(email: "r5@gmail.com", password: "blablabla", first_name: "Laurent",
+ last_name: "r5", phone_number: "003223004455", gender: "male", birthday: "26/07/1970")
+r6 = Renter.create(email: "r6@gmail.com", password: "blablabla", first_name: "John",
+ last_name: "r6", phone_number: "003223004455", gender: "male", birthday: "26/08/1970")
+r7 = Renter.create(email: "r7@gmail.com", password: "blablabla", first_name: "Julien",
+ last_name: "r7", phone_number: "003223004455", gender: "male", birthday: "26/09/1970")
+r8 = Renter.create(email: "r8@gmail.com", password: "blablabla", first_name: "Jules",
+ last_name: "r8", phone_number: "003223004455", gender: "male", birthday: "26/10/1970")
+r9 = Renter.create(email: "r9@gmail.com", password: "blablabla", first_name: "Jeff",
+ last_name: "r9", phone_number: "003223004455", gender: "male", birthday: "26/11/1970")
+r10 = Renter.create(email: "r10@gmail.com", password: "blablabla", first_name: "Jan",
+ last_name: "r10", phone_number: "003223004455", gender: "male", birthday: "26/12/1970")
+
