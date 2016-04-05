@@ -7,18 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   
 #   Owners
-o1f1f2f7 = Owner.create(first_name: "Alan", last_name: "O1f1f2f7", phone_number: "04004751213", 
+o1f1f2f7 = Owner.create(first_name: "Maxence", last_name: "O1f1f2f7", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue premiere", postal_code: "1000", city: "Brussels", 
-	country: "Belgique", email: "O1@gmail.com", password:"blablabla")
-o2f3 = Owner.create(first_name: "Alan", last_name: "02f3", phone_number: "04004751213", 
+	country: "Belgique", email: "maxence.snoy@gmail.com", password:"blablabla")
+o2f3 = Owner.create(first_name: "Hedwige", last_name: "02f3", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue deux", postal_code: "1000", city: "Brussels", 
-	country: "Belgique", email: "02@gmail.com", password:"blablabla")
-o3f4= Owner.create(first_name: "Alan", last_name: "03f4", phone_number: "04004751213", 
+	country: "Belgique", email: "martimprey@gmail.com", password:"blablabla")
+o3f4= Owner.create(first_name: "Vallier", last_name: "03f4", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue trois", postal_code: "1000", city: "Brussels", 
-	country: "Belgique", email: "03@gmail.com", password:"blablabla")
-o4f5= Owner.create(first_name: "Alan", last_name: "04f5", phone_number: "04004751213", 
+	country: "Belgique", email: "vallieradam@gmail.com", password:"blablabla")
+o4f5= Owner.create(first_name: "Axel", last_name: "04f5", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue quatre", postal_code: "1000", city: "Brussels", 
-	country: "Belgique", email: "04@gmail.com", password:"blablabla")
+	country: "Belgique", email: "adinbrussels@gmail.com", password:"blablabla")
 o5f6 = Owner.create(first_name: "Alan", last_name: "05f6", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue cinq", postal_code: "1000", city: "Brussels", 
 	country: "Belgique", email: "05@gmail.com", password:"blablabla")
@@ -105,4 +105,6 @@ f11 = Flat.create(owner_id: 9, flat_name: "Américaine", floor: "1",
  flat_number: 2, address: "rue F. Merjay", city: "Brussels", syndicate: "GGG",
   postal_code: "1050", description: "nice view", country: "Belgium",
   loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+
+#Contracts
 
