@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+  <div class="container">
+
+    <h1 class='text-center'>
+      <strong>Flat name:</strong>
+      <%= @flat.flat_name %>
+    </h1>
+
+    <p>
+      <strong>Type:</strong>
+      <%= @flat.type %>
+    </p>
+
+
+
+    <p>
+      <strong>Floor:</strong>
+      <%= @flat.floor %>
+    </p>
+
+    <p>
+      <strong>Flat number:</strong>
+      <%= @flat.flat_number %>
+    </p>
+
+    <p>
+      <strong>Address:</strong>
+      <%= @flat.address %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @flat.city %>
+    </p>
+
+    <p>
+      <strong>Syndicate:</strong>
+      <%= @flat.syndicate %>
+    </p>
+
+    <p>
+      <strong>Postal code:</strong>
+      <%= @flat.postal_code %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @flat.description %>
+    </p>
+
+    <p>
+      <strong>Country:</strong>
+      <%= @flat.country %>
+    </p>
+
+    <p>
+      <strong>Loan cost:</strong>
+      <%= @flat.loan_cost %>
+    </p>
+
+    <p>
+      <strong>Tax cost:</strong>
+      <%= @flat.tax_cost %>
+    </p>
+
+    <%= link_to 'Edit', edit_flat_path(@flat) %> |
+    <%= link_to 'Back', flats_path %>
+</div>

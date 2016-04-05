@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160404170651) do
     t.string   "type"
     t.string   "flat_name"
     t.string   "floor"
-    t.integer  "flat_number"
+    t.string   "flat_number"
     t.string   "address"
     t.string   "city"
     t.string   "syndicate"

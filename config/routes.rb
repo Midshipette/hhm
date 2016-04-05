@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+  resources :flats
   devise_for :renters
   devise_for :owners
   root to: 'pages#home'
+
+
+  resources :flats do
+      resources :contracts do
+      resources :documents
+      resources :renters
+    end
+  end
+
+  get '/mydashboard' => "flats#index"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
