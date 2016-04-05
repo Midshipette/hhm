@@ -1,0 +1,27 @@
+
+    <%= simple_form_for(@flat) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+
+      <div class="form-inputs">
+        <%= f.input :type %>
+        <%= f.input :flat_name %>
+        <%= f.input :floor %>
+        <%= f.input :flat_number %>
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.input :syndicate %>
+        <%= f.input :postal_code %>
+        <%= f.input :description %>
+
+        <%= f.input :loan_cost %>
+        <%= f.input :tax_cost %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+

@@ -5,7 +5,7 @@ class CreateFlats < ActiveRecord::Migration
       t.string :type
       t.string :flat_name
       t.string :floor
-      t.integer :flat_number
+      t.string :flat_number
       t.string :address
       t.string :city
       t.string :syndicate
@@ -19,3 +19,5 @@ class CreateFlats < ActiveRecord::Migration
     end
   end
 end
+
+
