@@ -4,5 +4,7 @@ class Owner < ActiveRecord::Base
   has_many :flats
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  validates_presence_of :address
 end
 
