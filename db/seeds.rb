@@ -60,3 +60,9 @@ r9 = Renter.create(email: "r9@gmail.com", password: "blablabla", first_name: "Je
 r10 = Renter.create(email: "r10@gmail.com", password: "blablabla", first_name: "Jan",
  last_name: "r10", phone_number: "003223004455", gender: "male", birthday: "26/12/1970")
 
+#Flats
+#f1 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "3",
+ #flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
+ # postal_code: "1050", description: "what to put in description", country: "Belgium",
+ # loan_cost: 758.69, tax_code: 543.67, type: "Appart")
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404170651) do
+ActiveRecord::Schema.define(version: 20160405120013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160404170651) do
   add_index "contracts", ["renter_id"], name: "index_contracts_on_renter_id", using: :btree
 
   create_table "costs", force: :cascade do |t|
-    t.string   "type"
+    t.string   "cost_type"
     t.integer  "contract_id"
     t.string   "month"
     t.string   "paid"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160404170651) do
 
   create_table "documents", force: :cascade do |t|
     t.integer  "contract_id"
-    t.string   "type"
+    t.string   "doc_type"
     t.date     "expiration_date"
     t.string   "name"
     t.date     "reminder_sent_date"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20160404170651) do
 
   create_table "flats", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "type"
+    t.string   "flat_type"
     t.string   "flat_name"
     t.string   "floor"
     t.integer  "flat_number"
