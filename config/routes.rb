@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
 
-
-  resources :documents
-  resources :documents
-  resources :flats
   devise_for :renters, :controllers => { registrations: 'renters/registrations' }
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
-  root to: 'pages#home'
 
+  root to: 'pages#home'
 
   resources :flats do
       resources :contracts do
-          resources :renters
+      resources :renters
+      resources :documents
     end
   end
 
