@@ -107,4 +107,38 @@ f11 = Flat.create(owner_id: 9, flat_name: "Américaine", floor: "1",
   loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
 
 #Contracts
+c1 = Contract.create(rent_start: "01/01/2015", renter_id: 1, flat_id: 1,
+ rent_amount: 1000.12, warranty_amount: 350, pay_day: 1, active: "Yes",
+  days_to_reminder: 10)
+c2 = Contract.create(rent_start: "01/01/2010", rent_end: "20/12/2012" ,
+  renter_id: 2, flat_id: 1, rent_amount: 988.12, warranty_amount: 300,
+   pay_day: 1, active: "No", days_to_reminder: 15)
+c3 = Contract.create(rent_start: "01/01/2013", renter_id: 2, flat_id: 11,
+ rent_amount: 658.12, warranty_amount: 300, pay_day: 15, active: "Yes",
+  days_to_reminder: 30)
+c4 = Contract.create(rent_start: "15/04/2014", renter_id: 3, flat_id: 2,
+ rent_amount: 450.45, warranty_amount: 200, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+c5 = Contract.create(rent_start: "15/04/2014", renter_id: 4, flat_id: 3,
+ rent_amount: 450.45, warranty_amount: 200, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+c6 = Contract.create(rent_start: "15/06/2016", renter_id: 5, flat_id: 4,
+ rent_amount: 550, warranty_amount: 250, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+c7 = Contract.create(rent_start: "15/04/2004", renter_id: 6, flat_id: 5,
+ rent_amount: 650.78, warranty_amount: 300, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+c8 = Contract.create(rent_start: "15/04/2012", renter_id: 7, flat_id: 6,
+ rent_amount: 750.98, warranty_amount: 400, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+c9 = Contract.create(rent_start: "15/04/1984", renter_id: 8, flat_id: 7,
+ rent_amount: 850, warranty_amount: 400, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+c10 = Contract.create(rent_start: "15/04/1999", renter_id: 9, flat_id: 8,
+ rent_amount: 950.45, warranty_amount: 500, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+c11 = Contract.create(rent_start: "15/04/2014", renter_id: 10, flat_id: 9,
+ rent_amount: 1278.56, warranty_amount: 600, pay_day: 20, active: "Yes",
+  days_to_reminder: 15)
+
 
