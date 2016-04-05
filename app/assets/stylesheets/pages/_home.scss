@@ -3,9 +3,9 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .banner {
-  color: white;
+  color: #17307c;
   text-align: center;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 100px);
   max: 100%;
   top-margin: 0px;
   background-size: cover !important;
@@ -13,16 +13,15 @@
   align-items: center;
   justify-content: center;
 
-  background-image: image_url('landing-img.jpg');
+  background-image: image_url('middle_aged_changed.jpg');
   background-attachment: fixed;
 }
 
 .home-title {
   font-family: Arial;
-  font-size: 50px;
+  font-size: 250px;
   font-weight: bold;
-  display:flex;
-  align-items: center;
+
 }
 
 .home-button {
@@ -40,7 +39,7 @@
 }
 
 .about-box {
-  width: 500px;
+  width: 600px;
   margin: 0 auto;
 }
 
