@@ -18,6 +18,7 @@
 }
 
 .home-title {
+  font-family: Arial;
   font-size: 50px;
   font-weight: bold;
   display:flex;
@@ -30,30 +31,22 @@
   margin-right: 25em;
 }
 
+.home-subtitle {
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+  color: #17307c;
+  text-align: center;
+}
 
+.about-box {
+  width: 500px;
+  margin: 0 auto;
+}
 
-
-
-
-// .banner p {
-//   font-size: 20px;
-//   font-weight: lighter;
-//   color: rgba(255, 255, 255, 0.7);
-//   margin-bottom: 20px;
-// }
-
-// .banner h1 {
-//   font-family: Raleway, Helvetica, sans-serif;
-//   color: white;
-//   font-size: 55px;
-//   font-weight: bold;
-// }
-
-// .banner h2 {
-//   font-family: Raleway, Helvetica, sans-serif;
-//   color: white;
-//   font-size: 30px;
-//   font-weight: normal;
-//   margin-bottom: 50px;
-// }
+.about-description {
+  font-family: Arial;
+  font-size: 15px;
+  width: 300px;
+}
 
