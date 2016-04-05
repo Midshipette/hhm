@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :contracts
-  devise_for :renters
-  devise_for :owners
-  root to: 'pages#home'
+  devise_for :renters, :controllers => { registrations: 'renters/registrations' }
+  devise_for :owners, :controllers => { registrations: 'owners/registrations' }
 
+  root to: 'pages#home'
 
   resources :flats do
       resources :contracts do
