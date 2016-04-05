@@ -7,31 +7,31 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   
 #   Owners
-o1 = Owner.create(first_name: "Alan", last_name: "O1", phone_number: "04004751213", 
+o1f1f2f7 = Owner.create(first_name: "Alan", last_name: "O1f1f2f7", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue premiere", postal_code: "1000", city: "Brussels", 
 	country: "Belgique", email: "O1@gmail.com", password:"blablabla")
-o2 = Owner.create(first_name: "Alan", last_name: "02", phone_number: "04004751213", 
+o2f3 = Owner.create(first_name: "Alan", last_name: "02f3", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue deux", postal_code: "1000", city: "Brussels", 
 	country: "Belgique", email: "02@gmail.com", password:"blablabla")
-o3= Owner.create(first_name: "Alan", last_name: "03", phone_number: "04004751213", 
+o3f4= Owner.create(first_name: "Alan", last_name: "03f4", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue trois", postal_code: "1000", city: "Brussels", 
 	country: "Belgique", email: "03@gmail.com", password:"blablabla")
-o4 = Owner.create(first_name: "Alan", last_name: "04", phone_number: "04004751213", 
+o4f5= Owner.create(first_name: "Alan", last_name: "04f5", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue quatre", postal_code: "1000", city: "Brussels", 
 	country: "Belgique", email: "04@gmail.com", password:"blablabla")
-o5 = Owner.create(first_name: "Alan", last_name: "05", phone_number: "04004751213", 
+o5f6 = Owner.create(first_name: "Alan", last_name: "05f6", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue cinq", postal_code: "1000", city: "Brussels", 
 	country: "Belgique", email: "05@gmail.com", password:"blablabla")
-o6 = Owner.create(first_name: "Alan", last_name: "06", phone_number: "04004751213", 
+o6f8 = Owner.create(first_name: "Alan", last_name: "06f8", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue six", postal_code: "1000", city: "Namur", 
 	country: "Belgique", email: "06@gmail.com", password:"blablabla")
-o7 = Owner.create(first_name: "Alan", last_name: "07", phone_number: "04004751213", 
+o7f9 = Owner.create(first_name: "Alan", last_name: "07f9", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue sept", postal_code: "1000", city: "Namur", 
 	country: "Belgique", email: "07@gmail.com", password:"blablabla")
-o8 = Owner.create(first_name: "Alan", last_name: "08", phone_number: "04004751213", 
+o8f10 = Owner.create(first_name: "Alan", last_name: "08f10", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue huit", postal_code: "1000", city: "Namur", 
 	country: "Belgique", email: "08@gmail.com", password:"blablabla")
-o9 = Owner.create(first_name: "Alan", last_name: "09", phone_number: "04004751213", 
+o9f11 = Owner.create(first_name: "Alan", last_name: "09f11", phone_number: "04004751213", 
 	flat_number: "21", address: "12 rue neuf", postal_code: "1000", city: "Gent", 
 	country: "Belgique", email: "09@gmail.com", password:"blablabla")
 o10 = Owner.create(first_name: "Alan", last_name: "O10", phone_number: "04004751213", 
@@ -61,8 +61,48 @@ r10 = Renter.create(email: "r10@gmail.com", password: "blablabla", first_name: "
  last_name: "r10", phone_number: "003223004455", gender: "male", birthday: "26/12/1970")
 
 #Flats
-#f1 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "3",
- #flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
- # postal_code: "1050", description: "what to put in description", country: "Belgium",
- # loan_cost: 758.69, tax_code: 543.67, type: "Appart")
+f1 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "3",
+ flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
+  postal_code: "1050", description: "what to put in description", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+f2 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "4",
+ flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
+  postal_code: "1050", description: "what to put in description", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+f3 = Flat.create(owner_id: 2, flat_name: "Liberty", floor: "NA",
+ flat_number: 2, address: "avenue de la liberté", city: "WAterloo", syndicate: "NA",
+  postal_code: "1410", description: "what to put in description", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "House")
+f4 = Flat.create(owner_id: 3, flat_name: "Lippens", floor: "0",
+ flat_number: 2, address: "avenue Lippens", city: "Knokke", syndicate: "Sea side syndic",
+  postal_code: "3800", description: "nice view", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+f5 = Flat.create(owner_id: 4, flat_name: "Diegem", floor: "1",
+ flat_number: 2, address: "Rue Flémard", city: "Brussels", syndicate: "TREC",
+  postal_code: "1020", description: "To be refurnished", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Studio")
+f6 = Flat.create(owner_id: 5, flat_name: "Louise", floor: "3",
+ flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
+  postal_code: "1050", description: "what to put in description", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+f7 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "3",
+ flat_number: 2, address: "avenue américaine", city: "Brussels", syndicate: "AB Invest",
+  postal_code: "1050", description: "what to put in description", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Penthouse")
+f8 = Flat.create(owner_id: 6, flat_name: "Gudule", floor: "7",
+ flat_number: 2, address: "place saint Gudule", city: "Brussels", syndicate: "Immo Immo",
+  postal_code: "1000", description: "what to put in description", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+f9 = Flat.create(owner_id: 7, flat_name: "Ferme", floor: "NA",
+ flat_number: 2, address: "avenue du champs", city: "Habay", syndicate: "NA",
+  postal_code: "6080", description: "nice air", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Ferme")
+f10 = Flat.create(owner_id: 8, flat_name: "", floor: "2",
+ flat_number: 2, address: "chaussée de Waterloo", city: "Brussels", syndicate: "GGG",
+  postal_code: "1180", description: "On the street", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+f11 = Flat.create(owner_id: 9, flat_name: "Américaine", floor: "1",
+ flat_number: 2, address: "rue F. Merjay", city: "Brussels", syndicate: "GGG",
+  postal_code: "1050", description: "nice view", country: "Belgium",
+  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
 
