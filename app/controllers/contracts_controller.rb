@@ -12,6 +12,13 @@ class ContractsController < ApplicationController
   def show
   end
 
+
+  def history
+     @flat = Flat.find(params[:flat_id])
+     @contracts = Contract.where(flat_id: @flat.id)
+  end
+
+
   # GET /contracts/new
   def new
     @contract = Contract.new
@@ -19,6 +26,8 @@ class ContractsController < ApplicationController
 
   # GET /contracts/1/edit
   def edit
+    @flat = Flat.find(params[:flat_id])
+    @contract = Contract.find(params[:id])
   end
 
   # POST /contracts
@@ -29,7 +38,7 @@ class ContractsController < ApplicationController
     respond_to do |format|
       if @contract.save
         format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
-        format.json { render :show, status: :created, location: @contract }
+        format.jsonFlat.find(params[:id]) { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
         format.json { render json: @contract.errors, status: :unprocessable_entity }

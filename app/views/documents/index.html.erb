@@ -1,37 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Documents</h1>
+<div class="container">
+  <h1>Listing Documents</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Contract</th>
-      <th>Type</th>
-      <th>Expiration date</th>
-      <th>Name</th>
-      <th>Reminder sent date</th>
-      <th>Days to reminder</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @documents.each do |document| %>
+  <table class="table table-responsive table-striped">
+    <thead>
       <tr>
-        <td><%= document.contract %></td>
-        <td><%= document.type %></td>
-        <td><%= document.expiration_date %></td>
-        <td><%= document.name %></td>
-        <td><%= document.reminder_sent_date %></td>
-        <td><%= document.days_to_reminder %></td>
-        <td><%= link_to 'Show', document %></td>
-        <td><%= link_to 'Edit', edit_document_path(document) %></td>
-        <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Format</th>
+        <th>Doc Name</th>
+        <th>Type</th>
+        <th>Expiration date</th>
+        <th>Reminder sent</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @documents.each do |document| %>
+        <tr>
+          <td><i class="fa fa-file-pdf-o"></i></td>
+          <td><%= document.name %></td>
+          <td><%= document.doc_type %></td>
+          <td><%= document.expiration_date %></td>
+          <td><%= document.reminder_sent_date %></td>
+          <% document.days_to_reminder %>
+        </tr>
+      <% end %>
 
-<%= link_to 'New Document', new_document_path %>
+      <tr>
+        <td></td>
+        <td><%= link_to(new_flat_document_path) do %>
+              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-floppy-open') %>
+           <% end %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+
+</div>

@@ -3,17 +3,22 @@ Rails.application.routes.draw do
   devise_for :renters, :controllers => { registrations: 'renters/registrations' }
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
 
-  root to: 'pages#home'
+
+  get 'flats/:flat_id/history' => 'contracts#history' , as: 'flat_history'
+  delete 'flats/:id' => 'flats#destroy' , as: 'flat_destroy'
+
+
 
   resources :flats do
-      resources :contracts do
+      resources :contracts
       resources :renters
       resources :documents
-    end
   end
+
 
   get '/mydashboard' => "flats#index"
 
+  root to: 'pages#home'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

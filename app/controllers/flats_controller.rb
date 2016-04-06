@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  before_action :set_flat, only: [:show, :edit, :update,  :destroy]
 
   # GET /flats
   # GET /flats.json
@@ -11,7 +11,9 @@ class FlatsController < ApplicationController
   # GET /flats/1
   # GET /flats/1.json
   def show
+
   end
+
 
   # GET /flats/new
   def new
@@ -55,10 +57,17 @@ class FlatsController < ApplicationController
   # DELETE /flats/1
   # DELETE /flats/1.json
   def destroy
-    @flat.destroy
-    respond_to do |format|
-      format.html { redirect_to flats_url, notice: 'Flat was successfully destroyed.' }
-      format.json { head :no_content }
+    if @flat.contracts.where(active: 'yes')
+      respond_to do |format|
+        format.html { redirect_to flats_path, alert: 'This flat has an active contract so that you cannot delete it' }
+        format.json { head :no_content }
+      end
+    else
+       @flat.destroy # to be completed
+      respond_to do |format|
+        format.html { redirect_to flats_url, notice: 'Flat was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
