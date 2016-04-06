@@ -2,6 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
 .banner {
   color: #17307c;
   height: 100vh;
@@ -28,7 +29,7 @@
   font-size: 30px;
   font-weight: bold;
   color: #17307c;
-  align: center;
+  text-align: center;
   margin-bottom: 25px;
   }
 hr {
@@ -54,13 +55,13 @@ hr:after {
   margin-top: 30px;
 }
 
-.center-item {
-  text-align: center;
-}
-
 .home-main-box {
   width: 600px;
   margin: 0 auto;
+}
+
+.center-item {
+  text-align: center;
 }
 
 .home-description {
@@ -73,6 +74,7 @@ hr:after {
   margin-top: 20px;
   margin-left: 10%;
   margin-right: 10%;
+  text-align: center;
 }
 
 .home-small-title {
@@ -83,12 +85,4 @@ hr:after {
   text-align: center;
   margin-bottom: 20px;
 }
-
-.product-description {
-  font-family: Arial;
-  font-size: 15px;
-  width: 200px;
-}
-
-
 
