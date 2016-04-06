@@ -26,8 +26,8 @@ class ContractsController < ApplicationController
 
   # GET /contracts/1/edit
   def edit
-    @flat = Flat.where(id: params[:flat_id])
-    @contract = Contract.where(id: params[:id])
+    @flat = Flat.find(params[:flat_id])
+    @contract = Contract.find(params[:id])
   end
 
   # POST /contracts

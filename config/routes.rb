@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   delete 'flats/:id' => 'flats#destroy' , as: 'flat_destroy'
 
 
+
   resources :flats do
-      resources :contracts do
+      resources :contracts
       resources :renters
       resources :documents
-    end
   end
+
 
   get '/mydashboard' => "flats#index"
 
