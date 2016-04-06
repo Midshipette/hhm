@@ -1,34 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Contract:</strong>
-  <%= @document.contract %>
-</p>
+  <p>
+    <strong>Contract:</strong>
+    <%= @document.contract %>
+  </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @document.doc_type %>
-</p>
+  <p>
+    <strong>Type:</strong>
+    <%= @document.doc_type %>
+  </p>
 
-<p>
-  <strong>Expiration date:</strong>
-  <%= @document.expiration_date %>
-</p>
+  <p>
+    <strong>Expiration date:</strong>
+    <%= @document.expiration_date %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @document.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @document.name %>
+  </p>
 
-<p>
-  <strong>Reminder sent date:</strong>
-  <%= @document.reminder_sent_date %>
-</p>
+  <p>
+    <strong>Reminder sent date:</strong>
+    <%= @document.reminder_sent_date %>
+  </p>
 
-<p>
-  <strong>Days to reminder:</strong>
-  <%= @document.days_to_reminder %>
-</p>
+  <p>
+    <strong>Days to reminder:</strong>
+    <%= @document.days_to_reminder %>
+  </p>
 
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%= link_to 'Back', documents_path %>
+  <%= link_to 'Edit', edit_document_path(@document) %> |
+  <%= link_to 'Back', documents_path %>
+</div>
