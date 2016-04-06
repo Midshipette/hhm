@@ -4,6 +4,7 @@ class ContractsController < ApplicationController
   # GET /contracts
   # GET /contracts.json
   def index
+    @flat = Flat.find(params[:flat_id])
     @contracts = Contract.all
   end
 
@@ -21,6 +22,7 @@ class ContractsController < ApplicationController
 
   # GET /contracts/new
   def new
+    @flat = Flat.find(params[:flat_id])
     @contract = Contract.new
   end
 

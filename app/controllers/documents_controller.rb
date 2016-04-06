@@ -4,7 +4,8 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
+    @contract = Contract.where(flat_id: params[:flat_id], active: 'Yes')
+    @documents = @contract[0].documents
   end
 
   # GET /documents/1
