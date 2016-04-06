@@ -2,6 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
 .banner {
   color: #17307c;
   height: 100vh;
@@ -16,6 +17,7 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 .home-container {
   h1 {
     font-family: Arial;
@@ -40,11 +42,41 @@
 }
 
 .center-item {
+=======
+.about-box {
+}
+
+.home-main-box {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.home {
+}
+
+h1 {
+  font-family: Arial;
+  font-size: 60px;
+  color: white;
+  margin: -100px 0 0;
+}
+
+h2 {
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+  color: #17307c;
+>>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
   text-align: center;
+  margin-bottom: 50px;
 }
 
 hr.hr-home {
+<<<<<<< HEAD
   border-top: 1px solid #17317c;
+=======
+  border-top: 1px solid #17307c;
+>>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -55,6 +87,7 @@ hr.hr-home:after {
   position: relative;
   top: -14px;
   padding: 0 10px;
+<<<<<<< HEAD
   color: #17317c;
   font-size: 18px;
 }
@@ -65,11 +98,26 @@ hr.hr-home:after {
 .home-main-box {
   width: 600px;
   margin: 0 auto;
+=======
+  color: #17307c;
+  font-size: 18px;
+}
+
+.home-button {
+  padding-bottom: 20px;
+  padding-right: 15px;
+  margin-top: 30px;
+}
+
+.center-item {
+  text-align: center;
+>>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
 }
 
 .home-description {
   font-family: Arial;
   font-size: 15px;
+<<<<<<< HEAD
   margin-bottom: 50px;
 }
 
@@ -77,6 +125,16 @@ hr.hr-home:after {
   margin-top: 20px;
   margin-left: 10%;
   margin-right: 10%;
+=======
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.home-items {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+>>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
 }
 
 .home-small-title {
@@ -88,6 +146,7 @@ hr.hr-home:after {
   margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
 .product-description {
   font-family: Arial;
   font-size: 15px;
@@ -96,3 +155,13 @@ hr.hr-home:after {
 
 
 
+=======
+.product-box {
+}
+
+.pricing-box {
+}
+
+.contact-box {
+}
+>>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
