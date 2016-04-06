@@ -1,102 +1,69 @@
 <div class="container">
 
+   <%= link_to 'Add a new flat', new_flat_path, class: 'btn btn-primary' %>
 
-<h1>Listing Flats</h1>
-
-
-    <table class="table table-responsive table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Flat name</th>
-          <th>Floor</th>
-          <th>Flat number</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>Syndicate</th>
-          <th>Postal code</th>
-          <th>Description</th>
-          <th>Country</th>
-          <th>Loan cost</th>
-          <th>Tax cost</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @flats.each do |flat| %>
-          <tr>
-            <td><%= flat.flat_type %></td>
-            <td><%= flat.flat_name %></td>
-            <td><%= flat.floor %></td>
-            <td><%= flat.flat_number %></td>
-            <td><%= flat.address %></td>
-            <td><%= flat.city %></td>
-            <td><%= flat.syndicate %></td>
-            <td><%= flat.postal_code %></td>
-            <td><%= flat.description %></td>
-            <td><%= flat.country %></td>
-            <td><%= flat.loan_cost %></td>
-            <td><%= flat.tax_cost %></td>
-            <td><%= link_to 'Rent history', flat_history_path(flat.id) %></td>
-
-
-             <td><%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>"), edit_flat_path(flat), class: 'btn btn-default' %>
-          </td>
-          <td>
-           <%= link_to(flat_destroy_path(flat),
-           method: :delete,
-           data: { confirm: 'Are you sure?' },
-           class: 'btn btn-danger') do %>
-              <%= content_tag('span', nil, class: 'glyphicon glyphicon-remove') %>
-           <% end %>
-          </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-  <br>
-
-
-  <%= link_to 'New Flat', new_flat_path %>
 </div>
+
+<br>
 
 
 <% @flats.each do |flat| %>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="row">
         <div class="card">
           <div class="col-md-3">
-            <%= flat.flat_name %>
-            <p><%= flat.address %></p>
-            <p><%= flat.postal_code %> <%= flat.city %></p>
-          </div>
-          <div class="col-md-9">
+
+            <address style="padding: 20px 10px">
+             <strong><%= flat.flat_name %></strong><br /> <p><%= flat.address %></p><br /> <%= flat.postal_code %> <%= flat.city %><br />
+           </address>
+
+           <%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>"), edit_flat_path(flat), class: 'btn btn-default' %>
+
+           <%= link_to(flat_destroy_path(flat),
+
+             method: :delete,
+             data: { confirm: 'Are you sure?' },
+             class: 'btn btn-danger') do %>
+             <%= content_tag('span', nil, class: 'glyphicon glyphicon-remove') %>
+             <% end %>
+
+
+           </div>
+           <div class="col-md-9">
             <div class="row">
               <div class="col-md-3">
-                <div class="square">
-                  House
+                <% link_to "", '#' %>
+                <div class="square btn">
+
+                  <p>Accomodation</p>
+                  <p><i class="fa fa-home fa-3x signal-nothing"></i></p>
+                  <p><%= flat.flat_name %></p>
+                </div>
+
+              </div>
+              <div class="col-md-3">
+                <div class="square btn">
+                  <p>Financials</p>
+                  <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
+                  <p><%= flat.contracts.last.rent_amount.round %></p>
                 </div>
               </div>
               <div class="col-md-3">
-                <div class="square">
-                  Financials
-                  <%= flat.contracts.last.rent_amount %>
+                <div class="square btn">
+                  <p>Tenant</p>
+                  <p><i class="fa fa-user fa-3x signal-nothing"></i></p>
+                  <p><%= flat.contracts.last.renter.first_name %>
+                    <%= flat.contracts.last.renter.last_name %></p>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-3">
-                <div class="square">
-                  <%= flat.contracts.last.renter.first_name %>
-                  <%= flat.contracts.last.renter.last_name %>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="square">
-                  Tasks
+                <div class="col-md-3">
+                  <div class="square btn">
+                    <p>Tasks</p>
+                    <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
+                    <p>O task </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -105,7 +72,6 @@
       </div>
     </div>
   </div>
-</div>
 
-<% end %>
+  <% end %>
 
