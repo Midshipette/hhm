@@ -5,6 +5,7 @@ class FlatsController < ApplicationController
   # GET /flats.json
   def index
     @flats = Flat.all.where(owner_id: current_owner.id)
+    @contracts = Contract.all
   end
 
   # GET /flats/1
