@@ -7,13 +7,7 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
+
 
     <!-- Different navigation if login or not -->
     <% if owner_signed_in? || renter_signed_in? %>
@@ -22,23 +16,28 @@
     <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
     <div class="badge-container">
       <i class="fa fa-envelope-o"></i>
-      <div class="badge badge-blue">3</div>
+      <!-- <div class="badge badge-blue">3</div> -->
     </div>
     <% end %>
 
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <%= image_tag 'MB__home.png', class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li>
+            <%= link_to flats_path do %>
+            <i class="fa fa-home"></i>  <%= t ".dashboard", default: "Dashboard" %>
+            <% end %>
+          </li>
           <li>
             <%= link_to "#" do %>
             <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
             <% end %>
           </li>
           <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
+            <%= link_to renters_path do %>
+            <i class="fa fa-home"></i>  <%= t ".profile", default: "Tenants" %>
             <% end %>
           </li>
           <li>
@@ -69,7 +68,7 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -94,11 +93,11 @@
       </div>
       <div class="modal-body">
         <%= link_to t(".sign_in", default: "Login as an owner"), new_owner_session_path, class: "btn btn-primary" %>
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login as a renter"), new_renter_session_path, class: "btn btn-primary" %>
+        <!-- Login text link -->
+        <%= link_to t(".sign_in", default: "Login as a renter"), new_renter_session_path, class: "btn btn-primary" %>
       </div>
-       <div class="modal-footer">
-</div>
+      <div class="modal-footer">
+      </div>
 
     </div>
   </div>
