@@ -3,53 +3,103 @@
 
 <div class="container">
 
-<h1>Listing Flats</h1>
+  <h1>Listing Flats</h1>
 
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Flat name</th>
-          <th>Floor</th>
-          <th>Flat number</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>Syndicate</th>
-          <th>Postal code</th>
-          <th>Description</th>
-          <th>Country</th>
-          <th>Loan cost</th>
-          <th>Tax cost</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <% @flats.each do |flat| %>
-          <tr>
-            <td><%= flat.flat_type %></td>
-            <td><%= flat.flat_name %></td>
-            <td><%= flat.floor %></td>
-            <td><%= flat.flat_number %></td>
-            <td><%= flat.address %></td>
-            <td><%= flat.city %></td>
-            <td><%= flat.syndicate %></td>
-            <td><%= flat.postal_code %></td>
-            <td><%= flat.description %></td>
-            <td><%= flat.country %></td>
-            <td><%= flat.loan_cost %></td>
-            <td><%= flat.tax_cost %></td>
-            <td><%= link_to 'Show', flat %></td>
-            <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
-            <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Flat name</th>
+        <th>Floor</th>
+        <th>Flat number</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Syndicate</th>
+        <th>Postal code</th>
+        <th>Description</th>
+        <th>Country</th>
+        <th>Loan cost</th>
+        <th>Tax cost</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @flats.each do |flat| %>
+      <tr>
+        <td><%= flat.flat_type %></td>
+        <td><%= flat.flat_name %></td>
+        <td><%= flat.floor %></td>
+        <td><%= flat.flat_number %></td>
+        <td><%= flat.address %></td>
+        <td><%= flat.city %></td>
+        <td><%= flat.syndicate %></td>
+        <td><%= flat.postal_code %></td>
+        <td><%= flat.description %></td>
+        <td><%= flat.country %></td>
+        <td><%= flat.loan_cost %></td>
+        <td><%= flat.tax_cost %></td>
+        <td><%= link_to 'Show', flat %></td>
+        <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
+        <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
   <br>
 
 
-    <%= link_to 'New Flat', new_flat_path %>
+  <%= link_to 'New Flat', new_flat_path %>
 </div>
+
+
+<% @flats.each do |flat| %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="card">
+          <div class="col-md-3">
+            <%= flat.flat_name %>
+            <p><%= flat.address %></p>
+            <p><%= flat.postal_code %> <%= flat.city %></p>
+          </div>
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="square">
+                  House
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="square">
+                  Financials
+                  <%= flat.contracts.last.rent_amount %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="square">
+                  <%= flat.contracts.last.renter.first_name %>
+                  <%= flat.contracts.last.renter.last_name %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="square">
+                  Tasks
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
