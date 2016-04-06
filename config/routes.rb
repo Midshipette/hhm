@@ -15,6 +15,9 @@ Rails.application.routes.draw do
       resources :documents
   end
 
+  get '/renters' => "renters#all"
+
+
 
   get '/mydashboard' => "flats#index"
 
