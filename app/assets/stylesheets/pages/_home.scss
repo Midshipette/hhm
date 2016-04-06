@@ -3,9 +3,9 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .banner {
-  color: white;
+  color: #17307c;
   text-align: center;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 100px);
   max: 100%;
   top-margin: 0px;
   background-size: cover !important;
@@ -13,15 +13,15 @@
   align-items: center;
   justify-content: center;
 
-  background-image: image_url('landing-img.jpg');
+  background-image: image_url('middle_aged_changed.jpg');
   background-attachment: fixed;
 }
 
 .home-title {
-  font-size: 50px;
+  font-family: Arial;
+  font-size: 250px;
   font-weight: bold;
-  display:flex;
-  align-items: center;
+
 }
 
 .home-button {
@@ -30,30 +30,28 @@
   margin-right: 25em;
 }
 
+.home-subtitle {
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+  color: #17307c;
+  text-align: center;
+}
 
+.about-box {
+  width: 600px;
+  margin: 0 auto;
+}
 
+.about-description {
+  font-family: Arial;
+  font-size: 15px;
+  width: 300px;
+}
 
-
-
-// .banner p {
-//   font-size: 20px;
-//   font-weight: lighter;
-//   color: rgba(255, 255, 255, 0.7);
-//   margin-bottom: 20px;
-// }
-
-// .banner h1 {
-//   font-family: Raleway, Helvetica, sans-serif;
-//   color: white;
-//   font-size: 55px;
-//   font-weight: bold;
-// }
-
-// .banner h2 {
-//   font-family: Raleway, Helvetica, sans-serif;
-//   color: white;
-//   font-size: 30px;
-//   font-weight: normal;
-//   margin-bottom: 50px;
-// }
+.product-description {
+  font-family: Arial;
+  font-size: 15px;
+  width: 100px;
+}
 
