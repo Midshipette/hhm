@@ -18,19 +18,22 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2023f70699305d3144786e4ace45a18ce4b67bc6
 .home-container {
   h1 {
     font-family: Arial;
-    font-size: 40px;
+    font-size: 45px;
     color: white;
     margin: -100px 0 0;
   }
-
   h2 {
   font-family: Arial;
   font-size: 30px;
   font-weight: bold;
   color: #17307c;
+<<<<<<< HEAD
   align: center;
   }
 }
@@ -77,30 +80,30 @@ hr.hr-home {
 =======
   border-top: 1px solid #17307c;
 >>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
+=======
+  text-align: center;
+  margin-bottom: 25px;
+  }
+hr {
+  border-top: 1px solid #17317c;
+>>>>>>> 2023f70699305d3144786e4ace45a18ce4b67bc6
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 50px;
-}
-hr.hr-home:after {
+  margin-bottom: 70px;
+  }
+hr:after {
   content: image_url('favicon.ico');
   display: inline-block;
   position: relative;
   top: -14px;
   padding: 0 10px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2023f70699305d3144786e4ace45a18ce4b67bc6
   color: #17317c;
   font-size: 18px;
-}
-
-.about-box {
-}
-
-.home-main-box {
-  width: 600px;
-  margin: 0 auto;
-=======
-  color: #17307c;
-  font-size: 18px;
+  }
 }
 
 .home-button {
@@ -109,15 +112,27 @@ hr.hr-home:after {
   margin-top: 30px;
 }
 
+.home-main-box {
+  width: 600px;
+  margin: 0 auto;
+}
+
 .center-item {
   text-align: center;
+<<<<<<< HEAD
 >>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
+=======
+>>>>>>> 2023f70699305d3144786e4ace45a18ce4b67bc6
 }
 
 .home-description {
   font-family: Arial;
+<<<<<<< HEAD
   font-size: 15px;
 <<<<<<< HEAD
+=======
+  font-size: 16px;
+>>>>>>> 2023f70699305d3144786e4ace45a18ce4b67bc6
   margin-bottom: 50px;
 }
 
@@ -125,16 +140,11 @@ hr.hr-home:after {
   margin-top: 20px;
   margin-left: 10%;
   margin-right: 10%;
-=======
-  width: 300px;
-  margin-bottom: 50px;
-}
-
-.home-items {
-  margin-left: 10%;
-  margin-right: 10%;
   text-align: center;
+<<<<<<< HEAD
 >>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
+=======
+>>>>>>> 2023f70699305d3144786e4ace45a18ce4b67bc6
 }
 
 .home-small-title {
@@ -146,6 +156,7 @@ hr.hr-home:after {
   margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .product-description {
   font-family: Arial;
@@ -165,3 +176,5 @@ hr.hr-home:after {
 .contact-box {
 }
 >>>>>>> a25e9861517df16f836986adcf2f1b1283b3ad80
+=======
+>>>>>>> 2023f70699305d3144786e4ace45a18ce4b67bc6
