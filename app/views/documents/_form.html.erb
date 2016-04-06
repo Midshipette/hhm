@@ -1,16 +1,19 @@
-<%= simple_form_for(@document) do |f| %>
+<%= simple_form_for [@flat, @document] do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :contract %>
+    <%= f.input :name %>
     <%= f.input :doc_type %>
     <%= f.input :expiration_date %>
-    <%= f.input :name %>
-    <%= f.input :reminder_sent_date %>
     <%= f.input :days_to_reminder %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+  <!--   <%= f.association :contract, as: :hidden %> -->
   </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+

@@ -1,11 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
   <h1>Listing Documents</h1>
 
   <table class="table table-responsive table-striped table-hover">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Format</th>
         <th>Doc Name</th>
         <th>Type</th>
@@ -17,14 +16,21 @@
 
     <tbody>
       <% @documents.each do |document| %>
-        <tr>
-          <td><i class="fa fa-file-pdf-o"></i></td>
-          <td><%= document.name %></td>
-          <td><%= document.doc_type %></td>
-          <td><%= document.expiration_date %></td>
-          <td><%= document.reminder_sent_date %></td>
-          <% document.days_to_reminder %>
-        </tr>
+
+          <tr>
+
+              <td><%= document.id %></td>
+              <td><i class="fa fa-file-pdf-o"></i></td>
+              <td><%= document.name %></td>
+              <td><%= document.doc_type %></td>
+              <td><%= document.expiration_date %></td>
+              <td><%= document.reminder_sent_date %></td>
+              <td><%= link_to(new_flat_document_path) do %>
+                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-floppy-open') %>
+               <% end %></td>
+              <% document.days_to_reminder %>
+            </tr>
+
       <% end %>
 
       <tr>
@@ -39,3 +45,4 @@
   <br>
 
 </div>
+
