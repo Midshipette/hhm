@@ -25,7 +25,8 @@
           <td><%= contract.active %></td>
           <td><%= contract.days_to_reminder %></td>
 
-          <td><%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"> edit </span>"), edit_flat_contract_path(@flat, contract), class: 'btn btn-default' %>
+<!-- TEMPORALY OUT -->
+         <!--  <td><%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"> edit </span>"), edit_flat_contract_path(@flat, contract), class: 'btn btn-default' %>
           </td>
           <td>
            <%= link_to(edit_flat_contract_path(@flat, contract),
@@ -33,7 +34,7 @@
            class: 'btn btn-danger') do %>
               <%= content_tag('span', nil, class: 'glyphicon glyphicon-remove') %> delete
            <% end %>
-          </td>
+          </td> -->
 
          </tr>
       <% end %>

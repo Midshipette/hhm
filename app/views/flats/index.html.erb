@@ -6,7 +6,7 @@
 <h1>Listing Flats</h1>
 
 
-    <table class="table">
+    <table class="table table-responsive table-striped ">
       <thead>
         <tr>
           <th>Type</th>
@@ -40,18 +40,17 @@
             <td><%= flat.country %></td>
             <td><%= flat.loan_cost %></td>
             <td><%= flat.tax_cost %></td>
-            <td><%= link_to 'Rent history', flats_history_path(flat.id) %></td>
-            <td><%= link_to 'Edit', edit_flat_path(flat) %></td>
-            <td><%= link_to 'Destroy', flat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Rent history', flat_history_path(flat.id) %></td>
 
-             <td><%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"> edit </span>"), edit_flat_path(flat), class: 'btn btn-default' %>
+
+             <td><%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>"), edit_flat_path(flat), class: 'btn btn-default' %>
           </td>
           <td>
-           <%= link_to(flats_path(flat),
+           <%= link_to(flat_destroy_path(flat),
            method: :delete,
            data: { confirm: 'Are you sure?' },
            class: 'btn btn-danger') do %>
-              <%= content_tag('span', nil, class: 'glyphicon glyphicon-remove') %> delete
+              <%= content_tag('span', nil, class: 'glyphicon glyphicon-remove') %>
            <% end %>
           </td>
           </tr>

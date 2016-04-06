@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
 
 
-  get 'flats/:flat_id/history' => 'contracts#history' , as: 'flats_history'
-  delete 'flats/:id' => 'flats#destroy' , as: 'flats'
+  get 'flats/:flat_id/history' => 'contracts#history' , as: 'flat_history'
+  delete 'flats/:id' => 'flats#destroy' , as: 'flat_destroy'
 
 
   resources :flats do
