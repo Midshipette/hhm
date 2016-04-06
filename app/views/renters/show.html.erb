@@ -1,4 +1,65 @@
-<h1>Renters#show</h1>
-<p>Find me in app/views/renters/show.html.erb</p>
-<%= @renter.last_name %>
-<%= @renter.first_name %>
+
+<div class = "container">
+    <div class = "row"> 
+        <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-4 renter_info_block">
+            <h5>Tenant details</h5>
+        </div>
+        <div class="col-xs-0 col-md-1">
+        </div>
+        <div class="col-xs-offset-1 col-xs-10 col-md-4 renter_money_block">
+         <h5>Bank details</h5>
+        </div>
+    </div>
+    <div class = "row"> 
+        <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-4 renter_detail_block">
+
+            <i class="fa fa-user fa-2x"></i>
+            <h4 class = "renter_name"><%= @renter.first_name %> <%= @renter.last_name %></h4>
+            <p></p>
+            <p><i class="fa fa-phone"></i>: 
+                <% if @renter.phone_number == nil%>
+                <%= "No phone information" %>
+                <% else %>
+                <%= @renter.phone_number %>
+                <% end %></p>
+            <p><i class="fa fa-envelope"></i>: 
+                <% if @renter.email == nil%>
+                <%= "No phone information" %>
+                <% else %>
+                <%= @renter.email %>
+                <% end %></p>
+            <p>Rental contract:</p>
+            <p>Start date: <%= @renter.contracts[0].rent_start %></p>
+
+        </div>
+         <div class="col-xs-0 col-md-1">
+
+        </div>
+        <div class="col-xs-offset-1 col-xs-10 col-md-4 renter_money_detail_block">
+           <p>Account number: </p>
+           <p>Bank institution</p>
+           <p>IBAN :</p>
+           <p> </p>
+           <p> </p>
+           <p> </p>
+        </div>
+
+    </div>
+     <div class = "row"> 
+       
+
+    </div>
+    <div class = "row"> 
+         
+
+    </div>
+	
+
+</div>
+
+
+
+
+
+
+
