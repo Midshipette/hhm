@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-class PhotoUploader < CarrierWave::Uploader::Base
-
  class PhotoUploader < CarrierWave::Uploader::Base
    include Cloudinary::CarrierWave
 
@@ -37,7 +35,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  end
+
 end
 
 
