@@ -10,7 +10,7 @@ class RentersController < ApplicationController
   end
 
   def create
-    @renter = renter.new(renter_params)
+    @renter = Renter.new(renter_params)
 
     respond_to do |format|
       if @renter.save
@@ -24,8 +24,6 @@ class RentersController < ApplicationController
   end
 
   def show
-    @flats = Flat.all.where(renter_id: current_renter.id)
-
   end
 
   def edit
@@ -51,7 +49,7 @@ class RentersController < ApplicationController
   private
 
   def set_renter
-    @renter = renter.find(params[:id])
+    @renter = Renter.find(params[:id])
   end
 
   def renter_params
