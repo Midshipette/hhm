@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :flats do
-      resources :contracts do
+    resources :contracts do
       resources :renters
       resources :documents
     end
