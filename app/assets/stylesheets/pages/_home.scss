@@ -4,30 +4,29 @@
  * ------------------------------------- */
 .banner {
   color: #17307c;
-  text-align: center;
-  height: calc(100vh - 100px);
+  height: 100vh;
   max: 100%;
   top-margin: 0px;
   background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-image: image_url('middle_aged_changed.jpg');
+  background-image: linear-gradient(220deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 60%), image_url('middle_aged_changed.jpg');
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .home-title {
   font-family: Arial;
-  font-size: 250px;
-  font-weight: bold;
-
+  font-size: 40px;
+  color: white;
+  margin: -100px 0 0;
 }
 
 .home-button {
-  display: flex;
-  margin-bottom: -17em;
-  margin-right: 25em;
+  padding-bottom: 20px;
+  padding-right: 15px;
+  margin-top: 30px;
 }
 
 .home-subtitle {
