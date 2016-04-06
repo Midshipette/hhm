@@ -9,6 +9,10 @@ class RentersController < ApplicationController
     @renter = Renter.new
   end
 
+  def all
+    @flats = Flat.all.where(owner_id: current_owner.id)
+  end
+
   def create
     @renter = Renter.new(renter_params)
 

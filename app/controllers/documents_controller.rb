@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
+    @flat = Flat.find(params[:flat_id])
     @contract = Contract.where(flat_id: params[:flat_id], active: 'Yes')
     @documents = @contract[0].documents
   end
@@ -11,6 +12,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1
   # GET /documents/1.json
   def show
+    @flat = Flat.find(params[:flat_id])
   end
 
   # GET /documents/new
@@ -22,6 +24,7 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1/edit
   def edit
+     @flat = Flat.find(params[:flat_id])
   end
 
   # POST /documents
