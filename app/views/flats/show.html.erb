@@ -117,6 +117,9 @@
               <th>
                 Status
               </th>
+              <th>
+
+              </th>
             </tr>
           </thead>
 
@@ -138,6 +141,9 @@
               </td>
               <td>
                 <%= contract.active == "Yes" ? "Active" : "Inactive" %>
+              </td>
+              <td>
+                <%= link_to "view", flat_contract_path(contract.flat_id, contract.id)  %>
               </td>
             </tr>
             <%end%>
