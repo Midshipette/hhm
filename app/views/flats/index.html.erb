@@ -41,18 +41,25 @@
                 </div>
               </div>
               <div class="col-md-3">
+               <%= link_to flat_documents_path(flat.id) do %>
                 <div class="square btn">
-                  <p>Tenant</p>
+                  <p>Docs</p>
                   <p><i class="fa fa-user fa-3x signal-nothing"></i></p>
                   <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.renter.first_name + " " + flat.contracts.last.renter.last_name %></p>
                 </div>
+                <% end %>
               </div>
               <div class="col-md-3">
+               <%= link_to flat_tasks_path(flat.id) do %>
                 <div class="square btn">
                   <p>Tasks</p>
                   <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-                  <p>O task </p>
+                  <% @contract = Contract.where(flat_id: flat, active: "Yes") %>
+                  <% task_count = Task.where(contract_id: @contract).count %>
+                  <% task_count_late = Task.where("due_date > ?", Time.now).where(contract_id: @contract).count %>
+                  <p> <%= task_count %> (<%= task_count_late %> late)</p>
                 </div>
+                <% end %>
               </div>
             </div>
           </div>

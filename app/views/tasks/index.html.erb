@@ -18,9 +18,8 @@
 
     <tbody>
       <% @tasks.each do |task| %>
+       <% if task.status == "done" %>
         <tr>
-
-          <% if task.status == "done" %>
 
             <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
               <%= content_tag('span', nil,  class: 'glyphicon glyphicon-check') %>
@@ -37,7 +36,7 @@
           <% end %>
 
 
-          <td><%= task.status %></td>
+          <td><%= task.name %></td>
           <td><%= task.description %></td>
 
           <% if Time.now > task.due_date %>
@@ -59,5 +58,12 @@
   </table>
 
   <br>
+
+   <%= link_to mydashboard_path(@flat) do %>
+     <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
+     <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
+   <% end %>
+
+
 
 </div>

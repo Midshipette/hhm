@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :status]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :set_contract
   before_action :set_flat, except: [:update]
   # GET /tasks
@@ -38,13 +38,14 @@ class TasksController < ApplicationController
   end
 
   def status
+      @task = Task.find(params[:task_id])
      if @task.status == "open"
         @task.status = "done"
         message =  { notice: 'Congrats. One task down!' }
        # format.html { notice: 'Congrats. One task down!' }
      else
        @task.status = "open"
-       message = { alert: 'You have re-opend the action...' }
+       message = { alert: 'You have re-opened the action...' }
      end
      @task.save
     redirect_to flat_tasks_path(@flat),message
