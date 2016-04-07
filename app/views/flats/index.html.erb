@@ -1,6 +1,6 @@
 <div class="container">
 
-   <%= link_to 'Add a new flat', new_flat_path, class: 'btn btn-primary' %>
+ <%= link_to 'Add a new flat', new_flat_path, class: 'btn btn-primary' %>
 
 </div>
 
@@ -34,36 +34,34 @@
            <div class="col-md-9">
             <div class="row">
               <div class="col-md-3">
-                <% link_to "", '#' %>
+              <%= link_to flat_path(flat.id) do %>
                 <div class="square btn">
-
                   <p>Accomodation</p>
                   <p><i class="fa fa-home fa-3x signal-nothing"></i></p>
                   <p><%= flat.flat_name %></p>
                 </div>
-
+                <% end %>
               </div>
               <div class="col-md-3">
                 <div class="square btn">
                   <p>Financials</p>
                   <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
-                  <p><%= flat.contracts.last.rent_amount.round %></p>
+                  <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.rent_amount.round %>
+                  </p>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="square btn">
                   <p>Tenant</p>
                   <p><i class="fa fa-user fa-3x signal-nothing"></i></p>
-                  <p><%= flat.contracts.last.renter.first_name %>
-                    <%= flat.contracts.last.renter.last_name %></p>
-                  </div>
+                  <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.renter.first_name + " " + flat.contracts.last.renter.last_name %></p>
                 </div>
-                <div class="col-md-3">
-                  <div class="square btn">
-                    <p>Tasks</p>
-                    <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-                    <p>O task </p>
-                  </div>
+              </div>
+              <div class="col-md-3">
+                <div class="square btn">
+                  <p>Tasks</p>
+                  <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
+                  <p>O task </p>
                 </div>
               </div>
             </div>
@@ -72,6 +70,7 @@
       </div>
     </div>
   </div>
+</div>
 
-  <% end %>
+<% end %>
 
