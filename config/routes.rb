@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tasks
   devise_for :renters, :controllers => { registrations: 'renters/registrations' }
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
 
@@ -13,10 +14,12 @@ Rails.application.routes.draw do
       resources :contracts
       resources :renters
       resources :documents
+      resources :tasks do
+        get 'status' => 'tasks#status'
+      end
   end
 
   get '/renters' => "renters#all"
-
 
 
   get '/mydashboard' => "flats#index"
