@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20160407123849) do
     t.integer  "days_to_reminder"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "photo"
     t.string   "attachment"
   end
 
