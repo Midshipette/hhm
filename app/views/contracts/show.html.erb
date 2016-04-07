@@ -1,4 +1,7 @@
 <div class='container'>
+
+  <h2 class="text-center">Rental contract</h2>
+
   <p>
     <strong>Rent start:</strong>
     <%= @contract.rent_start %>
@@ -11,7 +14,7 @@
 
   <p>
     <strong>Renter:</strong>
-    <%= @contract.renter %>
+    <%= @contract.renter.first_name %> <%= @contract.renter.last_name %>
   </p>
 
   <p>
@@ -38,6 +41,9 @@
     <strong>Days to reminder:</strong>
     <%= @contract.days_to_reminder %>
   </p>
+
+  <%= link_to 'Edit', edit_flat_contract_path, class: 'btn btn-default' %>
+  <%= link_to 'Back', flat_path, class: 'btn btn-default' %>
 </div>
 
-<%= link_to 'Edit', edit_flat_contract_path(@contract) %> |
+
