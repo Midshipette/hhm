@@ -58,19 +58,14 @@ class FlatsController < ApplicationController
   # DELETE /flats/1
   # DELETE /flats/1.json
   def destroy
-    if @flat.contracts.where(active: 'yes')
-      respond_to do |format|
-        format.html { redirect_to flats_path, alert: 'This flat has an active contract so that you cannot delete it' }
-        format.json { head :no_content }
-      end
+    if @flat.contracts.any? { |c| c.active == 'Yes' }
+      redirect_to flat_path(@flat), alert: 'This flat has an active contract so that you cannot delete it'
     else
-       @flat.destroy # to be completed
-      respond_to do |format|
-        format.html { redirect_to flats_url, notice: 'Flat was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      @flat.destroy
+      redirect_to flats_path, notice: 'Flat was successfully destroyed.'
     end
-  end
+end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -82,4 +77,4 @@ class FlatsController < ApplicationController
     def flat_params
       params.require(:flat).permit(:owner_id, :flat_type, :flat_name, :floor, :flat_number, :address, :city, :syndicate, :postal_code, :description, :country, :loan_cost, :tax_cost)
     end
-end
+  end

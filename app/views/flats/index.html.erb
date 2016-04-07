@@ -19,16 +19,6 @@
              <strong><%= flat.flat_name %></strong><br /> <p><%= flat.address %></p><br /> <%= flat.postal_code %> <%= flat.city %><br />
            </address>
 
-           <%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>"), edit_flat_path(flat), class: 'btn btn-default' %>
-
-           <%= link_to(flat_destroy_path(flat),
-
-             method: :delete,
-             data: { confirm: 'Are you sure?' },
-             class: 'btn btn-danger') do %>
-             <%= content_tag('span', nil, class: 'glyphicon glyphicon-remove') %>
-             <% end %>
-
 
            </div>
            <div class="col-md-9">

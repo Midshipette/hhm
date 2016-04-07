@@ -36,11 +36,13 @@ class ContractsController < ApplicationController
   # POST /contracts.json
   def create
     @contract = Contract.new(contract_params)
+    @flat = Flat.find(params[:flat_id])
+    @contract.flat_id = @flat.id
 
     respond_to do |format|
       if @contract.save
-        format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
-        format.jsonFlat.find(params[:id]) { render :show, status: :created, location: @contract }
+        format.html { redirect_to @flat, notice: 'Contract was successfully created.' }
+        format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
         format.json { render json: @contract.errors, status: :unprocessable_entity }
