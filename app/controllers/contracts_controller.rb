@@ -11,7 +11,7 @@ class ContractsController < ApplicationController
   # GET /contracts/1
   # GET /contracts/1.json
   def show
-    @flat = Flat.find(params[:id])
+    # @flat = Flat.find(params[:id])
   end
 
 
