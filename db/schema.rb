@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406144309) do
+ActiveRecord::Schema.define(version: 20160406164502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20160406144309) do
     t.integer  "days_to_reminder"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "photo"
+    t.string   "attachment"
   end
 
   add_index "documents", ["contract_id"], name: "index_documents_on_contract_id", using: :btree

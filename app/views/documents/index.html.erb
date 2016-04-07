@@ -25,8 +25,8 @@
               <td><%= document.doc_type %></td>
               <td><%= document.expiration_date %></td>
               <td><%= document.reminder_sent_date %></td>
-              <td><%= link_to(new_flat_document_path) do %>
-                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-floppy-open') %>
+              <td><%= link_to(flat_document_path(@flat, document)) do %>
+                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-search') %>
                <% end %></td>
               <% document.days_to_reminder %>
             </tr>

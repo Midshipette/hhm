@@ -30,6 +30,9 @@
     <%= @document.days_to_reminder %>
   </p>
 
+  <p><strong>Preview:</strong></p>
+  <%= cl_image_tag @document.attachment %>
+
 
 
   <%= link_to 'Edit', edit_flat_document_path(@flat, @document) %> |

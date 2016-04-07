@@ -6,9 +6,9 @@
     <%= f.input :doc_type %>
     <%= f.input :expiration_date %>
     <%= f.input :days_to_reminder %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-  <!--   <%= f.association :contract, as: :hidden %> -->
+    <%= f.input :attachment %>
+    <%= f.input :attachment_cache, as: :hidden %>
+    <%= f.association :contract, as: :hidden %>
   </div>
 
   <div class="form-actions">

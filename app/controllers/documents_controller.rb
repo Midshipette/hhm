@@ -78,6 +78,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:contract_id, :type, :photo, :photo_cache, :expiration_date, :name, :reminder_sent_date, :days_to_reminder)
+      params.require(:document).permit(:contract_id, :type, :attachment, :attachment_cache, :expiration_date, :name, :reminder_sent_date, :days_to_reminder)
     end
 end
