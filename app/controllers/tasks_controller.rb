@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :status]
   before_action :set_contract
-  before_action :set_flat
+  before_action :set_flat, except: [:update]
   # GET /tasks
   # GET /tasks.json
   def index
@@ -19,6 +19,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+
+
   end
 
   # POST /tasks
@@ -36,43 +38,25 @@ class TasksController < ApplicationController
   end
 
   def status
+     if @task.status == "open"
+        @task.status = "done"
+        message =  { notice: 'Congrats. One task down!' }
+       # format.html { notice: 'Congrats. One task down!' }
+     else
+       @task.status = "open"
+       message = { alert: 'You have re-opend the action...' }
+     end
+     @task.save
+    redirect_to flat_tasks_path(@flat),message
+  end
 
-      @task.status = "done"
-        respond_to do |format|
-          if @task.save
-            format.html { redirect_to flat_tasks_path(@flat) , notice: 'Congrats. One task down!' }
-          else
-            format.html { redirect_to flat_tasks_path(@flat) , alert: 'An error occured' }
-          end
-        end
-    end
-
-  #   if @task.status = "done"
-  #      @task.status = "open"
-  #      respond_to do |format|
-  #         if @task.save
-  #           format.html { redirect_to flat_tasks_path(@flat) , notice: 'You have re-opend the action!' }
-  #         else
-  #           format.html { redirect_to flat_tasks_path(@flat) , alert: 'An error occured' }
-  #         end
-  #      end
-  #   else
-  #      @task.status = "done"
-  #       respond_to do |format|
-  #         if @task.save
-  #           format.html { redirect_to flat_tasks_path(@flat) , notice: 'Congrats. One task down!' }
-  #         else
-  #           format.html { redirect_to flat_tasks_path(@flat) , alert: 'An error occured' }
-  #         end
-  #       end
-  #   end
-  # end
-  # PATCH/PUT /tasks/1
-  # PATCH/PUT /tasks/1.json
   def update
+
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        @contract = @task.contract
+        @flat = @contract.flat
+        format.html { redirect_to flat_tasks_path(@flat), notice: 'Task was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -91,7 +75,7 @@ class TasksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:task_id])
+      @task = Task.find(params[:id])
     end
 
      def set_contract
