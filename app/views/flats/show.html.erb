@@ -1,3 +1,16 @@
+
+
+<div class="container-fluid">
+  <% @flat.contracts.each do |contract| %>
+  <% if contract == [] %>
+    <%= render 'no_contract' %>
+  <% elsif @flat.contracts.last.active == 'Yes' %>
+
+  <% else %>
+    <%= render 'no_contract' %>
+  <% end %>
+  <% end %>
+
   <div class="container">
 
     <h1 class='text-center'>
@@ -5,63 +18,136 @@
       <%= @flat.flat_name %>
     </h1>
 
-    <p>
-      <strong>Type:</strong>
-      <%= @flat.flat_type %>
-    </p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+
+          <p>
+            <strong>Type:</strong>
+            <%= @flat.flat_type %>
+          </p>
+
+          <p>
+            <strong>Floor:</strong>
+            <%= @flat.floor %>
+          </p>
+
+          <p>
+            <strong>Flat number:</strong>
+            <%= @flat.flat_number %>
+          </p>
+
+          <p>
+            <strong>Address:</strong>
+            <%= @flat.address %>
+          </p>
+
+          <p>
+            <strong>City:</strong>
+            <%= @flat.city %>
+          </p>
+
+          <p>
+            <strong>Syndicate:</strong>
+            <%= @flat.syndicate %>
+          </p>
+
+          <p>
+            <strong>Postal code:</strong>
+            <%= @flat.postal_code %>
+          </p>
+
+          <p>
+            <strong>Description:</strong>
+            <%= @flat.description %>
+          </p>
+
+          <p>
+            <strong>Country:</strong>
+            <%= @flat.country %>
+          </p>
+
+          <p>
+            <strong>Loan cost:</strong>
+            <%= @flat.loan_cost %>
+          </p>
+
+          <p>
+            <strong>Tax cost:</strong>
+            <%= @flat.tax_cost %>
+          </p>
+
+          <%= link_to 'Edit', edit_flat_path(@flat) %> |
+          <%= link_to 'Back', flats_path %>
+        </div>
+        <div class="col-md-6">
 
 
+          <%= link_to raw("<span class=\"glyphicon glyphicon-edit\" aria-hidden=\"true\"></span>"), edit_flat_path(@flat), class: 'btn btn-default' %>
 
-    <p>
-      <strong>Floor:</strong>
-      <%= @flat.floor %>
-    </p>
+          <%= link_to(flat_destroy_path(@flat),
 
-    <p>
-      <strong>Flat number:</strong>
-      <%= @flat.flat_number %>
-    </p>
+           method: :delete,
+           data: { confirm: 'Are you sure?' },
+           class: 'btn btn-danger') do %>
+           <%= content_tag('span', nil, class: 'glyphicon glyphicon-remove') %>
+           <% end %>
 
-    <p>
-      <strong>Address:</strong>
-      <%= @flat.address %>
-    </p>
 
-    <p>
-      <strong>City:</strong>
-      <%= @flat.city %>
-    </p>
+           <%= link_to new_flat_contract_path(@flat) do %>
+           <button type="button" class="btn btn-block btn-primary">
+            Add a new contract agreement
+          </button>
+          <% end %>
 
-    <p>
-      <strong>Syndicate:</strong>
-      <%= @flat.syndicate %>
-    </p>
+          <h3>Renting contract history</h3>
 
-    <p>
-      <strong>Postal code:</strong>
-      <%= @flat.postal_code %>
-    </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>
+                  #
+                </th>
+                <th>
+                  Renter Name
+                </th>
+                <th>
+                  Contract starts
+                </th>
+                <th>
+                  Contract ends
+                </th>
+                <th>
+                  Status
+                </th>
+              </tr>
+            </thead>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @flat.description %>
-    </p>
-
-    <p>
-      <strong>Country:</strong>
-      <%= @flat.country %>
-    </p>
-
-    <p>
-      <strong>Loan cost:</strong>
-      <%= @flat.loan_cost %>
-    </p>
-
-    <p>
-      <strong>Tax cost:</strong>
-      <%= @flat.tax_cost %>
-    </p>
-
-    <%= link_to 'Edit', edit_flat_path(@flat) %> |
-    <%= link_to 'Back', flats_path %>
+            <tbody>
+              <% @flat.contracts.each do |contract| %>
+              <tr>
+                <td>
+                  <%= contract.id %>
+                </td>
+                <td>
+                  <%= contract.renter.first_name %>
+                  <%= contract.renter.last_name %>
+                </td>
+                <td>
+                  <%= contract.rent_start %>
+                </td>
+                <td>
+                  <%= contract.rent_end %>
+                </td>
+                <td>
+                  <%= contract.active == "yes" ? "Active" : "Void" %>
+                </td>
+              </tr>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
