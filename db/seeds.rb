@@ -5,37 +5,37 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-#   
+#
 #   Owners
-o1f1f2f7 = Owner.create(first_name: "Maxence", last_name: "O1f1f2f7", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue premiere", postal_code: "1000", city: "Brussels", 
+o1f1f2f7 = Owner.create(first_name: "Maxence", last_name: "O1f1f2f7", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue premiere", postal_code: "1000", city: "Brussels",
 	country: "Belgique", email: "maxence.snoy@gmail.com", password:"blablabla")
-o2f3 = Owner.create(first_name: "Hedwige", last_name: "02f3", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue deux", postal_code: "1000", city: "Brussels", 
+o2f3 = Owner.create(first_name: "Hedwige", last_name: "02f3", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue deux", postal_code: "1000", city: "Brussels",
 	country: "Belgique", email: "martimprey@gmail.com", password:"blablabla")
-o3f4= Owner.create(first_name: "Vallier", last_name: "03f4", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue trois", postal_code: "1000", city: "Brussels", 
+o3f4= Owner.create(first_name: "Vallier", last_name: "03f4", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue trois", postal_code: "1000", city: "Brussels",
 	country: "Belgique", email: "vallieradam@gmail.com", password:"blablabla")
-o4f5= Owner.create(first_name: "Axel", last_name: "04f5", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue quatre", postal_code: "1000", city: "Brussels", 
+o4f5= Owner.create(first_name: "Axel", last_name: "04f5", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue quatre", postal_code: "1000", city: "Brussels",
 	country: "Belgique", email: "adinbrussels@gmail.com", password:"blablabla")
-o5f6 = Owner.create(first_name: "Alan", last_name: "05f6", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue cinq", postal_code: "1000", city: "Brussels", 
+o5f6 = Owner.create(first_name: "Alan", last_name: "05f6", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue cinq", postal_code: "1000", city: "Brussels",
 	country: "Belgique", email: "05@gmail.com", password:"blablabla")
-o6f8 = Owner.create(first_name: "Alan", last_name: "06f8", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue six", postal_code: "1000", city: "Namur", 
+o6f8 = Owner.create(first_name: "Alan", last_name: "06f8", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue six", postal_code: "1000", city: "Namur",
 	country: "Belgique", email: "06@gmail.com", password:"blablabla")
-o7f9 = Owner.create(first_name: "Alan", last_name: "07f9", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue sept", postal_code: "1000", city: "Namur", 
+o7f9 = Owner.create(first_name: "Alan", last_name: "07f9", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue sept", postal_code: "1000", city: "Namur",
 	country: "Belgique", email: "07@gmail.com", password:"blablabla")
-o8f10 = Owner.create(first_name: "Alan", last_name: "08f10", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue huit", postal_code: "1000", city: "Namur", 
+o8f10 = Owner.create(first_name: "Alan", last_name: "08f10", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue huit", postal_code: "1000", city: "Namur",
 	country: "Belgique", email: "08@gmail.com", password:"blablabla")
-o9f11 = Owner.create(first_name: "Alan", last_name: "09f11", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue neuf", postal_code: "1000", city: "Gent", 
+o9f11 = Owner.create(first_name: "Alan", last_name: "09f11", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue neuf", postal_code: "1000", city: "Gent",
 	country: "Belgique", email: "09@gmail.com", password:"blablabla")
-o10 = Owner.create(first_name: "Alan", last_name: "O10", phone_number: "04004751213", 
-	flat_number: "21", address: "12 rue dix", postal_code: "1000", city: "Gent", 
+o10 = Owner.create(first_name: "Alan", last_name: "O10", phone_number: "04004751213",
+	flat_number: "21", address: "12 rue dix", postal_code: "1000", city: "Gent",
 	country: "Belgique", email: "O10@gmail.com", password:"blablabla")
 
 # Renters
@@ -143,36 +143,53 @@ c11 = Contract.create(rent_start: "15/04/2014", renter_id: 10, flat_id: 9,
 
 #Documents
 doc1 = Document.create(contract_id: 1, doc_type: "Rent contract", name: "Bail")
-doc2 = Document.create(contract_id: 2, doc_type: "PEB", name: "Niveau D", 
-  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019", 
+doc2 = Document.create(contract_id: 2, doc_type: "PEB", name: "Niveau D",
+  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019",
   days_to_reminder: 60)
 doc3 = Document.create(contract_id: 3, doc_type: "Entretien", name: "Chaudière",
  reminder_sent_date: "15/10/2019", days_to_reminder: 20)
-doc4 = Document.create(contract_id: 3, doc_type: "Rent contract", name: "Bail", 
-  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014", 
+doc4 = Document.create(contract_id: 3, doc_type: "Rent contract", name: "Bail",
+  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014",
   days_to_reminder: 60)
-doc5 = Document.create(contract_id: 3, doc_type: "Insurance", name: "Home", 
+doc5 = Document.create(contract_id: 3, doc_type: "Insurance", name: "Home",
   expiration_date: "15/12/2016", days_to_reminder: 60)
 doc6 = Document.create(contract_id: 4, doc_type: "Rent contract", name: "Bail")
-doc7 = Document.create(contract_id: 5, doc_type: "PEB", name: "Niveau D", 
-  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019", 
+doc7 = Document.create(contract_id: 5, doc_type: "PEB", name: "Niveau D",
+  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019",
   days_to_reminder: 60)
 doc8 = Document.create(contract_id: 6, doc_type: "Entretien", name: "Chaudière",
  reminder_sent_date: "15/10/2019", days_to_reminder: 20)
-doc9 = Document.create(contract_id: 6, doc_type: "Rent contract", name: "Bail", 
-  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014", 
+doc9 = Document.create(contract_id: 6, doc_type: "Rent contract", name: "Bail",
+  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014",
   days_to_reminder: 60)
-doc10 = Document.create(contract_id: 7, doc_type: "Insurance", name: "Home", 
+doc10 = Document.create(contract_id: 7, doc_type: "Insurance", name: "Home",
   expiration_date: "15/12/2016", days_to_reminder: 60)
 doc11 = Document.create(contract_id: 8, doc_type: "Rent contract", name: "Bail")
-doc12 = Document.create(contract_id: 9, doc_type: "PEB", name: "Niveau D", 
-  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019", 
+doc12 = Document.create(contract_id: 9, doc_type: "PEB", name: "Niveau D",
+  expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019",
   days_to_reminder: 60)
 doc13 = Document.create(contract_id: 10, doc_type: "Entretien", name: "Chaudière",
  reminder_sent_date: "15/10/2019", days_to_reminder: 20)
-doc14 = Document.create(contract_id: 10, doc_type: "Rent contract", name: "Bail", 
-  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014", 
+doc14 = Document.create(contract_id: 10, doc_type: "Rent contract", name: "Bail",
+  expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014",
   days_to_reminder: 60)
-doc15 = Document.create(contract_id: 10, doc_type: "Insurance", name: "Home", 
+doc15 = Document.create(contract_id: 10, doc_type: "Insurance", name: "Home",
   expiration_date: "15/12/2016", days_to_reminder: 60)
+
+
+
+task1 = Task.create(contract_id: 1, due_date: "01/01/2016", name: "boiler maintenance 2016", description: "Boiler maintenance
+  has to be performed every every year according to new regulations", owner: "renter")
+task2 = Task.create(contract_id: 1, due_date: "30/04/2016", name: "Rent price update", description: "I have to increase you rent
+  because I don't like you", owner: "renter")
+task3 = Task.create(contract_id: 1, due_date: "15/04/2016", name: "Make new keys", description: "because youb lost your keys", owner: "owner")
+task4 = Task.create(contract_id: 1, due_date: "10/04/2016", name: "Upload new PEB doc", description: "Because you have to", owner:"renter")
+
+task5 = Task.create(contract_id: 2, due_date: "01/01/2016", name: "boiler maintenance 2016", description: "Boiler maintenance
+  has to be performed every every year according to new regulations", owner: "renter")
+task6 = Task.create(contract_id: 2, due_date: "30/04/2016", name: "Rent price update", description: "I have to increase you rent
+  because I don't like you", owner: "renter")
+task7 = Task.create(contract_id: 2, due_date: "15/04/2016", name: "Make new keys", description: "because youb lost your keys", owner: "owner")
+task8 = Task.create(contract_id: 2, due_date: "10/04/2016", name: "Upload new PEB doc", description: "Because you have to", owner:"renter")
+
 
