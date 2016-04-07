@@ -40,13 +40,16 @@ hr {
   margin-bottom: 70px;
   }
 hr:after {
-  content: image_url('favicon.ico');
+  content: image_url('house-mini.jpg');
   display: inline-block;
   position: relative;
   top: -14px;
   padding: 0 10px;
   color: #17317c;
   font-size: 18px;
+  }
+td {
+  padding: 10px;
   }
 }
 
@@ -85,4 +88,34 @@ hr:after {
   color: #17307c;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.table-title-gold {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffcc66;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.table-title-blue {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  color: #17307c;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.table-title-platinium {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  color: #C0C0C0;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
