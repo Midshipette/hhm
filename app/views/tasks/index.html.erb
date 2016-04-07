@@ -20,18 +20,20 @@
       <% @tasks.each do |task| %>
         <tr>
 
-          <% if task.status == 'done' %>
+          <% if task.status == "done" %>
+
             <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
               <%= content_tag('span', nil,  class: 'glyphicon glyphicon-check') %>
             <% end %>
             </td>
 
-          <% elsif task.status == 'open'  %>
+          <% elsif task.status == "open"  %>
 
             <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
               <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') %>
             <% end %>
             </td>
+
           <% end %>
 
 
