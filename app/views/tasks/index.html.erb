@@ -18,7 +18,9 @@
     </thead>
 
     <tbody>
-      <% @tasks.each do |task| %>
+      <% open_tasks = @tasks.select { |t| t.status == "open" } %>
+       <% open_tasks.each do |task| %>
+
        <% if task.status == "done" %>
         <tr>
 
