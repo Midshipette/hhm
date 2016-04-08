@@ -1,16 +1,6 @@
 
 
-<div class="container-fluid">
-  <% @flat.contracts.each do |contract| %>
-  <% if contract == [] %>
-  <%= render 'no_contract' %>
-  <% elsif @flat.contracts.last.active == 'Yes' %>
 
-  <% else %>
-  <%= render 'no_contract' %>
-  <% end %>
-  <% end %>
-</div>
 
 <div class="container">
 
@@ -140,7 +130,7 @@
                 <%= contract.rent_end %>
               </td>
               <td>
-                <%= contract.active == "Yes" ? "Active" : "Inactive" %>
+                <%= contract.active == "Active" ? "Active" : "Inactive" %>
               </td>
               <td>
                 <%= link_to "view", flat_contract_path(contract.flat_id, contract.id)  %>
