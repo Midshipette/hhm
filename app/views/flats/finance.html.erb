@@ -4,54 +4,38 @@
  <i class="fa fa-user fa-2x"></i>
  <h4 class = "renter_name"><%= @flat.contracts.last.renter.first_name %> 
  <%= @flat.contracts.last.renter.last_name %></h4>
+
+  <div class='finance-rows'>
     <div class = "finance_row">
+        <div class="finance-key">
+          <i class='mdi mdi-key'></i> key1
+        </div>     
         <div class = "finance_column">
-            <p>key1</p>
-        </div>
-        <div class = "finance_column">
-            <p></p>
-        </div>        
-        <div class = "finance_column">
-            <p>value1</p>
+          value1
         </div>
     <!-- finance_row -->
     </div>
     <div class = "finance_row">
+        <div class="finance-key">
+          key
+        </div>     
         <div class = "finance_column">
-            <p>key</p>
-        </div>
-        <div class = "finance_column">
-            <p></p>
-        </div>        
-        <div class = "finance_column">
-            <p>value</p>
+            value
         </div>
     <!-- finance_row -->
     </div>
-    <div class = "finance_row">
-        <div class = "finance_column">
-             <p>key</p>
+    <div class="finance_row">
+        <div class="finance-key">
+          key
         </div>
-        <div class = "finance_column">
-            <p></p>
-        </div>        
-        <div class = "finance_column">
-             <p>value</p>
+          
+        <div class="finance_column">
+          value
         </div>
     <!-- finance_row -->
     </div>
-    <div class = "finance_row">
-        <div class = "finance_column">
-            
-        </div>
-        <div class = "finance_column">
-            
-        </div>        
-        <div class = "finance_column">
-            
-        </div>
-    <!-- finance_row -->
-    </div>
+  </div>
+
 
 <div class="Table">
   <div class="Table-row Table-header">

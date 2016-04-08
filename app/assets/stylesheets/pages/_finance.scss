@@ -1,16 +1,22 @@
 .finance_container {
-	display: flex;
-	display-content: space-around;
-	flex-direction: column;
+	max-width: 600px;
+	margin: auto;
 }
 
+.finance_row {
+	display: flex;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 20px 0;
+  
+	&:last-child {
+		border-bottom: 0;
+	}
+}
 
-.finance_column {
-	
-	background-color: blue;
-
+.finance-key {
+	width: 200px;
 }
 
 .finance_line {
-
+  
 }
