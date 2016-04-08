@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   # GET /documents.json
   def index
     @flat = Flat.find(params[:flat_id])
-    @contract = Contract.where(flat_id: params[:flat_id], active: 'Yes')
+    @contract = Contract.where(flat_id: params[:flat_id], active: 'Active')
     @documents = @contract[0].documents
   end
 
@@ -19,7 +19,7 @@ class DocumentsController < ApplicationController
   def new
     @flat = Flat.find(params[:flat_id])
     @document = Document.new
-    @document.contract_id = Contract.where(flat_id: @flat.id, active: "Yes")[0].id
+    @document.contract_id = Contract.where(flat_id: @flat.id, active: "Active")[0].id
   end
 
   # GET /documents/1/edit
@@ -32,14 +32,17 @@ class DocumentsController < ApplicationController
   def create
     @flat = Flat.find(params[:flat_id])
     @document = Document.new(document_params)
-
+    @contract = Contract.where(flat_id: @flat.id, active: "Active")[0]
+    @document.contract_id = @contract.id
     respond_to do |format|
-      if @document.save
-        format.html { redirect_to flat_documents_path(@flat), notice: 'Document was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
+      if @document.save!
+        if @document.expiration_date # checks if received and expiration date
+           @task = Task.create(document_id: @document.id, owner: "renter", name: "update document: " + @document.name,
+            description: "-", due_date: @document.expiration_date, contract_id: @document.contract_id)
+        end
+        format.html { redirect_to flat_documents_path(@flat), notice: 'Document and task were successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,6 +51,7 @@ class DocumentsController < ApplicationController
   # PATCH/PUT /documents/1.json
   def update
     @flat = Flat.find(params[:flat_id])
+
     respond_to do |format|
       if @document.update(document_params)
         format.html { redirect_to flat_documents_path(@flat), notice: 'Document was successfully updated.' }
@@ -63,10 +67,12 @@ class DocumentsController < ApplicationController
   # DELETE /documents/1.json
   def destroy
     @flat = Flat.find(params[:flat_id])
+    @task = Task.find_by(document_id: @document.id)
+
     @document.destroy
+    @task.destroy
     respond_to do |format|
       format.html { redirect_to flat_documents_path(@flat), notice: 'Document was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

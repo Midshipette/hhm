@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407123849) do
+ActiveRecord::Schema.define(version: 20160408132604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -138,9 +138,11 @@ ActiveRecord::Schema.define(version: 20160407123849) do
     t.string   "owner"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "document_id"
   end
 
   add_index "tasks", ["contract_id"], name: "index_tasks_on_contract_id", using: :btree
+  add_index "tasks", ["document_id"], name: "index_tasks_on_document_id", using: :btree
 
   add_foreign_key "contracts", "flats"
   add_foreign_key "contracts", "renters"
@@ -148,4 +150,5 @@ ActiveRecord::Schema.define(version: 20160407123849) do
   add_foreign_key "documents", "contracts"
   add_foreign_key "flats", "owners"
   add_foreign_key "tasks", "contracts"
+  add_foreign_key "tasks", "documents"
 end

@@ -42,7 +42,7 @@ class TasksController < ApplicationController
       if current_owner || (current_renter && (@task.owner == "renter"))
          if @task.status == "open"
             @task.status = "done"
-            message =  { notice: 'Congrats. One task down!' }
+            message =  { notice: "Congrats. One task down! Please upload a document as proof." }
            # format.html { notice: 'Congrats. One task down!' }
          else
            @task.status = "open"
@@ -84,7 +84,7 @@ class TasksController < ApplicationController
     end
 
      def set_contract
-      @contract = Contract.find_by(active: "Yes", flat_id: params[:flat_id])
+      @contract = Contract.find_by(active: "Active", flat_id: params[:flat_id])
     end
 
      def set_flat
