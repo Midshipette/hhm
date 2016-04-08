@@ -31,8 +31,8 @@
   </p>
 
   <p><strong>Preview:</strong></p>
-  <%= cl_image_tag @document.attachment %>
 
+  <%= cl_image_tag(@document.attachment, :format => :jpg, :width=>200, :height=>250, :border=>"1px_solid_black", :crop=>"fill" ) %>
 
 
   <%= link_to 'Edit', edit_flat_document_path(@flat, @document) %> |
