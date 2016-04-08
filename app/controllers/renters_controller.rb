@@ -28,6 +28,7 @@ class RentersController < ApplicationController
   end
 
   def show
+    @contract = Contract.where(flat_id: params[:flat_id], active: 'Yes')
   end
 
   def edit
