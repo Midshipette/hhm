@@ -63,7 +63,9 @@
 
 
 .home-main-box {
-  width: 600px;
+  padding: 20px;
+  text-align: justify;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -85,35 +87,6 @@
   text-align: center;
 }
 
-.table-title-gold {
-  font-family: Arial;
-  font-size: 25px;
-  font-weight: bold;
-  color: #ffcc66;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.table-title-blue {
-  font-family: Arial;
-  font-size: 25px;
-  font-weight: bold;
-  color: #17307c;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.table-title-platinium {
-  font-family: Arial;
-  font-size: 25px;
-  font-weight: bold;
-  color: #C0C0C0;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
 
 
 
