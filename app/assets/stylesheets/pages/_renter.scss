@@ -49,3 +49,18 @@
 .renter_name {
 	font-family: 'Poppins', sans-serif;
 }
+
+.container {
+	display: flex;
+	background-color: #53443F;
+	justify-content: space-around;
+}
+
+.column {
+  background: #756A66;
+  flex: 0 1 40%;
+  text-align: center;
+  padding: 20px 0;
+  align-items: baseline;
+  flex-direction: row-reverse;
+}
