@@ -39,16 +39,20 @@ class TasksController < ApplicationController
 
   def status
       @task = Task.find(params[:task_id])
-     if @task.status == "open"
-        @task.status = "done"
-        message =  { notice: 'Congrats. One task down!' }
-       # format.html { notice: 'Congrats. One task down!' }
-     else
-       @task.status = "open"
-       message = { alert: 'You have re-opened the action...' }
-     end
-     @task.save
-    redirect_to flat_tasks_path(@flat),message
+      if current_owner || (current_renter && (@task.owner == "renter"))
+         if @task.status == "open"
+            @task.status = "done"
+            message =  { notice: 'Congrats. One task down!' }
+           # format.html { notice: 'Congrats. One task down!' }
+         else
+           @task.status = "open"
+           message = { alert: 'You have re-opened the action...' }
+         end
+         @task.save
+      else
+        message = { alert: "You don't have the rights to update the status of the task"}
+      end
+        redirect_to flat_tasks_path(@flat),message
   end
 
   def update

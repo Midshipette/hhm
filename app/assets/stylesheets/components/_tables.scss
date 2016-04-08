@@ -10,3 +10,8 @@
 table.table tr td span {
   color: $gray-dark;
 }
+
+.table > tbody > tr > td {
+
+  vertical-align: middle;
+}

@@ -39,7 +39,7 @@ o10 = Owner.create(first_name: "Alan", last_name: "O10", phone_number: "04004751
 	country: "Belgique", email: "O10@gmail.com", password:"blablabla")
 
 # Renters
-r1 = Renter.create(email: "r1@gmail.com", password: "blablabla", first_name: "Val",
+r1 = Renter.create(email: "maxence.snoy@gmail.com", password: "blablabla", first_name: "Val",
  last_name: "r1", phone_number: "003223004455", gender: "male", birthday: "26/03/1970")
 r2 = Renter.create(email: "r2@gmail.com", password: "blablabla", first_name: "Hed",
  last_name: "r2", phone_number: "003223004455", gender: "female", birthday: "26/04/1970")
