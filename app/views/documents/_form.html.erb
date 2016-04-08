@@ -2,10 +2,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :doc_type %>
+    <%= f.input :name, placeholder: "ex. Invoice - Boiler maintenance 2016" %>
+    <%= f.input :doc_type, collection: ["PEB", "Bail", "Garantie locative", "Compteur électrictié", "Compteur eau", "Compteur gaz", "Entretien"], selected: "PEB" %>
     <%= f.input :expiration_date %>
-    <%= f.input :days_to_reminder %>
+    <%= f.input :days_to_reminder, collection: [3, 5, 10] , selected: 3, as: :check_boxes %>
     <%= f.input :attachment %>
     <%= f.input :attachment_cache, as: :hidden %>
     <%= f.association :contract, as: :hidden %>

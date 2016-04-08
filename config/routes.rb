@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       resources :tasks do
         get 'status' => 'tasks#status'
       end
+
+      member do
+        get :finance
+      end
   end
 
   get '/renters' => "renters#all"

@@ -33,12 +33,14 @@
                 <% end %>
               </div>
               <div class="col-md-3">
+              <%= link_to finance_flat_path(flat.id) do %>
                 <div class="square btn">
                   <p>Financials</p>
                   <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
                   <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.rent_amount.round %>
                   </p>
                 </div>
+                <% end %>
               </div>
               <div class="col-md-3">
                <%= link_to flat_documents_path(flat.id) do %>
@@ -54,10 +56,14 @@
                 <div class="square btn">
                   <p>Tasks</p>
                   <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-                  <% @contract = Contract.where(flat_id: flat, active: "Yes") %>
+                  <% @contract = Contract.where(flat_id: flat, active: "Active") %>
                   <% task_count = Task.where(contract_id: @contract).count %>
-                  <% task_count_late = Task.where("due_date > ?", Time.now).where(contract_id: @contract).count %>
-                  <p> <%= task_count %> (<%= task_count_late %> late)</p>
+                  <% task_count_late = Task.where("due_date < ?", Time.now).where(contract_id: @contract).count %>
+                  <% if task_count_late == 0 %>
+                    <p> <%= task_count %> </p>
+                  <% else %>
+                    <p>  <strong><span class="text-danger"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+                  <% end %>
                 </div>
                 <% end %>
               </div>
