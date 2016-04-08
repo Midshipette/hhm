@@ -1,11 +1,14 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update,  :destroy]
+  before_action :set_flat, only: [:show, :edit, :update,  :destroy, :finance]
 
   # GET /flats
   # GET /flats.json
   def index
     @flats = Flat.all.where(owner_id: current_owner.id)
     @contracts = Contract.all
+  end
+
+  def finance
   end
 
   # GET /flats/1
