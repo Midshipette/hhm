@@ -90,3 +90,75 @@
 
 
 
+
+
+
+
+
+
+
+
+.pricing {
+    display: flex;
+    max-width: 800px;
+}
+
+.pricing-container {
+  flex: 1;
+  padding: 10px;
+}
+
+.pricing-item {
+}
+
+.pricing-item-header {
+
+}
+
+.pricing-item-header-silver {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #C0C0C0;
+}
+
+.pricing-item-header-blue {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #17307c;
+}
+
+.pricing-item-header-gold {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #ffcc66;
+}
+
+
+.pricing-item-body {
+
+}
+
+.pricing-item-body-description {
+
+}
+
+.pricing-item-body-image {
+
+}
+
+
