@@ -33,12 +33,14 @@
                 <% end %>
               </div>
               <div class="col-md-3">
+              <%= link_to finance_flat_path(flat.id) do %>
                 <div class="square btn">
                   <p>Financials</p>
                   <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
                   <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.rent_amount.round %>
                   </p>
                 </div>
+                <% end %>
               </div>
               <div class="col-md-3">
                <%= link_to flat_documents_path(flat.id) do %>
