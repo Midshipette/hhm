@@ -54,7 +54,7 @@
                 <div class="square btn">
                   <p>Tasks</p>
                   <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-                  <% @contract = Contract.where(flat_id: flat, active: "Yes") %>
+                  <% @contract = Contract.where(flat_id: flat, active: "Active") %>
                   <% task_count = Task.where(contract_id: @contract).count %>
                   <% task_count_late = Task.where("due_date < ?", Time.now).where(contract_id: @contract).count %>
                   <% if task_count_late == 0 %>
