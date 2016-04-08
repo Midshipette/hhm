@@ -7,7 +7,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-
+    <% if controller.controller_name == "pages" && controller.action_name == "home"%>
+      Hello home
+    <% end %>
 
     <!-- Different navigation if login or not -->
     <% if owner_signed_in? || renter_signed_in? %>

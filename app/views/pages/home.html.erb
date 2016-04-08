@@ -106,57 +106,86 @@
   <hr>
 
 
-  <div class="home-main-box">
-    <h2 class="center-item">Pricing</h2>
-    <div class="home-description">You can use Happy Home Management for free. Anyway if you want to manage more than 2 real estate propreties, you have to sign up for a professionnal subscription</div>
-  </div>
-
-  <div class="home-items">
-
-    <table border="3" bordercolor="#17317c">
-
-      <tbody>
-
-        <tr>
-          <td class="center-item" bgcolor="#17307c">
-            <span class="table-title-blue color-white">Free</span><br><br>
-            <span class=color-white>0 €</span><br>
-            <span class="bold-text color-white">each month</span><br><br>
-          </td>
-
-          <td class="center-item" bgcolor="#C0C0C0">
-            <span class="table-title-platinium">Silver</span><br><br>
-            3 € <sup>excl.VAT</sup><br>
-            <span class="bold-text">each month</span><br><br>
-          </td>
-
-          <td class="center-item" bgcolor="#ffcc66">
-            <span class="table-title-gold">Gold</span><br><br>
-            6 € <sup>excl.VAT</sup><br>
-            <span class="bold-text">each month</span><br><br>
-          </td>
-
-        </tr>
-
-        <tr>
-          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, possimus, quod. Cumque aliquid, debitis rem at quidem et temporibus voluptatum deserunt sint laborum in. Culpa?<br><br>
-          <%= image_tag "house-mini-blue.png" %><br><br>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam aperiam, voluptatem sequi voluptas suscipit libero, velit consequuntur eaque obcaecati hic doloribus nobis similique. Tenetur commodi recusandae animi dolorum doloremque blanditiis, eligendi voluptate veniam numquam.</td>
-
-          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, quis, officia voluptatibus magni unde natus fugit error, nihil perferendis debitis tenetur aspernatur nostrum perspiciatis rerum!<br><br>
-          <%= image_tag "house-mini-silver.png" %><br><br>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis laudantium minus ipsa quidem cum eos quas mollitia sapiente! Similique praesentium beatae molestias, impedit quasi recusandae libero. Atque nemo eius aliquam fugit, nesciunt officia quam debitis.</td>
-
-          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate soluta expedita illum, aut impedit tempora qui similique omnis nostrum a aliquid fuga necessitatibus repellat obcaecati.<br><br>
-          <%= image_tag "house-mini-gold.png" %><br><br>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas alias officiis esse corporis est minus repudiandae, saepe quos dolor dicta, voluptate porro, delectus ipsa mollitia cupiditate, repellendus blanditiis adipisci aperiam quaerat.</td>
-        </tr>
-      </tbody>
-    </table>
-  <br><br><br>
 
 
-  </div>
+<div class="pricing">
+    <div class="pricing-container">
+      <div class="pricing-item">
+        <div class="pricing-item-header">
+          <span class="table-title-silver">Silver</span><br><br>
+          3 € <sup>excl.VAT</sup><br>
+          <span class="bold-text">each month</span><br><br>
+        </div>
+
+        <div class="pricing-item-body">
+          <div class="pricing-item-body-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, possimus, quod. Cumque aliquid, debitis rem at quidem et temporibus voluptatum deserunt sint laborum in. Culpa?
+          </div>
+          <div class="pricing-item-body-image">
+            <%= image_tag "house-mini-silver.png" %>
+          </div>
+          <div class="pricing-item-body-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis laudantium minus ipsa quidem cum eos quas mollitia sapiente! Similique praesentium beatae molestias, impedit quasi recusandae libero. Atque nemo eius aliquam fugit, nesciunt officia quam debitis.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-container">
+      <div class="pricing-item">
+        <div class="pricing-item-header">
+          <span class="table-title-blue color-white">Free</span><br><br>
+          <span class=color-white>0 €</span><br>
+          <span class="bold-text color-white">each month</span><br><br>
+        </div>
+
+        <div class="pricing-item-body">
+          <div class="pricing-item-body-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, quis, officia voluptatibus magni unde natus fugit error, nihil perferendis debitis tenetur aspernatur nostrum perspiciatis rerum!
+          </div>
+          <div class="pricing-item-body-image">
+            <%= image_tag "house-mini-blue.png" %>
+          </div>
+          <div class="pricing-item-body-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam aperiam, voluptatem sequi voluptas suscipit libero, velit consequuntur eaque obcaecati hic doloribus nobis similique. Tenetur commodi recusandae animi dolorum doloremque blanditiis, eligendi voluptate veniam numquam.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-container">
+      <div class="pricing-item">
+        <div class="pricing-item-header">
+          <span class="table-title-gold">Gold</span><br><br>
+          6 € <sup>excl.VAT</sup><br>
+          <span class="bold-text">each month</span><br><br>
+        </div>
+
+        <div class="pricing-item-body">
+          <div class="pricing-item-body-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate soluta expedita illum, aut impedit tempora qui similique omnis nostrum a aliquid fuga necessitatibus repellat obcaecati.<
+          </div>
+          <div class="pricing-item-body-image">
+            <%= image_tag "house-mini-gold.png" %>
+          </div>
+          <div class="pricing-item-body-description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas alias officiis esse corporis est minus repudiandae, saepe quos dolor dicta, voluptate porro, delectus ipsa mollitia cupiditate, repellendus blanditiis adipisci aperiam quaerat.
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="center-item">
     <a class="submit-btn">Start saving time</a>
