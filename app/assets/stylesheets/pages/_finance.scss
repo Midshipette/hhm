@@ -1,8 +1,16 @@
 .finance_container {
 	display: flex;
+	display-content: space-around;
+	flex-direction: column;
 }
 
 
 .finance_column {
-	width: 150px;
+	
+	background-color: blue;
+
+}
+
+.finance_line {
+
 }
