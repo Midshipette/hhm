@@ -81,65 +81,128 @@
 
       <div class="col-md-6">
 
-         <%= link_to new_flat_contract_path(@flat) do %>
-         <button type="button" class="btn btn-block btn-primary">
-          Add a new contract agreement
-        </button>
-        <% end %>
+       <%= link_to new_flat_contract_path(@flat) do %>
+       <button type="button" class="btn btn-block btn-primary">
+        Add a new contract agreement
+      </button>
+      <% end %>
 
-        <h3>Renting contract history</h3>
+      <% if @flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && @flat.id == contract.flat_id }.length > 0 %>
+      <h3>Unassigned pending contracts: </h3>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th>
-                #
-              </th>
-              <th>
-                Renter Name
-              </th>
-              <th>
-                Contract starts
-              </th>
-              <th>
-                Contract ends
-              </th>
-              <th>
-                Status
-              </th>
-              <th>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Rent
+            </th>
 
-              </th>
-            </tr>
-          </thead>
+            <th>
+              Contract starts
+            </th>
+            <th>
+              Contract ends
+            </th>
 
-          <tbody>
-            <% @flat.contracts.each do |contract| %>
-            <tr>
-              <td>
-                <%= contract.id %>
-              </td>
-              <td>
-                <%= contract.renter.first_name %>
-                <%= contract.renter.last_name %>
-              </td>
-              <td>
-                <%= contract.rent_start %>
-              </td>
-              <td>
-                <%= contract.rent_end %>
-              </td>
-              <td>
-                <%= contract.active %>
-              </td>
-              <td>
-                <%= link_to "view", flat_contract_path(contract.flat_id, contract.id)  %>
-              </td>
-            </tr>
-            <%end%>
-          </tbody>
-        </table>
-      </div>
+            <th>
+              Status
+            </th>
+            <th>
+
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <% @flat.contracts.unscoped.each do |contract| %>
+          <% if contract.active == 'Unassigned' && contract.flat_id == @flat.id %>
+          <tr>
+            <td>
+              <%= contract.id %>
+            </td>
+            <th>
+              <%= contract.rent_amount %>
+            </th>
+            <td>
+              <%= contract.rent_start %>
+            </td>
+            <td>
+              <%= contract.rent_end %>
+            </td>
+            <td>
+              <%= contract.active  %>
+            </td>
+            <td>
+              <%= link_to "view", flat_contract_path(contract.flat_id, contract.id)  %>
+            </td>
+          </tr>
+          <% end %>
+          <%end%>
+          <%end%>
+        </tbody>
+      </table>
+
+
+
+
+
+      <h3>Renting contract history</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Renter Name
+            </th>
+            <th>
+              Contract starts
+            </th>
+            <th>
+              Contract ends
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @flat.contracts.each do |contract| %>
+          <tr>
+            <td>
+              <%= contract.id %>
+            </td>
+            <td>
+              <%= contract.renter.first_name %>
+              <%= contract.renter.last_name %>
+            </td>
+            <td>
+              <%= contract.rent_start %>
+            </td>
+            <td>
+              <%= contract.rent_end %>
+            </td>
+            <td>
+              <%= contract.active %>
+            </td>
+            <td>
+              <%= link_to "view", flat_contract_path(contract.flat_id, contract.id)  %>
+            </td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 
