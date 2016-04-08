@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
 
   resources :flats do
-      resources :contracts
+      resources :contracts do
+        post "pick_renter", to: "contract#pick_renter"
+      end
       resources :renters
       resources :documents
       resources :tasks do

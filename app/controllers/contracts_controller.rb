@@ -16,13 +16,14 @@ class ContractsController < ApplicationController
 
 
   def history
-     @flat = Flat.find(params[:flat_id])
-     @contracts = Contract.where(flat_id: @flat.id)
-  end
+   @flat = Flat.find(params[:flat_id])
+   @contracts = Contract.where(flat_id: @flat.id)
+ end
 
 
   # GET /contracts/new
   def new
+    @flats = Flat.all.where(owner_id: current_owner.id)
     @flat = Flat.find(params[:flat_id])
     @contract = Contract.new
   end
@@ -33,9 +34,12 @@ class ContractsController < ApplicationController
     @contract = Contract.find(params[:id])
   end
 
+
+
   # POST /contracts
   # POST /contracts.json
   def create
+
     @contract = Contract.new(contract_params)
     @flat = Flat.find(params[:flat_id])
     @contract.flat_id = @flat.id
@@ -50,6 +54,7 @@ class ContractsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /contracts/1
   # PATCH/PUT /contracts/1.json
@@ -85,4 +90,4 @@ class ContractsController < ApplicationController
     def contract_params
       params.require(:contract).permit(:rent_start, :rent_end, :renter_id, :rent_amount, :warranty_amount, :pay_day, :active, :days_to_reminder)
     end
-end
+  end
