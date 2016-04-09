@@ -5,4 +5,5 @@ class Contract < ActiveRecord::Base
   has_many :tasks
 
   default_scope { where("renter_id is not NULL") }
+
 end
