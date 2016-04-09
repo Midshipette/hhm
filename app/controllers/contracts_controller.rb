@@ -59,9 +59,10 @@ class ContractsController < ApplicationController
   # PATCH/PUT /contracts/1
   # PATCH/PUT /contracts/1.json
   def update
+
     respond_to do |format|
       if @contract.update(contract_params)
-        format.html { redirect_to @contract, notice: 'Contract was successfully updated.' }
+        format.html { redirect_to flat_contract_path(@contract.flat_id, @contract.id), notice: 'Contract was successfully updated.' }
         format.json { render :show, status: :ok, location: @contract }
       else
         format.html { render :edit }

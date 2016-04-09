@@ -7,7 +7,11 @@
     <%= f.input :rent_amount %>
     <%= f.input :warranty_amount %>
     <%= f.input :pay_day, placeholder: "which day of each month day the payment need to be processed" %>
+    <% if @contract.renter_id.nil? %>
     <%= f.hidden_field :active, value: "Unassigned" %>
+    <% else %>
+    <%= f.input :active, collection: [:Active, :Inactive, :Pending, :Expired] %>
+    <% end %>
     <%= f.input :days_to_reminder %>
   </div>
 
