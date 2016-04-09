@@ -27,7 +27,9 @@
               <%= link_to flat_path(flat.id) do %>
               <div class="square btn">
                 <p>Accomodation</p>
-                <% if flat.contracts.select { |contract| contract.active == "Active" }.length < 1 %>
+                <% if flat.contracts.select { |contract| contract.active == "Active" }.length < 1 && flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && flat.id == contract.flat_id }.length > 0 %>
+                <p><i class="fa fa-home fa-3x signal-alert"></i></p>
+                <% elsif flat.contracts.select { |contract| contract.active == "Active" }.length < 1 %>
                 <p><i class="fa fa-home fa-3x signal-action"></i></p>
                 <% elsif flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && flat.id == contract.flat_id }.length > 0 %>
                 <p><i class="fa fa-home fa-3x signal-alert"></i></p>
