@@ -143,7 +143,7 @@
                 <%= contract.active  %>
               </td>
               <td>
-                <%= link_to "view", flat_contract_path(contract.flat_id, contract.id)  %>
+                <%= link_to "Delete", flat_contract_path(@flat.id, contract.id), class: 'btn btn-danger', method: :delete  %>
               </td>
             </tr>
             <% end %>

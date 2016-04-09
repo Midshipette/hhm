@@ -73,9 +73,10 @@ class ContractsController < ApplicationController
   # DELETE /contracts/1
   # DELETE /contracts/1.json
   def destroy
+    @flat = Flat.unscoped.find(params[:flat_id])
     @contract.destroy
     respond_to do |format|
-      format.html { redirect_to contracts_url, notice: 'Contract was successfully destroyed.' }
+      format.html { redirect_to @flat, notice: 'Contract was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -83,7 +84,7 @@ class ContractsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contract
-      @contract = Contract.find(params[:id])
+      @contract = Contract.unscoped.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
