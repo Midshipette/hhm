@@ -19,6 +19,11 @@
         </p>
 
         <p>
+          <strong>Description:</strong>
+          <%= @flat.description %>
+        </p>
+
+        <p>
           <strong>Floor:</strong>
           <%= @flat.floor %>
         </p>
@@ -39,24 +44,24 @@
         </p>
 
         <p>
-          <strong>Syndicate:</strong>
-          <%= @flat.syndicate %>
-        </p>
-
-        <p>
           <strong>Postal code:</strong>
           <%= @flat.postal_code %>
         </p>
-
-        <p>
-          <strong>Description:</strong>
-          <%= @flat.description %>
-        </p>
-
         <p>
           <strong>Country:</strong>
           <%= @flat.country %>
         </p>
+
+        <p>
+          <strong>Syndicate:</strong>
+          <%= @flat.syndicate %>
+        </p>
+
+
+
+
+
+
 
         <p>
           <strong>Loan cost:</strong>
@@ -109,14 +114,14 @@
               <th>
                 Contract starts
               </th>
-              <th>
-                Contract ends
-              </th>
 
               <th>
                 Status
               </th>
               <th>
+
+              </th>
+               <th>
 
               </th>
             </tr>
@@ -137,10 +142,10 @@
                 <%= contract.rent_start %>
               </td>
               <td>
-                <%= contract.rent_end %>
+                <%= contract.active  %>
               </td>
               <td>
-                <%= contract.active  %>
+                <%= link_to "Assign", flat_contract_path(@flat.id, contract.id), class: 'btn btn-default' %>
               </td>
               <td>
                 <%= link_to "Delete", flat_contract_path(@flat.id, contract.id), class: 'btn btn-danger', method: :delete  %>
