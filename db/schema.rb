@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408132604) do
+ActiveRecord::Schema.define(version: 20160410144553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,13 +34,21 @@ ActiveRecord::Schema.define(version: 20160408132604) do
   add_index "contracts", ["renter_id"], name: "index_contracts_on_renter_id", using: :btree
 
   create_table "costs", force: :cascade do |t|
-    t.string   "cost_type"
     t.integer  "contract_id"
-    t.string   "month"
-    t.string   "paid"
     t.date     "reminder_send_date"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.date     "start_month_year"
+    t.date     "end_month_year"
+    t.float    "owner_charge"
+    t.float    "renter_charge_private"
+    t.float    "electricity"
+    t.float    "property_mngt_cost"
+    t.float    "cleaning_maintenance"
+    t.float    "elevator"
+    t.float    "water"
+    t.float    "heating"
+    t.boolean  "paid"
   end
 
   add_index "costs", ["contract_id"], name: "index_costs_on_contract_id", using: :btree
