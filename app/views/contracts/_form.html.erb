@@ -3,9 +3,9 @@
 
   <div class="form-inputs">
     <%= f.input :rent_start, as: :date, start_year: Date.today.year - 1,
-    end_year: Date.today.year + 10%>
+    end_year: Date.today.year + 12 %>
     <%= f.input :rent_end, as: :date, start_year: Date.today.year - 1,
-    end_year: Date.today.year + 10 %>
+    end_year: Date.today.year + 12 %>
     <%= f.input :rent_amount %>
     <%= f.input :warranty_amount %>
     <%= f.input :pay_day, placeholder: "which day of each month day the payment need to be processed" %>
