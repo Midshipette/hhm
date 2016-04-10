@@ -18,6 +18,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'sweet-alert'
+gem "highcharts-rails"
 
 gem 'carrierwave'
 gem 'cloudinary'
