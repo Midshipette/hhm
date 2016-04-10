@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'costs/index'
+
+  get 'costs/show'
+
+  get 'costs/new'
+
+  get 'costs/edit'
+
   resources :tasks
   devise_for :renters, :controllers => { registrations: 'renters/registrations' }
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
