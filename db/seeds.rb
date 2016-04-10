@@ -177,7 +177,7 @@ doc15 = Document.create(contract_id: 10, doc_type: "Insurance", name: "Home",
   expiration_date: "15/12/2016", days_to_reminder: 60)
 
 
-
+#Tasks
 task1 = Task.create(contract_id: 1, due_date: "01/01/2016", name: "boiler maintenance 2016", description: "Boiler maintenance
   has to be performed every every year according to new regulations", owner: "renter")
 task2 = Task.create(contract_id: 1, due_date: "30/04/2016", name: "Rent price update", description: "I have to increase you rent
@@ -192,4 +192,5 @@ task6 = Task.create(contract_id: 2, due_date: "30/04/2016", name: "Rent price up
 task7 = Task.create(contract_id: 2, due_date: "15/04/2016", name: "Make new keys", description: "because youb lost your keys", owner: "owner")
 task8 = Task.create(contract_id: 2, due_date: "10/04/2016", name: "Upload new PEB doc", description: "Because you have to", owner:"renter")
 
+#Costs
 
