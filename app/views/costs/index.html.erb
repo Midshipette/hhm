@@ -51,8 +51,10 @@
         <%= cost.end_month_year %>
         <%= cost.owner_charge %>
         <%= cost.owner_charge %>   
-
+<p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id)%></p>
         <% end %>
+
+
 </div>
 
 

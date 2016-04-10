@@ -1,2 +1,12 @@
-<h1>Costs#edit</h1>
-<p>Find me in app/views/costs/edit.html.erb</p>
+<div class=container >
+  <h1 class="text-center">Editing charges</h1>
+
+  <%= link_to 'Back', contract_costs_path %>
+
+
+    <%= render 'costform' %>
+
+
+  <%= link_to 'Back', contract_costs_path(@contract) %>
+</div>
+

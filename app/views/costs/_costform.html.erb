@@ -1,0 +1,23 @@
+ <%= simple_form_for [@contract, @cost] do |f| %>
+      <%= f.error_notification %>
+      <div class="form-actions">
+        <%= f.button :submit, :class => "submit-btn" %>
+      </div>
+
+      <div class="form-inputs">
+        <%= f.input :start_month_year, order: [:month, :year] %>
+        <%= f.input :end_month_year, order: [:month, :year] %>
+        <%= f.input :owner_charge %>
+        <%= f.input :renter_charge_private %>
+        <%= f.input :electricity %>
+        <%= f.input :property_mngt_cost %>
+        <%= f.input :cleaning_maintenance%>
+        <%= f.input :elevator %>
+        <%= f.input :water %>
+        <%= f.input :heating %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, :class => "submit-btn" %>
+      </div>
+    <% end %>
