@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'costs/index'
-
-  get 'costs/show'
-
-  get 'costs/new'
-
-  get 'costs/edit'
-
+  
   resources :tasks
   devise_for :renters, :controllers => { registrations: 'renters/registrations' }
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
@@ -31,6 +24,10 @@ Rails.application.routes.draw do
       member do
         get :finance
       end
+  end
+
+  resources :contracts do
+    resources :costs
   end
 
   get '/renters' => "renters#all"
