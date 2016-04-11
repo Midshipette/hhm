@@ -99,9 +99,8 @@
 
 .pricing-container {
   flex: 1;
-  padding: 10px;
+  border:1px solid;
   border-color: #17307c;
-  border-width: 1px;
 }
 
 .pricing-item {
@@ -153,6 +152,7 @@
 }
 
 .pricing-item-body {
+  padding: 15px;
 
 }
 
