@@ -40,14 +40,18 @@ class TasksController < ApplicationController
   def status
       @task = Task.find(params[:task_id])
       if current_owner || (current_renter && (@task.owner == "renter"))
-         if @task.status == "open"
+        if @task.status == "open"
+          if @task.document_id
+            @task.status = "awaiting doc"
+            message =  { notice: "Please now upload a document as proof." }
+          else
             @task.status = "done"
-            message =  { notice: "Congrats. One task down! Please upload a document as proof." }
-           # format.html { notice: 'Congrats. One task down!' }
-         else
-           @task.status = "open"
-           message = { alert: 'You have re-opened the action...' }
-         end
+            message =  { notice: "Congrats, one task down!" }
+          end
+        else
+          @task.status = "open"
+          message = { alert: 'You have re-opened the action...' }
+        end
          @task.save
       else
         message = { alert: "You don't have the rights to update the status of the task"}

@@ -1,0 +1,85 @@
+<div id="container">
+  <h1 class="text-center">Editing charges</h1>
+
+  <%= link_to 'Back', contract_costs_path, class: 'btn btn-default' %>
+
+
+    <%= render 'costform' %>
+
+  </div>
+
+  <div id="containerchart" style="width: 50%; height: 400px;" />
+
+  <% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+        $(function () {
+    $('#containerchart').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Real estate estimates based on revenues'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: ['Flat name'],
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'EUR (thousands)',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' millions'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -20,
+            y: 40,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: '5%',
+            data: [107]
+        }, {
+            name: '4%',
+            data: [133]
+        }, {
+            name: '3%',
+            data: [152]
+        }]
+    });
+});
+
+<% end %>
+<% end %>
+ <%= link_to 'Back', contract_costs_path(@contract), class: 'btn btn-default' %>
+
+
+
+

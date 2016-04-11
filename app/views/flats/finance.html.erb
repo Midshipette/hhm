@@ -1,17 +1,17 @@
 <p>this is the financial page</p>
 
 <div class = "finance_container">
- <i class="fa fa-user fa-2x"></i>
+ <i class="mdi mdi-account md-36 md-dark"></i> 
  <h4 class = "renter_name"><%= @flat.contracts.last.renter.first_name %> 
  <%= @flat.contracts.last.renter.last_name %></h4>
 
   <div class='finance-rows'>
     <div class = "finance_row">
         <div class="finance-key">
-          <i class='mdi mdi-key'></i> key1
+          Monthly rent: 
         </div>     
-        <div class = "finance_column">
-          value1
+        <div class = "finance_value">
+          <%= @flat.contracts.last.rent_amount %>
         </div>
     <!-- finance_row -->
     </div>
@@ -19,7 +19,7 @@
         <div class="finance-key">
           key
         </div>     
-        <div class = "finance_column">
+        <div class = "finance_value">
             value
         </div>
     <!-- finance_row -->
@@ -29,7 +29,7 @@
           key
         </div>
           
-        <div class="finance_column">
+        <div class="finance_value">
           value
         </div>
     <!-- finance_row -->

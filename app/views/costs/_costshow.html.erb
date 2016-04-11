@@ -1,0 +1,19 @@
+<%= simple_form_for [@contract, @cost] do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :start_month_year, order: [:month, :year] %>
+        <%= f.input :end_month_year, order: [:month, :year] %>
+        <%= f.input :owner_charge %>
+        <%= f.input :renter_charge_private %>
+        <%= f.input :electricity %>
+        <%= f.input :property_mngt_cost %>
+        <%= f.input :cleaning_maintenance%>
+        <%= f.input :elevator %>
+        <%= f.input :water %>
+        <%= f.input :heating %>
+        <%= f.input :paid, :label => 'Property charges paid by owner?', as: :boolean, checked_value: true, unchecked_value: false %>
+        <%= f.input :cleared, :label => 'Tenant provisions cleared with real charges', as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+
+    <% end %>

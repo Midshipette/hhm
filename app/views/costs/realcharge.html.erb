@@ -1,0 +1,13 @@
+<p>This is the real cost page</p>
+
+<% start_month_array = [] %>
+<% end_month_array = [] %>
+<% open_cleared_costs = @costs.select{ |c| c.cleared == false} %>
+<% open_cleared_costs.each do |cost| %>
+<% start_month_array  << cost.start_month_year %>
+<% end_month_array << cost.end_month_year %>
+<% end %>
+
+<% start_month = start_month_array.min %>
+<% end_month = end_month_array.max %>
+Period from <%= Date::MONTHNAMES[start_month.month]%> <%= start_month.year %> to <%= Date::MONTHNAMES[end_month.month] %> <%= end_month.year %>

@@ -30,15 +30,23 @@ class DocumentsController < ApplicationController
   # POST /documents
   # POST /documents.json
   def create
+    task = Task.find(params[:document][:task_id]) unless params[:document][:task_id].nil? # checks if was coming from task manager
     @flat = Flat.find(params[:flat_id])
     @document = Document.new(document_params)
     @contract = Contract.where(flat_id: @flat.id, active: "Active")[0]
     @document.contract_id = @contract.id
+
     respond_to do |format|
       if @document.save!
+        if !task.nil? && task.status == "awaiting doc"
+          task.status = "doc uploaded"
+          today = Date.today.strftime('%Y-%m-%d')
+          task.description = task.description + " \( Doc Uploaded on #{today}\)"
+          task.save
+        end
         if @document.expiration_date # checks if received and expiration date
-           @task = Task.create(document_id: @document.id, owner: "renter", name: "update document: " + @document.name,
-            description: "-", due_date: @document.expiration_date, contract_id: @document.contract_id)
+          @task = Task.create(document_id: @document.id, owner: "renter", name: "update \"#{@document.doc_type}\" document",
+          description: "Update document: " + @document.name , due_date: @document.expiration_date, contract_id: @document.contract_id)
         end
         format.html { redirect_to flat_documents_path(@flat), notice: 'Document and task were successfully created.' }
       else
@@ -84,6 +92,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:contract_id, :type, :attachment, :attachment_cache, :expiration_date, :name, :reminder_sent_date, :days_to_reminder)
+      params.require(:document).permit(:contract_id, :doc_type, :type, :attachment, :attachment_cache, :expiration_date, :name, :reminder_sent_date, :days_to_reminder)
     end
 end

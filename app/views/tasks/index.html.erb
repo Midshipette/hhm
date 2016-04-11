@@ -15,12 +15,13 @@
     </thead>
 
     <tbody>
-      <% open_tasks = @tasks.select { |t| t.status == "open" } %>
+      <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
        <% open_tasks.each do |task| %>
 
        <tr>
             <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
-              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') %>
+              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') if task.status == "open"%>
+              <%= content_tag('span', "awaiting doc", style: 'color:#EE5F5B;') if task.status == "awaiting doc"%>
             <% end %>
             </td>
 
@@ -28,7 +29,17 @@
           <td><%= task.name %></td>
           <td><%= task.description %></td>
 
-          <% if Time.now > task.due_date %>
+
+
+
+
+          <% if task.status == "awaiting doc" %>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+           Upload doc</button></td>
+
+          <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
+
+          <% elsif Time.now > task.due_date %>
             <td class="btn btn-danger"> Late </td>
           <% else %>
             <td><%= task.due_date %></td>
@@ -71,7 +82,7 @@
     </thead>
 
     <tbody>
-      <% open_tasks = @tasks.select { |t| t.status == "done" } %>
+      <% open_tasks = @tasks.select { |t| t.status == "done" || t.status == "doc uploaded"} %>
        <% open_tasks.each do |task| %>
 
        <tr>

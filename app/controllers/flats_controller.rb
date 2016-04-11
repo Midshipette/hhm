@@ -9,6 +9,7 @@ class FlatsController < ApplicationController
   end
 
   def finance
+    
   end
 
   # GET /flats/1
