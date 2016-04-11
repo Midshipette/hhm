@@ -1,6 +1,8 @@
 class Owners::RegistrationsController < Devise::RegistrationsController
 
 
+
+
   private
 
   def sign_up_params

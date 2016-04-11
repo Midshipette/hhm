@@ -139,7 +139,7 @@
                 <%= contract.active  %>
               </td>
               <td>
-                <%= link_to "Assign", flat_contract_path(@flat.id, contract.id), class: 'btn btn-default' %>
+                <%= link_to "Assign", flat_contract_assign_renter_path(@flat, contract.id), class: 'btn btn-default' %>
               </td>
               <td>
                 <%= link_to "Delete", flat_contract_path(@flat.id, contract.id), class: 'btn btn-danger', method: :delete  %>

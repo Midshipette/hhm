@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
   resources :flats do
       resources :contracts do
-        post "pick_renter", to: "contract#pick_renter"
+        get "assign_renter", to: "renters#new"
+        post 'add_renter' => "renters#create"
       end
       resources :renters
       resources :documents
@@ -24,6 +25,9 @@ Rails.application.routes.draw do
         get :finance
       end
   end
+
+
+
 
   get '/renters' => "renters#all"
 

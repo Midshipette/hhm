@@ -14,6 +14,10 @@ class ContractsController < ApplicationController
     # @flat = Flat.find(params[:id])
   end
 
+  def pick_renter
+    @flats = Flat.all.where(owner_id: current_owner.id)
+  end
+
 
   def history
    @flat = Flat.find(params[:flat_id])

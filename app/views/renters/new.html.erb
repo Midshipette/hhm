@@ -1,2 +1,68 @@
-<h1>Renters#new</h1>
-<p>Find me in app/views/renters/new.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h4>New tenant?</h4>
+      <%= simple_form_for(Renter.new, :url => flat_contract_add_renter_path(@flat.id, @contract.id)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, required: true %>
+        <%= f.input :private, label: "type", required: true, collection: [:Private, :Company] %>
+        <%= f.input :gender, required: true, collection: [:Male, :Female] %>
+        <%= f.input :first_name, required: true %>
+        <%= f.input :last_name, required: true %>
+        <%= f.input :phone_number, required: true %>
+        <%= f.input :birthday, label: "Date of birth", as: :date, start_year: Date.today.year - 12,
+        end_year: Date.today.year - 100,
+        order: [:day, :month, :year] %>
+        <br>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Create new tenant", :class => "submit-btn" %>
+      </div>
+      <% end %>
+
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <h4>Old tenant?</h4>
+      <div class="btn-group">
+        <table class='table'>
+        <thead>
+          <tr>
+            <th>
+              Tenant name
+            </th>
+            <th>
+              Email
+            </th>
+            <th>
+
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @flats.each do |flat| %>
+          <% flat.contracts.each do |contract| %>
+          <tr>
+            <td>
+              <%= contract.renter.first_name %> <%= contract.renter.last_name %>
+            </td>
+            <td>
+              <%= contract.renter.email %>
+            </td>
+            <td>
+              <%= link_to "Select", flat_contract_assign_renter_path(@flat, contract.id), class: 'btn btn-default' %>
+            </td>
+          </tr>
+          <% end %>
+          <% end %>
+        </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
