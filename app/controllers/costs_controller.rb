@@ -1,5 +1,5 @@
 class CostsController < ApplicationController
-  before_action :set_cost, only: [:show, :edit, :update,  :destroy]
+  before_action :set_cost, only: [:show, :edit, :update,  :destroy, :realcharge]
   
   def index
     @contract = Contract.find(params[:contract_id])
@@ -11,6 +11,24 @@ class CostsController < ApplicationController
   end
 
   def new
+    @contract = Contract.find(params[:contract_id])
+    @cost = Cost.new
+    @cost.contract_id = Contract.where(id: @contract.id, active: "Active")[0].id
+  end
+  def create
+    @contract = Contract.find(params[:contract_id])
+    @cost = Cost.new(cost_params)
+    #@cost = Contract.where(id: @contract.id, active: "Active")[0]
+    @cost.contract_id = @contract.id
+    respond_to do |format|
+      if @cost.save!
+        format.html { redirect_to contract_cost_path(@contract.id, @cost.id), notice: 'Periodical charges were successfully created.' }
+        format.json { render :show, status: :created, location: @cost }
+      else
+        format.html { render :new }
+        format.json { render json: @cost.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -28,6 +46,9 @@ class CostsController < ApplicationController
         format.json { render json: @cost.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def realcharge
   end
 
 
