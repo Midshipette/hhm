@@ -41,17 +41,26 @@
               </div>
                   <!-- finance_row -->
           </div>
-        <%= cost.contract.renter.first_name %>    
+         
+        <h3>Montly projected charges</h3>
 
 
 
 
-
+        <%= cost.contract.renter.first_name %>   
         <%= cost.start_month_year %>
         <%= cost.end_month_year %>
         <%= cost.owner_charge %>
         <%= cost.owner_charge %>   
-<p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id)%></p>
+<%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %> 
+<%= link_to 'Add real charges', new_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %>
+<p>Real charges are the ones that your property manager provided you with.</p>
+
+        
+
+
+
+
         <% end %>
 
 

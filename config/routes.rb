@@ -27,7 +27,11 @@ Rails.application.routes.draw do
   end
 
   resources :contracts do
-    resources :costs
+    resources :costs do 
+        member do
+        get :realcharge
+      end
+    end
   end
 
   get '/renters' => "renters#all"
