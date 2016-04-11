@@ -9,6 +9,9 @@
     <%= f.input :attachment %>
     <%= f.input :attachment_cache, as: :hidden %>
     <%= f.association :contract, as: :hidden %>
+    <% if defined? task %>
+      <%= f.input :task_id, as: :hidden, :input_html => { value: task.id } %>
+    <% end %>
   </div>
 
   <div class="form-actions">
