@@ -52,8 +52,9 @@
         <%= cost.end_month_year %>
         <%= cost.owner_charge %>
         <%= cost.owner_charge %>   
-<%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %> 
+<p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %> 
 <%= link_to 'Add real charges', new_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %>
+<%=  link_to 'Clear provisions & real charges', realcharge_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %></p>
 <p>Real charges are the ones that your property manager provided you with.</p>
 
         

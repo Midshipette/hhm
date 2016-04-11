@@ -12,6 +12,8 @@
         <%= f.input :elevator %>
         <%= f.input :water %>
         <%= f.input :heating %>
+        <%= f.input :paid, :label => 'Property charges paid by owner?', as: :boolean, checked_value: true, unchecked_value: false %>
+        <%= f.input :cleared, :label => 'Tenant provisions cleared with real charges', as: :boolean, checked_value: true, unchecked_value: false %>
       </div>
 
     <% end %>
