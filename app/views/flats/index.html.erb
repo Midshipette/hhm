@@ -62,16 +62,32 @@
           <div class="col-md-3">
            <%= link_to flat_tasks_path(flat.id) do %>
            <div class="square btn">
-            <p>Tasks</p>
-            <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-            <% @contract = Contract.where(flat_id: flat, active: "Active") %>
+
+            <% @contract = Contract.where(flat_id: flat, active: "Active")[0] %>
             <% task_count = Task.where(contract_id: @contract).count %>
             <% task_count_late = Task.where("due_date < ?", Time.now).where(contract_id: @contract).count %>
-            <% if task_count_late == 0 %>
-            <p> <%= task_count %> </p>
+            <% task_count_late_0_to_7 = Task.where("due_date < ?", Time.now).where("due_date > ?", Time.now + ( 86400 * 7 )).where( contract_id: @contract ).count %>
+            <% task_count_late_8_to_15 = Task.where("due_date < ?", Time.now + (86400 * 7)).where("due_date > ?", Time.now + (86400 * 15)).where(contract_id: @contract).count %>
+            <% task_count_late_16_and_more = Task.where("due_date < ?", Time.now + (86400 * 16)).where(contract_id: @contract).count %>
+
+            <p>Tasks</p>
+
+            <% if @contract.nil? %>
+              <p><i class="fa fa-tasks fa-3x signal-noaccess"></i></p>
+            <% elsif task_count_late_16_and_more > 0 %>
+              <p><i class="fa fa-tasks fa-3x signal-action"></i></p>
+              <p>  <strong><span style="color:red;"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+            <% elsif task_count_late_8_to_15 > 0 %>
+              <p><i class="fa fa-tasks fa-3x signal-alert"></i></p>
+              <p>  <strong><span style="color:red;"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+            <% elsif task_count_late_0_to_7 > 0 %>
+              <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
+              <p>  <strong><span> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
             <% else %>
-            <p>  <strong><span style="color:red;"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+              <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
+              <p> <%= task_count %> </p>
             <% end %>
+
           </div>
           <% end %>
         </div>
