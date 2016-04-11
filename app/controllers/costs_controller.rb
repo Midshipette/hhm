@@ -49,6 +49,7 @@ class CostsController < ApplicationController
   end
 
   def realcharge
+    @costs = Cost.all
   end
 
 
@@ -63,6 +64,6 @@ class CostsController < ApplicationController
 
     def cost_params
       params.require(:cost).permit(:start_month_year, :end_month_year, :owner_charge, :renter_charge_private,
-        :electricity, :property_mngt_cost, :cleaning_maintenance, :elevator, :water, :heating)
+        :electricity, :property_mngt_cost, :cleaning_maintenance, :elevator, :water, :heating, :paid, :cleared)
     end
 end

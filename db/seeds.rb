@@ -195,4 +195,4 @@ task8 = Task.create(contract_id: 2, due_date: "10/04/2016", name: "Upload new PE
 #Costs
 cost1 = Cost.create(start_month_year: "01/04/2012", end_month_year: "30/06/2012", owner_charge: 350.21, 
   renter_charge_private: 50.23, electricity: 67, property_mngt_cost: 256.98, cleaning_maintenance: 56.88,
-  elevator: 0, water: 34.33, heating: 76.87, paid: false, contract_id: 7)
+  elevator: 0, water: 34.33, heating: 76.87, paid: false, cleared: false, contract_id: 7)

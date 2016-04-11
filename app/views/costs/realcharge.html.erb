@@ -1,1 +1,10 @@
 <p>This is the real cost page</p>
+
+<% start_month_array = [] %>
+<% open_cleared_costs = @costs.select{ |c| c.cleared == true} %>
+<% open_cleared_costs.each do |cost| %>
+Start: <%= cost.start_month_year.month %>
+End : <%= cost.end_month_year.month %>
+
+
+<% end %>
