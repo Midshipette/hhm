@@ -182,7 +182,7 @@
           </thead>
 
           <tbody>
-            <% @flat.contracts.each do |contract| %>
+            <% @flat.contracts.order(:rent_start).each do |contract| %>
             <tr>
               <td>
                 <%= contract.id %>
