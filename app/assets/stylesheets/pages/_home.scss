@@ -65,7 +65,7 @@
 .home-main-box {
   padding: 20px;
   text-align: justify;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -87,20 +87,14 @@
   text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
+// pricing
 
 .pricing {
     display: flex;
     max-width: 800px;
+    padding-bottom: 60px;
+    text-align: center;
+    margin: auto;
 }
 
 .pricing-container {
@@ -111,53 +105,65 @@
 .pricing-item {
 }
 
-.pricing-item-header {
-
-}
-
 .pricing-item-header-silver {
   font-family: Arial;
-  font-size: 25px;
   font-weight: bold;
-  color: #ffffff;
+  color: black;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   background-color: #C0C0C0;
+  border-width: 2px;
+  border-color: #17307c;
 }
 
 .pricing-item-header-blue {
   font-family: Arial;
-  font-size: 25px;
-  font-weight: bold;
-  color: #ffffff;
+  color: white;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   background-color: #17307c;
 }
 
 .pricing-item-header-gold {
   font-family: Arial;
-  font-size: 25px;
-  font-weight: bold;
   color: black;
   text-align: center;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   background-color: #ffcc66;
 }
 
+.pricing-header-title {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.pricing-header-price {
+  font-size: 25px;
+}
+
+.pricing-header-title-small {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.color-white {
+  color: white;
+}
 
 .pricing-item-body {
 
 }
 
 .pricing-item-body-description {
-
+  padding-top: 30px;
 }
 
 .pricing-item-body-image {
+  padding-top: 20px;
+  padding-bottom: 20px;
 
 }
 
