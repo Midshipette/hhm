@@ -100,6 +100,8 @@
 .pricing-container {
   flex: 1;
   padding: 10px;
+  border-color: #17307c;
+  border-width: 1px;
 }
 
 .pricing-item {
@@ -107,14 +109,11 @@
 
 .pricing-item-header-silver {
   font-family: Arial;
-  font-weight: bold;
   color: black;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 15px;
   background-color: #C0C0C0;
-  border-width: 2px;
-  border-color: #17307c;
 }
 
 .pricing-item-header-blue {
