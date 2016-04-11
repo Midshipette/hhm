@@ -1,0 +1,61 @@
+<h1>Financial review</h1>
+
+      <% @costs.each do |cost| %>
+    <div class = "finance_container" >
+    <i class="mdi mdi-account md-36 md-dark"></i> 
+    <h4 class = "renter_name"><%= cost.contract.renter.first_name %> 
+    <%= cost.contract.renter.last_name %></h4>
+
+
+        <div class='finance-rows'>
+        <h3>Montly entries</h3>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Monthly rent
+            </div>     
+            <div class = "finance_value">
+              <% rent = cost.contract.rent_amount %>
+              <%= rent %>
+            </div>
+          </div>
+              <!-- finance_row -->
+          <div class = "finance_row">
+            <div class="finance-key">
+              Monthly provision
+            </div>     
+            <div class = "finance_value">
+              <% provision = cost.contract.provision %>
+              <%= cost.contract.provision.nil? ? provision = 0 : provision %>
+            </div>
+          </div>
+              <!-- finance_row -->
+              <div class="finance_row">
+                <div class="finance-key total">
+                 Total
+                </div>
+          
+                <div class="finance_value total">
+                  <% monthly_total = rent + provision %>
+                  <%= monthly_total %>
+                </div>
+              </div>
+                  <!-- finance_row -->
+          </div>
+        <%= cost.contract.renter.first_name %>    
+
+
+
+
+
+        <%= cost.start_month_year %>
+        <%= cost.end_month_year %>
+        <%= cost.owner_charge %>
+        <%= cost.owner_charge %>   
+<p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id)%></p>
+        <% end %>
+
+
+</div>
+
+
+ 

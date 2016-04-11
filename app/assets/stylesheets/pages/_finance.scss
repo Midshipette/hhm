@@ -1,0 +1,36 @@
+.finance_container {
+	max-width: 600px;
+	margin: auto;
+}
+
+.finance_row {
+	display: flex;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 20px 0;
+  
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
+.finance-key {
+	width: 200px;
+}
+
+.finance_line {
+  
+}
+
+.finance_value {
+	margin-left: auto;
+}
+
+.mdi.md-18 { font-size: 18px; }
+.mdi.md-24 { font-size: 24px; }
+.mdi.md-36 { font-size: 36px; }
+.mdi.md-48 { font-size: 48px; }
+.mdi.md-dark { color: rgba(0, 0, 0, 0.54); }
+
+.total {
+	font-size: 20px;
+}

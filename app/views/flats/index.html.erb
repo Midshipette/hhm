@@ -20,53 +20,67 @@
            </address>
 
 
-           </div>
-           <div class="col-md-9">
-            <div class="row">
-              <div class="col-md-3">
+         </div>
+         <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-3">
               <%= link_to flat_path(flat.id) do %>
-                <div class="square btn">
-                  <p>Accomodation</p>
-                  <p><i class="fa fa-home fa-3x signal-nothing"></i></p>
-                  <p><%= flat.flat_name %></p>
-                </div>
+              <div class="square btn">
+                <p>Accomodation</p>
+                <% if flat.contracts.select { |contract| contract.active == "Active" }.length < 1 && flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && flat.id == contract.flat_id }.length > 0 %>
+                <p><i class="fa fa-home fa-3x signal-alert"></i></p>
+                <% elsif flat.contracts.select { |contract| contract.active == "Active" }.length < 1 %>
+                <p><i class="fa fa-home fa-3x signal-action"></i></p>
+                <% elsif flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && flat.id == contract.flat_id }.length > 0 %>
+                <p><i class="fa fa-home fa-3x signal-alert"></i></p>
+                <% else %>
+                <p><i class="fa fa-home fa-3x signal-nothing"></i></p>
                 <% end %>
+                <p><%= flat.flat_name %></p>
               </div>
-              <div class="col-md-3">
-                <div class="square btn">
-                  <p>Financials</p>
-                  <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
-                  <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.rent_amount.round %>
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-3">
-               <%= link_to flat_documents_path(flat.id) do %>
-                <div class="square btn">
-                  <p>Docs</p>
-                  <p><i class="fa fa-file-text fa-3x signal-nothing"></i></p>
-                  <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.renter.first_name + " " + flat.contracts.last.renter.last_name %></p>
-                </div>
-                <% end %>
-              </div>
-              <div class="col-md-3">
-               <%= link_to flat_tasks_path(flat.id) do %>
-                <div class="square btn">
-                  <p>Tasks</p>
-                  <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-                  <% @contract = Contract.where(flat_id: flat, active: "Yes") %>
-                  <% task_count = Task.where(contract_id: @contract).count %>
-                  <% task_count_late = Task.where("due_date > ?", Time.now).where(contract_id: @contract).count %>
-                  <p> <%= task_count %> (<%= task_count_late %> late)</p>
-                </div>
-                <% end %>
-              </div>
+              <% end %>
             </div>
+            <div class="col-md-3">
+              <%= link_to contract_costs_path(flat.id) do %>
+              <div class="square btn">
+                <p>Financials</p>
+                <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
+                <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.rent_amount.round %>
+                </p>
+              </div>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+             <%= link_to flat_documents_path(flat.id) do %>
+             <div class="square btn">
+              <p>Docs</p>
+              <p><i class="fa fa-file-text fa-3x signal-nothing"></i></p>
+              <p></p>
+            </div>
+            <% end %>
           </div>
+          <div class="col-md-3">
+           <%= link_to flat_tasks_path(flat.id) do %>
+           <div class="square btn">
+            <p>Tasks</p>
+            <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
+            <% @contract = Contract.where(flat_id: flat, active: "Active") %>
+            <% task_count = Task.where(contract_id: @contract).count %>
+            <% task_count_late = Task.where("due_date < ?", Time.now).where(contract_id: @contract).count %>
+            <% if task_count_late == 0 %>
+            <p> <%= task_count %> </p>
+            <% else %>
+            <p>  <strong><span class="text-danger"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+            <% end %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
 </div>
 
 <% end %>

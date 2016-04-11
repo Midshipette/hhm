@@ -1,41 +1,30 @@
 <div class='container'>
   <h1>Listing Tasks</h1>
 
-  <%= link_to 'New Task', new_flat_task_path(@flat), class: "btn btn-primary" %>
-
   <table class="table table-responsive table-striped table-hover">
     <thead>
       <tr>
         <th>Status</th>
+        <th>Owner</th>
         <th>Name</th>
         <th>Description</th>
         <th>Due date</th>
-        <th>Contract</th>
-        <th>Owner</th>
+
         <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @tasks.each do |task| %>
-       <% if task.status == "done" %>
-        <tr>
+      <% open_tasks = @tasks.select { |t| t.status == "open" } %>
+       <% open_tasks.each do |task| %>
 
-            <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
-              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-check') %>
-            <% end %>
-            </td>
-
-          <% elsif task.status == "open"  %>
-
+       <tr>
             <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
               <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') %>
             <% end %>
             </td>
 
-          <% end %>
-
-
+          <td><%= task.owner %></td>
           <td><%= task.name %></td>
           <td><%= task.description %></td>
 
@@ -45,8 +34,57 @@
             <td><%= task.due_date %></td>
           <% end %>
 
-          <td><%= task.contract.id %></td>
+          <td><%= link_to edit_flat_task_path(@flat, task) do %>
+                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
+            <% end %></td>
+
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+         <td></td>
+          <td></td>
+           <td></td>
+
+        <td><%= link_to 'New Task', new_flat_task_path(@flat), class: "btn btn-primary" %></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+  <br>
+  <br>
+
+    <table class="table table-responsive table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Owner</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Date closed</th>
+
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% open_tasks = @tasks.select { |t| t.status == "done" } %>
+       <% open_tasks.each do |task| %>
+
+       <tr>
+            <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
+              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-check') %>
+            <% end %>
+            </td>
+
           <td><%= task.owner %></td>
+          <td><%= task.name %></td>
+          <td><%= task.description %></td>
+
+          <td><%= task.updated_at.strftime("%Y-%m-%d") %> </td>
 
           <td><%= link_to edit_flat_task_path(@flat, task) do %>
                   <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
@@ -57,7 +95,8 @@
     </tbody>
   </table>
 
-  <br>
+
+
 
    <%= link_to mydashboard_path(@flat) do %>
      <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>

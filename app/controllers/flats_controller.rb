@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update,  :destroy]
+  before_action :set_flat, only: [:show, :edit, :update,  :destroy, :finance]
 
   # GET /flats
   # GET /flats.json
@@ -8,9 +8,14 @@ class FlatsController < ApplicationController
     @contracts = Contract.all
   end
 
+  def finance
+    
+  end
+
   # GET /flats/1
   # GET /flats/1.json
   def show
+
 
   end
 
