@@ -1,7 +1,7 @@
 <div class="container">
 
   <h2 class='text-center'>
-    <strong>Flat name:</strong>
+
     <%= @flat.flat_name %>
   </h2>
 
@@ -17,25 +17,40 @@
           <strong>Type:</strong>
           <%= @flat.flat_type %>
         </p>
+        <% if @flat.description != "" %>
 
         <p>
           <strong>Description:</strong>
           <%= @flat.description %>
         </p>
 
+        <% end %>
+
+        <% if @flat.floor != "" %>
+
         <p>
           <strong>Floor:</strong>
           <%= @flat.floor %>
         </p>
 
+        <% end %>
+
+        <% if @flat.flat_number != "" %>
         <p>
           <strong>Flat number:</strong>
           <%= @flat.flat_number %>
         </p>
 
+        <% end %>
+
         <p>
           <strong>Address:</strong>
           <%= @flat.address %>
+        </p>
+
+        <p>
+          <strong>Postal code:</strong>
+          <%= @flat.postal_code %>
         </p>
 
         <p>
@@ -44,28 +59,30 @@
         </p>
 
         <p>
-          <strong>Postal code:</strong>
-          <%= @flat.postal_code %>
-        </p>
-        <p>
           <strong>Country:</strong>
           <%= @flat.country %>
         </p>
 
+        <% if @flat.syndicate != "" %>
         <p>
           <strong>Syndicate:</strong>
           <%= @flat.syndicate %>
         </p>
+        <% end %>
 
+        <% if @flat.loan_cost != nil %>
         <p>
           <strong>Loan cost:</strong>
           <%= @flat.loan_cost %>
         </p>
+        <% end %>
 
+        <% if @flat.tax_cost != nil %>
         <p>
           <strong>Tax cost:</strong>
           <%= @flat.tax_cost %>
         </p>
+        <% end %>
 
         <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-default' %>
         <%= link_to 'Delete', flat_destroy_path(@flat), class: 'btn btn-danger', method: :delete %>
@@ -76,9 +93,9 @@
 
       <div class="col-md-6">
 
-      <% flat_active = @flat.contracts.select { |contract| contract.active == 'Active' } %>
-      <%if @flat.contracts.last.nil? %>
-      <%else %>
+        <% flat_active = @flat.contracts.select { |contract| contract.active == 'Active' } %>
+        <%if @flat.contracts.last.nil? %>
+        <%else %>
         <p><strong>Current tenant:</strong>
           <%= flat_active.last.renter.first_name %>
           <%= flat_active.last.renter.last_name %> <%= link_to 'Details', flat_renter_path(@flat.id,@flat.contracts.last.renter_id), class: 'btn btn-default' %>
@@ -119,7 +136,7 @@
               <th>
 
               </th>
-               <th>
+              <th>
 
               </th>
             </tr>
