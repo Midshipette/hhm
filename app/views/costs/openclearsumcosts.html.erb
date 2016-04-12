@@ -11,3 +11,13 @@
 <% start_month = start_month_array.min %>
 <% end_month = end_month_array.max %>
 Period from <%= Date::MONTHNAMES[start_month.month]%> <%= start_month.year %> to <%= Date::MONTHNAMES[end_month.month] %> <%= end_month.year %>
+
+
+<p><%= @renter_private_sum %></p>
+<p><%= @electricity_sum %></p>
+<p><%= @property_mngt_sum %></p>
+<p><%= @cleaning_sum %></p>
+<p><%= @elevator_sum %></p>
+<p><%= @water_sum %></p>
+<p><%= @heating_sum %></p>
+<p><%= @renter_cost_total %></p>
