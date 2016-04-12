@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :costs do
         member do
         get :realcharge
+        get :openclearsumcosts
       end
     end
   end

@@ -1,5 +1,5 @@
 class CostsController < ApplicationController
-  before_action :set_cost, only: [:show, :edit, :update,  :destroy, :realcharge]
+  before_action :set_cost, only: [:show, :edit, :update,  :destroy]
   
   def index
     @contract = Contract.find(params[:contract_id])
@@ -48,10 +48,35 @@ class CostsController < ApplicationController
     end
   end
 
-  def realcharge
-    @costs = Cost.all
-  end
 
+
+  def openclearsumcosts
+    @costs = Cost.all
+
+    @open_cleared_costs = @costs.select{ |c| c.cleared == false}
+    @owner_sum = 0 
+    @renter_private_sum = 0
+    @electricity_sum = 0
+    @property_mngt_sum = 0 
+    @cleaning_sum = 0 
+    @elevator_sum = 0
+    @water_sum = 0
+    @heating_sum = 0
+    
+    @open_cleared_costs.each do |cost|
+      @owner_sum += cost.owner_charge
+      @renter_private_sum += cost.renter_charge_private
+      @electricity_sum += cost.electricity
+      @property_mngt_sum += cost.property_mngt_cost
+      @cleaning_sum += cost.cleaning_maintenance
+      @elevator_sum += cost.elevator
+      @water_sum += cost.water
+      @heating_sum += cost.heating
+    end
+
+    @renter_cost_total = @renter_private_sum + @electricity_sum + @property_mngt_sum +
+    @cleaning_sum + @elevator_sum + @water_sum + @heating_sum
+  end
 
 
 
