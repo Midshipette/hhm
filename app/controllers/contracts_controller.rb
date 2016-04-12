@@ -12,6 +12,16 @@ class ContractsController < ApplicationController
   # GET /contracts/1.json
   def show
     # @flat = Flat.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name",
+               :template => "contracts/show.pdf.erb",
+               :layout => "renting_pdf.html.erb"
+      end
+    end
+
   end
 
   def pick_renter
