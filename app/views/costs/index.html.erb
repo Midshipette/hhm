@@ -8,7 +8,7 @@
               Monthly rent
             </div>     
             <div class = "finance_value">
-              <% rent = @contract.rent_amount.round %>
+              <% rent = @contract.rent_amount.round(2) %>
               <%= rent %>
             </div>
           </div>
@@ -18,8 +18,8 @@
               Monthly provision
             </div>     
             <div class = "finance_value">
-              <% provision = @contract.provision.round %>
-              <%= @contract.provision.nil? ? provision = 0 : provision %>
+              <% provision = @contract.provision %>
+              <%= @contract.provision.nil? ? provision = 0 : provision.round(2) %>
             </div>
           </div>
               <!-- finance_row -->
@@ -30,7 +30,7 @@
           
                 <div class="finance_value total">
                   <% monthly_total = rent + provision %>
-                  <%= monthly_total %>
+                  <%= monthly_total.round(2)%>
                 </div>
               </div>
                   <!-- finance_row -->
