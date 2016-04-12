@@ -36,6 +36,8 @@ class DocumentsController < ApplicationController
 
     expiration = "Yes" if (params[:document][:expiration] == "Yes" && params[:document][:expiration_date] != Date.today)# will define is expiration date or not (for task creation))
 
+    STOP
+
     @flat = Flat.find(params[:flat_id])
     @document = Document.new(document_params)
     @contract = Contract.where(flat_id: @flat.id, active: "Active")[0]
@@ -45,7 +47,7 @@ class DocumentsController < ApplicationController
       if @document.save!
         if !task.nil? && task.status == "awaiting doc"  # if no expiration date, not task created
           task.status = "doc uploaded"
-          task.description = task.description + " \( Doc Uploaded on #{today}\)"
+          task.description = task.description + " \(Uploaded on #{today}\)"
           task.save
         end
         if @document.expiration_date # checks if received and expiration date
