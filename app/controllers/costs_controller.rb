@@ -54,7 +54,8 @@ class CostsController < ApplicationController
 
   def openclearsumcosts
     
-    @costs = Cost.all
+    @contract = Contract.find(params[:contract_id])
+    @costs = @contract.costs
     @open_cleared_costs = @costs.select{ |c| c.cleared == false}
     @owner_sum = 0 
     @renter_private_sum = 0
@@ -64,6 +65,8 @@ class CostsController < ApplicationController
     @elevator_sum = 0
     @water_sum = 0
     @heating_sum = 0
+    @months = 0
+    @periods = 0
     
     @open_cleared_costs.each do |cost|
       @owner_sum += cost.owner_charge
@@ -74,6 +77,10 @@ class CostsController < ApplicationController
       @elevator_sum += cost.elevator
       @water_sum += cost.water
       @heating_sum += cost.heating
+      @months = (cost.end_month_year.month - cost.start_month_year.month) + 1
+      @periods += @months
+
+
     end
 
     @renter_cost_total = @renter_private_sum + @electricity_sum + @property_mngt_sum +
