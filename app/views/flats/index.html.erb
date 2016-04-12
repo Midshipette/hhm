@@ -91,10 +91,8 @@
 
 
             <% if @contract.nil? %>
-              <div class="square btn">
-                <p class="signal-noaccess">Tasks</p>
-                <p><i class="fa fa-tasks fa-3x signal-noaccess"></i></p>
-              </div>
+              <p class="signal-noaccess">Tasks</p>
+              <p><i class="fa fa-tasks fa-3x signal-noaccess"></i></p>
             <% else %>
               <% if task_count_late_16_and_more > 0 %>
                 <p>Tasks</p>
