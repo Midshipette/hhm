@@ -3,7 +3,9 @@ class CostsController < ApplicationController
   
   def index
     @contract = Contract.find(params[:contract_id])
-  	@costs = Cost.all
+    @costs = @contract.costs
+
+
   end
 
   def show
@@ -51,8 +53,8 @@ class CostsController < ApplicationController
 
 
   def openclearsumcosts
+    
     @costs = Cost.all
-
     @open_cleared_costs = @costs.select{ |c| c.cleared == false}
     @owner_sum = 0 
     @renter_private_sum = 0

@@ -41,14 +41,23 @@
               <% end %>
             </div>
             <div class="col-md-3">
-              <%= link_to contract_costs_path(flat.id) do %>
+            <% if flat.active_contract %>
+              <%= link_to contract_costs_path(flat.active_contract.id) do %>
               <div class="square btn">
                 <p>Financials</p>
                 <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
-                <p><%= flat.contracts.last.nil? ? "" : flat.contracts.last.rent_amount.round %>
+                <p><%= flat.active_contract.nil? ? "" : flat.active_contract.rent_amount.round %>
                 </p>
               </div>
               <% end %>
+            <% else %>
+            <div class="square btn">
+                <p>Financials</p>
+                <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
+                <p>No active contract
+                </p>
+              </div>
+            <% end %>
             </div>
             <div class="col-md-3">
              <%= link_to flat_documents_path(flat.id) do %>

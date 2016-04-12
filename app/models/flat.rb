@@ -5,5 +5,9 @@ class Flat < ActiveRecord::Base
   has_many :documents, through: :contract
   belongs_to :owner
 
+  def active_contract
+    contracts.select { |c| c.active == 'Active' }.first
+  end
+
 
 end
