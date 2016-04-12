@@ -19,8 +19,9 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'sweet-alert'
 gem "highcharts-rails"
-
+gem 'wicked_pdf'
 gem 'carrierwave'
+gem 'wkhtmltopdf-binary'
 gem 'cloudinary'
 
 group :development, :test do
