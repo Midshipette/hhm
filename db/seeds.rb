@@ -101,22 +101,22 @@ f10 = Flat.create(owner_id: 8, flat_type: "flat", flat_name: "", floor: "2",
  flat_number: 2, address: "chaussée de Waterloo", city: "Brussels", syndicate: "GGG",
   postal_code: "1180", description: "On the street", country: "Belgium",
   loan_cost: 758.69, tax_cost: 543.67)
-f11 = Flat.create(owner_id: 9, flat_type: "flat", flat_name: "Américaine", floor: "1",
- flat_number: 2, address: "rue F. Merjay", city: "Brussels", syndicate: "GGG",
-  postal_code: "1050", description: "nice view", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67)
+# f11 = Flat.create(owner_id: 9, flat_type: "flat", flat_name: "Américaine", floor: "1",
+#  flat_number: 2, address: "rue F. Merjay", city: "Brussels", syndicate: "GGG",
+#   postal_code: "1050", description: "nice view", country: "Belgium",
+#   loan_cost: 758.69, tax_cost: 543.67)
 
 #Contracts
 c1 = Contract.create(rent_end: "01/02/2018", rent_start: "01/01/2015", renter_id: 1, flat_id: 1,
  rent_amount: 1000.12, warranty_amount: 350, pay_day: 1, active: "Active",
   days_to_reminder: 10)
-c2 = Contract.create(rent_end: "01/02/2018", rent_start: "01/01/2010", rent_end: "20/12/2012" ,
+c2 = Contract.create(rent_end: "01/02/2018", rent_start: "01/01/2010" ,
   renter_id: 2, flat_id: 1, rent_amount: 988.12, warranty_amount: 300,
    pay_day: 1, active: "Inactive", days_to_reminder: 15)
-c3 = Contract.create(rent_end: "05/12/2018", rent_start: "01/01/2013", renter_id: 2, flat_id: 11,
+c3 = Contract.create(rent_end: "05/12/2018", rent_start: "01/01/2013", renter_id: 2, flat_id: 2,
  rent_amount: 658.12, warranty_amount: 300, pay_day: 15, active: "Active",
   days_to_reminder: 30)
-c4 = Contract.create(rent_end: "01/09/2018", rent_start: "15/04/2014", rent_end: "20/12/2012", renter_id: 3, flat_id: 2,
+c4 = Contract.create(rent_end: "01/09/2018", rent_start: "15/04/2014", renter_id: 3, flat_id: 2,
  rent_amount: 450.45, warranty_amount: 200, pay_day: 20, active: "Inactive",
   days_to_reminder: 15)
 c5 = Contract.create(rent_end: "01/04/2018", rent_start: "15/04/2014", renter_id: 4, flat_id: 3,
@@ -128,13 +128,13 @@ c6 = Contract.create(rent_end: "01/02/2020", rent_start: "15/06/2016", renter_id
 c7 = Contract.create(rent_end: "01/02/2017", rent_start: "15/04/2004", renter_id: 6, flat_id: 5,
  rent_amount: 650.78, warranty_amount: 300, pay_day: 20, active: "Active",
   days_to_reminder: 15)
-c8 = Contract.create(rent_end: "01/02/2018", rent_start: "15/04/2012", rent_end: "20/12/2012", renter_id: 7, flat_id: 6,
+c8 = Contract.create(rent_end: "01/02/2018", rent_start: "15/04/2012", renter_id: 7, flat_id: 6,
  rent_amount: 750.98, warranty_amount: 400, pay_day: 20, active: "Inactive",
   days_to_reminder: 15)
 c9 = Contract.create(rent_end: "01/05/2018", rent_start: "15/04/1984", renter_id: 8, flat_id: 7,
  rent_amount: 850, warranty_amount: 400, pay_day: 20, active: "Active",
   days_to_reminder: 15)
-c10 = Contract.create(rent_end: "01/12/2018", rent_start: "15/04/1999", rent_end: "20/12/2012", renter_id: 9, flat_id: 8,
+c10 = Contract.create(rent_end: "01/12/2018", rent_start: "15/04/1999", renter_id: 9, flat_id: 8,
  rent_amount: 950.45, warranty_amount: 500, pay_day: 20, active: "Inactive",
   days_to_reminder: 15)
 c11 = Contract.create(rent_end: "01/07/2019", rent_start: "15/04/2016", renter_id: 10, flat_id: 9,
