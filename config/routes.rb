@@ -12,25 +12,28 @@ Rails.application.routes.draw do
 
 
   resources :flats do
-      resources :contracts do
-        get "assign_renter", to: "renters#new"
-        post 'add_renter' => "renters#create"
+    resources :contracts do
+      get "assign_renter", to: "renters#new"
+      post 'add_renter' => "renters#create"
+      resources :renters, only: :select do
+        get "select_renter", to: "renters#select"
       end
-      resources :renters
-      resources :documents
-      resources :tasks do
-        get 'status' => 'tasks#status'
-      end
+    end
+    resources :renters
+    resources :documents
+    resources :tasks do
+      get 'status' => 'tasks#status'
+    end
 
-      member do
-        get :finance
-      end
+    member do
+      get :finance
+    end
   end
 
 
   resources :contracts do
     resources :costs do
-        member do
+      member do
         get :realcharge
         get :openclearsumcosts
       end
@@ -43,6 +46,7 @@ Rails.application.routes.draw do
 
   get '/mydashboard' => "flats#index"
 
+  post 'contact_form', to: 'pages#contact_form'
   root to: 'pages#home'
 
 

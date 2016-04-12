@@ -55,7 +55,7 @@
               <%= contract.renter.email %>
             </td>
             <td>
-              <%= link_to "Select", flat_contract_assign_renter_path(@flat, contract.id), class: 'btn btn-default' %>
+              <%= link_to "Select", flat_contract_renter_select_renter_path(@flat, @contract.id, contract.renter.id), class: 'btn btn-default' %>
             </td>
           </tr>
           <% end %>
@@ -66,3 +66,11 @@
     </div>
   </div>
 </div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

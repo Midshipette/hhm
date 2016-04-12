@@ -59,47 +59,76 @@
               </div>
             <% end %>
             </div>
+
+            <!-- DOCUMENTS !-->
+                <% @contract = Contract.where(flat_id: flat, active: "Active")[0] %>
+                <% if @contract.nil? %>
+                    <div class="col-md-3">
+
+                        <div class="square btn">
+                          <p class="signal-noaccess">Docs</p>
+                          <p><i class="fa fa-file-text fa-3x signal-noaccess"></i></p>
+                          <p> - </p>
+                        </div>
+
+                    </div>
+                <% else %>
+                    <div class="col-md-3">
+                      <%= link_to flat_documents_path(flat.id) do %>
+                        <div class="square btn">
+                          <p>Docs</p>
+                          <p><i class="fa fa-file-text fa-3x signal-nothing"></i></p>
+                          <p> - </p>
+                        </div>
+                      <% end %>
+                    </div>
+                <% end %>
+
+          <!-- TASKS !-->
+          <% if !@contract.nil? %>
             <div class="col-md-3">
-             <%= link_to flat_documents_path(flat.id) do %>
+              <%= link_to flat_tasks_path(flat.id) do %>
              <div class="square btn">
-              <p>Docs</p>
-              <p><i class="fa fa-file-text fa-3x signal-nothing"></i></p>
-              <p></p>
-            </div>
+
+              <% @contract = Contract.where(flat_id: flat, active: "Active")[0] %>
+              <% task_count = Task.where(contract_id: @contract).count %>
+              <% task_count_late = Task.where("due_date < ?", Time.now).where(contract_id: @contract).count %>
+              <% task_count_late_0_to_7 = Task.where("due_date < ?", Time.now).where("due_date > ?", Time.now + ( 86400 * 7 )).where( contract_id: @contract ).count %>
+              <% task_count_late_8_to_15 = Task.where("due_date < ?", Time.now + (86400 * 7)).where("due_date > ?", Time.now + (86400 * 15)).where(contract_id: @contract).count %>
+              <% task_count_late_16_and_more = Task.where("due_date < ?", Time.now + (86400 * 16)).where(contract_id: @contract).count %>
+
+              <% if %>
+                <p>Tasks</p>
+                <% if task_count_late_16_and_more > 0 %>
+                  <p><i class="fa fa-tasks fa-3x signal-action"></i></p>
+                  <p>  <strong><span style="color:red;"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+                <% elsif task_count_late_8_to_15 > 0 %>
+
+                  <p><i class="fa fa-tasks fa-3x signal-alert"></i></p>
+                  <p>  <strong><span style="color:red;"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+                <% elsif task_count_late_0_to_7 > 0 %>
+                  <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
+                  <p>  <strong><span> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
+                <% else %>
+                  <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
+                  <p> <%= task_count == 0 ? "-": 0 %> </p>
+                <% end %>
+              <% end %>
+
+             </div class="flag">
             <% end %>
-          </div>
+          </div class="flag">
+        <% else %>
           <div class="col-md-3">
-           <%= link_to flat_tasks_path(flat.id) do %>
-           <div class="square btn">
-
-            <% @contract = Contract.where(flat_id: flat, active: "Active")[0] %>
-            <% task_count = Task.where(contract_id: @contract).count %>
-            <% task_count_late = Task.where("due_date < ?", Time.now).where(contract_id: @contract).count %>
-            <% task_count_late_0_to_7 = Task.where("due_date < ?", Time.now).where("due_date > ?", Time.now + ( 86400 * 7 )).where( contract_id: @contract ).count %>
-            <% task_count_late_8_to_15 = Task.where("due_date < ?", Time.now + (86400 * 7)).where("due_date > ?", Time.now + (86400 * 15)).where(contract_id: @contract).count %>
-            <% task_count_late_16_and_more = Task.where("due_date < ?", Time.now + (86400 * 16)).where(contract_id: @contract).count %>
-
-            <p>Tasks</p>
-
-            <% if @contract.nil? %>
-              <p><i class="fa fa-tasks fa-3x signal-noaccess"></i></p>
-            <% elsif task_count_late_16_and_more > 0 %>
-              <p><i class="fa fa-tasks fa-3x signal-action"></i></p>
-              <p>  <strong><span style="color:red;"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
-            <% elsif task_count_late_8_to_15 > 0 %>
-              <p><i class="fa fa-tasks fa-3x signal-alert"></i></p>
-              <p>  <strong><span style="color:red;"> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
-            <% elsif task_count_late_0_to_7 > 0 %>
-              <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-              <p>  <strong><span> <%= task_count_late %> late  </span><strong>  / <%= task_count %> </p>
-            <% else %>
-              <p><i class="fa fa-tasks fa-3x signal-nothing"></i></p>
-              <p> <%= task_count %> </p>
-            <% end %>
-
+              <div class="square btn">
+                <p class="signal-noaccess">Tasks</p>
+                <p><i class="fa fa-tasks fa-3x signal-noaccess"></i></p>
+                <p> - </p>
+              </div>
           </div>
-          <% end %>
-        </div>
+        <% end %>
+
+
       </div>
     </div>
   </div>

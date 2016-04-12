@@ -39,107 +39,107 @@ o10 = Owner.create(first_name: "Alan", last_name: "O10", phone_number: "04004751
 	country: "Belgique", email: "O10@gmail.com", password:"blablabla")
 
 # Renters
-r1 = Renter.create(email: "maxence.snoy@gmail.com", password: "blablabla", first_name: "Val",
+r1 = Renter.create(email: "maxence.snoy@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Val",
  last_name: "r1", phone_number: "003223004455", gender: "male", birthday: "26/03/1970")
-r2 = Renter.create(email: "r2@gmail.com", password: "blablabla", first_name: "Hed",
+r2 = Renter.create(email: "r2@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Hed",
  last_name: "r2", phone_number: "003223004455", gender: "female", birthday: "26/04/1970")
-r3 = Renter.create(email: "r3@gmail.com", password: "blablabla", first_name: "Max",
+r3 = Renter.create(email: "r3@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Max",
  last_name: "r3", phone_number: "003223004455", gender: "male", birthday: "26/05/1970")
-r4 = Renter.create(email: "r4@gmail.com", password: "blablabla", first_name: "Jean-Mich",
+r4 = Renter.create(email: "r4@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Jean-Mich",
  last_name: "r4", phone_number: "003223004455", gender: "male", birthday: "26/06/1970")
-r5 = Renter.create(email: "r5@gmail.com", password: "blablabla", first_name: "Laurent",
+r5 = Renter.create(email: "r5@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Laurent",
  last_name: "r5", phone_number: "003223004455", gender: "male", birthday: "26/07/1970")
-r6 = Renter.create(email: "r6@gmail.com", password: "blablabla", first_name: "John",
+r6 = Renter.create(email: "r6@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "John",
  last_name: "r6", phone_number: "003223004455", gender: "male", birthday: "26/08/1970")
-r7 = Renter.create(email: "r7@gmail.com", password: "blablabla", first_name: "Julien",
+r7 = Renter.create(email: "r7@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Julien",
  last_name: "r7", phone_number: "003223004455", gender: "male", birthday: "26/09/1970")
-r8 = Renter.create(email: "r8@gmail.com", password: "blablabla", first_name: "Jules",
+r8 = Renter.create(email: "r8@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Jules",
  last_name: "r8", phone_number: "003223004455", gender: "male", birthday: "26/10/1970")
-r9 = Renter.create(email: "r9@gmail.com", password: "blablabla", first_name: "Jeff",
+r9 = Renter.create(email: "r9@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Jeff",
  last_name: "r9", phone_number: "003223004455", gender: "male", birthday: "26/11/1970")
-r10 = Renter.create(email: "r10@gmail.com", password: "blablabla", first_name: "Jan",
+r10 = Renter.create(email: "r10@gmail.com", password_confirmation: "blablabla" ,password: "blablabla", first_name: "Jan",
  last_name: "r10", phone_number: "003223004455", gender: "male", birthday: "26/12/1970")
 
 #Flats
-f1 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "3",
+f1 = Flat.create(owner_id: 1, flat_type: "flat", flat_name: "Louise", floor: "3",
  flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
   postal_code: "1050", description: "what to put in description", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
-f2 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "4",
+  loan_cost: 758.69, tax_cost: 543.67)
+f2 = Flat.create(owner_id: 1, flat_type: "flat", flat_name: "Louise", floor: "4",
  flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
   postal_code: "1050", description: "what to put in description", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
-f3 = Flat.create(owner_id: 2, flat_name: "Liberty", floor: "NA",
+  loan_cost: 758.69, tax_cost: 543.67)
+f3 = Flat.create(owner_id: 2, flat_type: "flat", flat_name: "Liberty", floor: "NA",
  flat_number: 2, address: "avenue de la liberté", city: "WAterloo", syndicate: "NA",
   postal_code: "1410", description: "what to put in description", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "House")
-f4 = Flat.create(owner_id: 3, flat_name: "Lippens", floor: "0",
+  loan_cost: 758.69, tax_cost: 543.67)
+f4 = Flat.create(owner_id: 3, flat_type: "house", flat_name: "Lippens", floor: "0",
  flat_number: 2, address: "avenue Lippens", city: "Knokke", syndicate: "Sea side syndic",
   postal_code: "3800", description: "nice view", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
-f5 = Flat.create(owner_id: 4, flat_name: "Diegem", floor: "1",
+  loan_cost: 758.69, tax_cost: 543.67)
+f5 = Flat.create(owner_id: 4, flat_type: "house", flat_name: "Diegem", floor: "1",
  flat_number: 2, address: "Rue Flémard", city: "Brussels", syndicate: "TREC",
   postal_code: "1020", description: "To be refurnished", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Studio")
-f6 = Flat.create(owner_id: 5, flat_name: "Louise", floor: "3",
+  loan_cost: 758.69, tax_cost: 543.67)
+f6 = Flat.create(owner_id: 5, flat_type: "house", flat_name: "Louise", floor: "3",
  flat_number: 2, address: "avenue Louise", city: "Brussels", syndicate: "GGG",
   postal_code: "1050", description: "what to put in description", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
-f7 = Flat.create(owner_id: 1, flat_name: "Louise", floor: "3",
+  loan_cost: 758.69, tax_cost: 543.67)
+f7 = Flat.create(owner_id: 1, flat_type: "garage", flat_name: "Louise", floor: "3",
  flat_number: 2, address: "avenue américaine", city: "Brussels", syndicate: "AB Invest",
   postal_code: "1050", description: "what to put in description", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Penthouse")
-f8 = Flat.create(owner_id: 6, flat_name: "Gudule", floor: "7",
+  loan_cost: 758.69, tax_cost: 543.67)
+f8 = Flat.create(owner_id: 6, flat_type: "flat", flat_name: "Gudule", floor: "7",
  flat_number: 2, address: "place saint Gudule", city: "Brussels", syndicate: "Immo Immo",
   postal_code: "1000", description: "what to put in description", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
-f9 = Flat.create(owner_id: 7, flat_name: "Ferme", floor: "NA",
+  loan_cost: 758.69, tax_cost: 543.67)
+f9 = Flat.create(owner_id: 7, flat_type: "house", flat_name: "Ferme", floor: "NA",
  flat_number: 2, address: "avenue du champs", city: "Habay", syndicate: "NA",
   postal_code: "6080", description: "nice air", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Ferme")
-f10 = Flat.create(owner_id: 8, flat_name: "", floor: "2",
+  loan_cost: 758.69, tax_cost: 543.67)
+f10 = Flat.create(owner_id: 8, flat_type: "flat", flat_name: "", floor: "2",
  flat_number: 2, address: "chaussée de Waterloo", city: "Brussels", syndicate: "GGG",
   postal_code: "1180", description: "On the street", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
-f11 = Flat.create(owner_id: 9, flat_name: "Américaine", floor: "1",
- flat_number: 2, address: "rue F. Merjay", city: "Brussels", syndicate: "GGG",
-  postal_code: "1050", description: "nice view", country: "Belgium",
-  loan_cost: 758.69, tax_cost: 543.67, flat_type: "Appart")
+  loan_cost: 758.69, tax_cost: 543.67)
+# f11 = Flat.create(owner_id: 9, flat_type: "flat", flat_name: "Américaine", floor: "1",
+#  flat_number: 2, address: "rue F. Merjay", city: "Brussels", syndicate: "GGG",
+#   postal_code: "1050", description: "nice view", country: "Belgium",
+#   loan_cost: 758.69, tax_cost: 543.67)
 
 #Contracts
-c1 = Contract.create(rent_start: "01/01/2015", renter_id: 1, flat_id: 1,
+c1 = Contract.create(rent_end: "01/02/2018", rent_start: "01/01/2015", renter_id: 1, flat_id: 1,
  rent_amount: 1000.12, warranty_amount: 350, pay_day: 1, active: "Active",
-  days_to_reminder: 10)
-c2 = Contract.create(rent_start: "01/01/2010", rent_end: "20/12/2012" ,
+  days_to_reminder: 10, provision: 200)
+c2 = Contract.create(rent_end: "01/02/2018", rent_start: "01/01/2010" ,
   renter_id: 2, flat_id: 1, rent_amount: 988.12, warranty_amount: 300,
-   pay_day: 1, active: "Inactive", days_to_reminder: 15)
-c3 = Contract.create(rent_start: "01/01/2013", renter_id: 2, flat_id: 11,
+   pay_day: 1, active: "Inactive", days_to_reminder: 15, provision: 200)
+c3 = Contract.create(rent_end: "05/12/2018", rent_start: "01/01/2013", renter_id: 2, flat_id: 2,
  rent_amount: 658.12, warranty_amount: 300, pay_day: 15, active: "Active",
-  days_to_reminder: 30)
-c4 = Contract.create(rent_start: "15/04/2014", rent_end: "20/12/2012", renter_id: 3, flat_id: 2,
+  days_to_reminder: 30, provision: 300)
+c4 = Contract.create(rent_end: "01/09/2018", rent_start: "15/04/2014", renter_id: 3, flat_id: 2,
  rent_amount: 450.45, warranty_amount: 200, pay_day: 20, active: "Inactive",
-  days_to_reminder: 15)
-c5 = Contract.create(rent_start: "15/04/2014", renter_id: 4, flat_id: 3,
+  days_to_reminder: 15, provision: 300)
+c5 = Contract.create(rent_end: "01/04/2018", rent_start: "15/04/2014", renter_id: 4, flat_id: 3,
  rent_amount: 450.45, warranty_amount: 200, pay_day: 20, active: "Active",
-  days_to_reminder: 15)
-c6 = Contract.create(rent_start: "15/06/2016", renter_id: 5, flat_id: 4,
+  days_to_reminder: 15, provision: 300)
+c6 = Contract.create(rent_end: "01/02/2020", rent_start: "15/06/2016", renter_id: 5, flat_id: 4,
  rent_amount: 550, warranty_amount: 250, pay_day: 20, active: "Active",
-  days_to_reminder: 15)
-c7 = Contract.create(rent_start: "15/04/2004", renter_id: 6, flat_id: 5,
+  days_to_reminder: 15, provision: 300)
+c7 = Contract.create(rent_end: "01/02/2017", rent_start: "15/04/2004", renter_id: 6, flat_id: 5,
  rent_amount: 650.78, warranty_amount: 300, pay_day: 20, active: "Active",
-  days_to_reminder: 15)
-c8 = Contract.create(rent_start: "15/04/2012", rent_end: "20/12/2012", renter_id: 7, flat_id: 6,
+  days_to_reminder: 15, provision: 300)
+c8 = Contract.create(rent_end: "01/02/2018", rent_start: "15/04/2012", renter_id: 7, flat_id: 6,
  rent_amount: 750.98, warranty_amount: 400, pay_day: 20, active: "Inactive",
-  days_to_reminder: 15)
-c9 = Contract.create(rent_start: "15/04/1984", renter_id: 8, flat_id: 7,
+  days_to_reminder: 15, provision: 300)
+c9 = Contract.create(rent_end: "01/05/2018", rent_start: "15/04/1984", renter_id: 8, flat_id: 7,
  rent_amount: 850, warranty_amount: 400, pay_day: 20, active: "Active",
-  days_to_reminder: 15)
-c10 = Contract.create(rent_start: "15/04/1999", rent_end: "20/12/2012", renter_id: 9, flat_id: 8,
+  days_to_reminder: 15, provision: 543.11)
+c10 = Contract.create(rent_end: "01/12/2018", rent_start: "15/04/1999", renter_id: 9, flat_id: 8,
  rent_amount: 950.45, warranty_amount: 500, pay_day: 20, active: "Inactive",
-  days_to_reminder: 15)
-c11 = Contract.create(rent_start: "15/04/2016", renter_id: 10, flat_id: 9,
+  days_to_reminder: 15, provision: 543.11)
+c11 = Contract.create(rent_end: "01/07/2019", rent_start: "15/04/2016", renter_id: 10, flat_id: 9,
  rent_amount: 1278.56, warranty_amount: 600, pay_day: 20, active: "Pending",
-  days_to_reminder: 15)
+  days_to_reminder: 15, provision: 543.11)
 
 #Documents
 doc1 = Document.create(contract_id: 1, doc_type: "Rent contract", name: "Bail")

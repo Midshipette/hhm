@@ -4,17 +4,13 @@
   <div class="form-inputs">
     <%= f.input :name, placeholder: "ex. Invoice - Boiler maintenance 2016" %>
     <%= f.input :doc_type, collection: ["PEB", "Bail", "Garantie locative", "Compteur électrictié", "Compteur eau", "Compteur gaz", "Entretien"], selected: "PEB" %>
-    <div id=form-expiration-date>
-    <% expiration = "Yes" %>
+    <div id="form-expiration-date">
       <ul>
-        <li><%= f.input :expiration_date %></li>
-        <li><%= f.input :expiration, collection: ["Yes", "No"], selected: "Yes" %></li>
+        <li><%= f.input :expiration, collection: ["Yes", "No"], selected: "No", id: 'expiration-select', label: "Document has an expiration date?" %></li>
+        <li class='expiration-date is-hidden'><%= f.input :expiration_date, label: false %></li>
       </ul>
     </div>
-
-
-
-    <%= f.input :days_to_reminder, :collection => [["Yes", 10] ,["No", nil ]], :label_method => :first, :value_method => :last, :as => :radio_buttons, :label => "Should we remind you 10 days before?", :item_wrapper_class => 'inline', selected: "Yes" %>
+    <%= f.input :days_to_reminder, :collection => [["No", 10] ,["Yes", nil ]], :label_method => :first, :value_method => :last, :as => :radio_buttons, :label => "Should we remind you 10 days before?", :item_wrapper_class => 'inline', selected: "Yes" %>
     <%= f.input :attachment %>
     <%= f.input :attachment_cache, as: :hidden %>
     <%= f.association :contract, as: :hidden %>
@@ -29,11 +25,14 @@
 <% end %>
 
 
-<!-- = user.input :resident,
-             :collection => [["In the U.S", true],["Outside the U.S.", false]],
-             :label_method => :first,
-             :value_method => :last,
-             :as => :radio_buttons,
-             :label => "Where is your principle residence?",
-             :item_wrapper_class => 'inline'
- -->
+<%= content_for(:after_js) do %>
+  <script>
+    $('#document_expiration').on('change', function(e) {
+      if ($(this).val() == 'Yes') {
+        $('.expiration-date').removeClass('is-hidden')
+      } else {
+        $('.expiration-date').addClass('is-hidden')
+      }
+    })
+  </script>
+<% end %>

@@ -23,12 +23,10 @@ class RentersController < ApplicationController
     @renter = Renter.new(renter_params)
     @flat = Flat.find(params[:flat_id])
 
-
-
     respond_to do |format|
       if @renter.save
         @contract.renter_id = @renter.id
-        if @contract.rent_start < DateTime.now.to_date
+        if @contract.rent_start > Time.now
           @contract.active = 'Pending'
         else
           @contract.active = "Active"
@@ -42,8 +40,21 @@ class RentersController < ApplicationController
         format.json { render json: @renter.errors, status: :unprocessable_entity }
       end
     end
+  end
 
+  def select
+    @renter = Renter.find(params[:renter_id])
+    @flat = Flat.find(params[:flat_id])
+    @contract = Contract.unscoped.find(params[:contract_id])
+    @contract.renter_id = @renter.id
 
+    if @contract.rent_start > Time.now
+          @contract.active = 'Pending'
+        else
+          @contract.active = "Active"
+        end
+    @contract.save
+    redirect_to flat_path(@flat)
   end
 
   def show

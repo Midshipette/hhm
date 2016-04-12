@@ -1,7 +1,41 @@
 <h1>Financial review</h1>
 
-<%= @contract.rent_amount.round %>
-  
+<div class = "finance_container">
+  <div class='finance-rows'>
+        <h3>Montly entries</h3>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Monthly rent
+            </div>     
+            <div class = "finance_value">
+              <% rent = @contract.rent_amount.round(2) %>
+              <%= rent %>
+            </div>
+          </div>
+              <!-- finance_row -->
+          <div class = "finance_row">
+            <div class="finance-key">
+              Monthly provision
+            </div>     
+            <div class = "finance_value">
+              <% provision = @contract.provision %>
+              <%= @contract.provision.nil? ? provision = 0 : provision.round(2) %>
+            </div>
+          </div>
+              <!-- finance_row -->
+              <div class="finance_row">
+                <div class="finance-key total">
+                 Total
+                </div>
+          
+                <div class="finance_value total">
+                  <% monthly_total = rent + provision %>
+                  <%= monthly_total.round(2)%>
+                </div>
+              </div>
+                  <!-- finance_row -->
+          </div>
+
       <% @costs.each do |cost| %>
     <div class = "finance_container" >
     <i class="mdi mdi-account md-36 md-dark"></i> 
@@ -54,19 +88,19 @@
         <%= cost.end_month_year %>
         <%= cost.owner_charge %>
         <%= cost.owner_charge %>   
+
 <p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %> 
-<%= link_to 'Add real charges', new_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %>
+<%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'btn btn-default' %>
 <%=  link_to 'Clear provisions & real charges', openclearsumcosts_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %></p>
 <p>Real charges are the ones that your property manager provided you with.</p>
-
         
 
 
 
 
         <% end %>
-
-
+<%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'btn btn-default' %>
+  </div>
 </div>
 
 

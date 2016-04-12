@@ -47,6 +47,11 @@
       </p>
 
       <p>
+        <strong>Provision:</strong>
+        <%= @contract.provision %>
+      </p>
+
+      <p>
         <strong>Warranty amount:</strong>
         <%= @contract.warranty_amount %>
       </p>
@@ -72,6 +77,9 @@
       <%= link_to 'Back', flat_path(@contract.flat_id), class: 'btn btn-default' %>
     </div>
     <div class="col-xs-6">
+
+    <%= render 'show.pdf' %>
+
     </div>
   </div>
 </div>

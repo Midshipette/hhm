@@ -12,6 +12,16 @@ class ContractsController < ApplicationController
   # GET /contracts/1.json
   def show
     # @flat = Flat.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name",
+               :template => "contracts/show.pdf.erb",
+               :layout => "renting_pdf.html.erb"
+      end
+    end
+
   end
 
   def pick_renter
@@ -94,6 +104,6 @@ class ContractsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contract_params
-      params.require(:contract).permit(:rent_start, :rent_end, :renter_id, :rent_amount, :warranty_amount, :pay_day, :active, :days_to_reminder)
+      params.require(:contract).permit(:rent_start, :rent_end, :renter_id, :rent_amount, :warranty_amount, :pay_day, :active, :days_to_reminder, :provision)
     end
   end
