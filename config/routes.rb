@@ -43,6 +43,7 @@ Rails.application.routes.draw do
 
   get '/mydashboard' => "flats#index"
 
+  post 'contact_form', to: 'pages#contact_form'
   root to: 'pages#home'
 
 
