@@ -31,6 +31,11 @@ class DocumentsController < ApplicationController
   # POST /documents.json
   def create
     task = Task.find(params[:document][:task_id]) unless params[:document][:task_id].nil? # checks if was coming from task manager
+
+    today = Date.today.strftime('%Y-%m-%d')
+
+    expiration = "Yes" if (params[:document][:expiration] == "Yes" && params[:document][:expiration_date] != Date.today)# will define is expiration date or not (for task creation))
+
     @flat = Flat.find(params[:flat_id])
     @document = Document.new(document_params)
     @contract = Contract.where(flat_id: @flat.id, active: "Active")[0]
@@ -38,17 +43,21 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save!
-        if !task.nil? && task.status == "awaiting doc"
+        if !task.nil? && task.status == "awaiting doc"  # if no expiration date, not task created
           task.status = "doc uploaded"
-          today = Date.today.strftime('%Y-%m-%d')
           task.description = task.description + " \( Doc Uploaded on #{today}\)"
           task.save
         end
         if @document.expiration_date # checks if received and expiration date
-          @task = Task.create(document_id: @document.id, owner: "renter", name: "update \"#{@document.doc_type}\" document",
-          description: "Update document: " + @document.name , due_date: @document.expiration_date, contract_id: @document.contract_id)
+          if expiration == "Yes"
+            @task = Task.create(document_id: @document.id, owner: "renter", name: "update \"#{@document.doc_type}\" document",
+            description: "Update document: " + @document.name , due_date: @document.expiration_date, contract_id: @document.contract_id)
+            message = "Document and task were successfully created."
+          else
+            message = "Document was successfully created."
+          end
         end
-        format.html { redirect_to flat_documents_path(@flat), notice: 'Document and task were successfully created.' }
+        format.html { redirect_to flat_documents_path(@flat), notice: message }
       else
         format.html { render :new }
       end
@@ -63,10 +72,8 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       if @document.update(document_params)
         format.html { redirect_to flat_documents_path(@flat), notice: 'Document was successfully updated.' }
-        format.json { render :show, status: :ok, location: @document }
       else
         format.html { render :edit }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
       end
     end
   end

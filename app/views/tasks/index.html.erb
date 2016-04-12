@@ -65,8 +65,7 @@
   </table>
 
 
-  <br>
-  <br>
+    <h1>History</h1>
 
     <table class="table table-responsive table-striped table-hover">
     <thead>
@@ -108,11 +107,22 @@
 
 
 
+  <div class="links-table-bottom">
+    <%= link_to mydashboard_path(@flat) do %>
+      <div>
+          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
+          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
+      </div>
+    <% end %>
+     <%= link_to flat_documents_path(@flat) do %>
+      <div class="link-table-bottom-right">
+        <%= content_tag('i', nil,  class: 'fa fa-file-text fa-2x') %>
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
+      </div>
+    <% end %>
+  </div>
 
-   <%= link_to mydashboard_path(@flat) do %>
-     <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
-     <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
-  <% end %>
+
 
 
 
