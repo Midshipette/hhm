@@ -1,30 +1,33 @@
 
-    <%= simple_form_for(@flat) do |f| %>
-      <%= f.error_notification %>
-      <div class="form-actions">
-        <%= f.button :submit, :class => "submit-btn" %>
-      </div>
+<%= simple_form_for(@flat) do |f| %>
+<%= f.error_notification %>
+<div class="form-actions">
 
-      <div class="form-inputs">
-        <%= f.input :flat_name %>
-        <%= f.input :flat_type %>
-        <%= f.input :floor %>
-        <%= f.input :flat_number %>
-        <%= f.input :address %>
-        <%= f.input :city %>
-        <%= f.input :postal_code %>
-        <%= f.input :country %>
-        <br>
-        <%= f.input :syndicate %>
-        <br>
-        <%= f.input :description %>
-        <br>
-        <%= f.input :loan_cost %>
-        <%= f.input :tax_cost %>
-      </div>
+</div>
 
-      <div class="form-actions">
-        <%= f.button :submit, :class => "submit-btn" %>
-      </div>
-    <% end %>
+<div class="form-inputs">
+  <%= f.input :flat_name, required: true %>
+  <%= f.input :flat_type, label: "type", collection: [:Flat, :House, :Garage, :Other], selected: :Flat, required: true %>
+  <%= f.input :floor %>
+  <%= f.input :flat_number %>
+  <%= f.input :address, required: true %>
+  <%= f.input :city, required: true %>
+  <%= f.input :postal_code, required: true %>
+  <%= f.input :country, required: true %>
+  <br>
+  <%= f.input :syndicate, default: "None" %>
+  <br>
+  <%= f.input :description %>
+  <br>
+  <%= f.input :loan_cost %>
+  <%= f.input :tax_cost %>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', flats_path, class: 'btn btn-default' %>
+
+  <%= f.button :submit, :class => "submit-btn" %>
+</div>
+<% end %>
+
 

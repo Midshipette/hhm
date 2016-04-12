@@ -75,14 +75,18 @@
 
 
       <div class="col-md-6">
+
+      <% flat_active = @flat.contracts.select { |contract| contract.active == 'Active' } %>
       <%if @flat.contracts.last.nil? %>
       <%else %>
         <p><strong>Current tenant:</strong>
-          <%= @flat.contracts.last.renter.first_name %>
-          <%= @flat.contracts.last.renter.last_name %> <%= link_to 'Details', flat_renter_path(@flat.id,@flat.contracts.last.renter_id), class: 'btn btn-default' %>
+          <%= flat_active.last.renter.first_name %>
+          <%= flat_active.last.renter.last_name %> <%= link_to 'Details', flat_renter_path(@flat.id,@flat.contracts.last.renter_id), class: 'btn btn-default' %>
         </p>
         <%end%>
         <br>
+
+
 
 
         <%= link_to new_flat_contract_path(@flat) do %>

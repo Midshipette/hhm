@@ -55,5 +55,22 @@
 
   <br>
 
+
+  <div class="links-table-bottom">
+    <div>
+      <%= link_to mydashboard_path(@flat) do %>
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
+      <% end %>
+    </div>
+     <div class="link-table-bottom-right">
+      <%= link_to flat_tasks_path(@flat) do %>
+        <%= content_tag('i', nil,  class: 'fa fa-tasks fa-2x') %>
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
+      <% end %>
+    </div>
+  </div>
+
+
 </div>
 
