@@ -7,6 +7,7 @@
     <%= f.input :rent_end, as: :date, start_year: Date.today.year - 1,
     end_year: Date.today.year + 12, required: true %>
     <%= f.input :rent_amount, required: true %>
+    <%= f.input :provision, required: true %>
     <%= f.input :warranty_amount, required: true %>
     <%= f.input :pay_day, placeholder: "which day of each month day the payment need to be processed", required: true, collection: 1..31, selected: 15 %>
     <% if @contract.renter_id.nil? %>
