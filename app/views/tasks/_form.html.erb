@@ -2,12 +2,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :status %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :due_date %>
     <%= f.association :contract, as: :hidden %>
-    <%= f.input :owner %>
+    <%= f.input :owner, collection: ["owner", "renter"], selected: "owner", label: "Person responsible" %>
+
   </div>
 
   <div class="form-actions">
