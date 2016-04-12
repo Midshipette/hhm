@@ -1,49 +1,79 @@
 <div class='container'>
-
   <h2 class="text-center">Rental contract</h2>
+  <div class="row">
+    <div class="col-xs-6">
 
-  <p>
-    <strong>Rent start:</strong>
-    <%= @contract.rent_start %>
-  </p>
+      <h4>Renter information</h4>
 
-  <p>
-    <strong>Rent end:</strong>
-    <%= @contract.rent_end %>
-  </p>
+      <p>
+        <strong>Renter:</strong>
+        <%= @contract.renter.first_name %> <%= @contract.renter.last_name %>
+      </p>
 
-  <p>
-    <strong>Renter:</strong>
-    <%= @contract.renter.first_name %> <%= @contract.renter.last_name %>
-  </p>
+      <p>
+        <strong>Renter email:</strong>
+        <%= @contract.renter.email %>
+      </p>
 
-  <p>
-    <strong>Rent amount:</strong>
-    <%= @contract.rent_amount %>
-  </p>
+      <p>
+        <strong>Renter gender:</strong>
+        <%= @contract.renter.gender %>
+      </p>
 
-  <p>
-    <strong>Warranty amount:</strong>
-    <%= @contract.warranty_amount %>
-  </p>
+      <p>
+        <strong>Renter birthday:</strong>
+        <%= @contract.renter.birthday %>
+      </p>
 
-  <p>
-    <strong>Pay day:</strong>
-    <%= @contract.pay_day %>
-  </p>
+      <br>
 
-  <p>
-    <strong>Active:</strong>
-    <%= @contract.active %>
-  </p>
+      <h4>Contract information</h4>
 
-  <p>
-    <strong>Days to reminder:</strong>
-    <%= @contract.days_to_reminder %>
-  </p>
+      <p>
+        <strong>Rent start:</strong>
+        <%= @contract.rent_start %>
+      </p>
 
-  <%= link_to 'Edit', edit_flat_contract_path, class: 'btn btn-default' %>
-  <%= link_to 'Back', flat_path(@contract.flat_id), class: 'btn btn-default' %>
+      <p>
+        <strong>Rent end:</strong>
+        <%= @contract.rent_end %>
+      </p>
+
+
+
+      <p>
+        <strong>Rent amount:</strong>
+        <%= @contract.rent_amount %>
+      </p>
+
+      <p>
+        <strong>Warranty amount:</strong>
+        <%= @contract.warranty_amount %>
+      </p>
+
+      <p>
+        <strong>Pay day:</strong>
+        <%= @contract.pay_day %>
+      </p>
+
+      <p>
+        <strong>Active:</strong>
+        <%= @contract.active %>
+      </p>
+
+      <p>
+        <strong>Days to reminder:</strong>
+        <%= @contract.days_to_reminder %>
+      </p>
+
+
+
+      <%= link_to 'Edit', edit_flat_contract_path, class: 'btn btn-default' %>
+      <%= link_to 'Back', flat_path(@contract.flat_id), class: 'btn btn-default' %>
+    </div>
+    <div class="col-xs-6">
+    </div>
+  </div>
 </div>
 
 
