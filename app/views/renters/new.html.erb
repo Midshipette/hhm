@@ -9,8 +9,8 @@
         <%= f.input :email, required: true, autofocus: true %>
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
         <%= f.input :password_confirmation, required: true %>
-        <%= f.input :private, label: "type", required: true, collection: [:Private, :Company] %>
-        <%= f.input :gender, required: true, collection: [:Male, :Female] %>
+        <%= f.input :private, label: "type", required: true, collection: [:Private, :Company], selected: :Private %>
+        <%= f.input :gender, required: true, collection: [:Male, :Female], selected: :Male %>
         <%= f.input :first_name, required: true %>
         <%= f.input :last_name, required: true %>
         <%= f.input :phone_number, required: true %>

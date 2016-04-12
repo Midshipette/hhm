@@ -28,7 +28,11 @@ class RentersController < ApplicationController
     respond_to do |format|
       if @renter.save
         @contract.renter_id = @renter.id
-        @contract.active = 'Pending'
+        if @contract.rent_start < DateTime.now.to_date
+          @contract.active = 'Pending'
+        else
+          @contract.active = "Active"
+        end
         @contract.save
         format.html { redirect_to flat_path(@flat), notice: 'renter was successfully created.' }
         format.json { render :show, status: :created, location: @renter }
