@@ -1,5 +1,7 @@
 <h1>Financial review</h1>
 
+<%= @contract.rent_amount.round %>
+  
       <% @costs.each do |cost| %>
     <div class = "finance_container" >
     <i class="mdi mdi-account md-36 md-dark"></i> 
@@ -14,7 +16,7 @@
               Monthly rent
             </div>     
             <div class = "finance_value">
-              <% rent = cost.contract.rent_amount %>
+              <% rent = @contract.rent_amount.round %>
               <%= rent %>
             </div>
           </div>
