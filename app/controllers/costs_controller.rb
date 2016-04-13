@@ -4,6 +4,7 @@ class CostsController < ApplicationController
   def index
     @contract = Contract.find(params[:contract_id])
     @costs = @contract.costs
+    @revenues = @contract.revenues
 
 
   end

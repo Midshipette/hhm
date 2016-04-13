@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160411144416) do
+ActiveRecord::Schema.define(version: 20160413123452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,16 @@ ActiveRecord::Schema.define(version: 20160411144416) do
   add_index "renters", ["email"], name: "index_renters_on_email", unique: true, using: :btree
   add_index "renters", ["reset_password_token"], name: "index_renters_on_reset_password_token", unique: true, using: :btree
 
+  create_table "revenues", force: :cascade do |t|
+    t.date     "rent_month"
+    t.integer  "contract_id"
+    t.boolean  "paid"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "revenues", ["contract_id"], name: "index_revenues_on_contract_id", using: :btree
+
   create_table "tasks", force: :cascade do |t|
     t.string   "status",      default: "open"
     t.string   "name"
@@ -159,6 +169,7 @@ ActiveRecord::Schema.define(version: 20160411144416) do
   add_foreign_key "costs", "contracts"
   add_foreign_key "documents", "contracts"
   add_foreign_key "flats", "owners"
+  add_foreign_key "revenues", "contracts"
   add_foreign_key "tasks", "contracts"
   add_foreign_key "tasks", "documents"
 end
