@@ -1,0 +1,19 @@
+<% @revenues.each do |revenue| %>
+            <% if revenue.rent_month < Time.now.next_month %>
+            <% else %>
+              <% "" %>
+            <% end %> 
+         
+
+
+
+
+<%= simple_form_for [@contract, @revenue] do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :paid, :label => 'Rent paid?', as: :boolean, checked_value: true, unchecked_value: false %>
+      </div>
+
+    <% end %>
+<% end %>

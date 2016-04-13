@@ -64,9 +64,11 @@ class ContractsController < ApplicationController
         format.json { render :show, status: :created, location: @contract }
         
         rent_period = (@contract.rent_end.month - @contract.rent_start.month) + 1
-    
+        
+        contract_rent_month = @contract.rent_start.to_date
         rent_period.times do
-          Revenue.create(rent_month: @contract.rent_start, contract_id: @contract.id, paid: false)
+          Revenue.create(rent_month: contract_rent_month, contract_id: @contract.id, paid: false)
+          contract_rent_month = contract_rent_month.next_month
         end
       else
         format.html { render :new }
