@@ -46,9 +46,15 @@
 
       <tr>
         <td></td>
-        <td><%= link_to(new_flat_document_path) do %>
-              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-floppy-open') %>
-           <% end %></td>
+
+          <td class="remove-padding-table">
+          <%= link_to(new_flat_document_path) do %>
+          <div class="btn-table-cell text-center">
+            <%= content_tag('span', nil,  class: 'glyphicon glyphicon-floppy-open') %>
+            </div>
+            <% end %>
+          </td>
+
       </tr>
     </tbody>
   </table>

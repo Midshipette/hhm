@@ -11,5 +11,38 @@ table.table tr td span {
   color: $gray-dark;
 }
 
+.table-header {
+  display:flex;
+  height:30px;
+}
 
+.table-header.col-status {
+  width: 180px;
 
+}
+.table-header.col-owner {
+   width: 180px;
+
+}
+.table-header.col-name {
+   width: 180px;
+
+}
+.table-header.col-description {
+   width: 180px;
+
+}
+.table-header.col-due-date {
+   width: 180px;
+
+}
+.table-header.col-last-column {
+   width: 180px !important;
+}
+.remove-padding-table {
+  padding: 0px !important;
+}
+.btn-table-cell {
+  font-size: 26px
+
+}
