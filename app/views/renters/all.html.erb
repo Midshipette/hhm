@@ -1,11 +1,17 @@
-<div class="container">
-<% @flats.each do |flat| %>
-<li> <p><%= flat.contracts.last.renter.first_name %>
-<%= flat.contracts.last.renter.last_name %> </p>
-<p>Apartment: <%= link_to flat.flat_name, flat_path(flat.id) %></p>
-<p>Tenant since: <%= flat.contracts.last.rent_start %></p>
-<p><%= flat.contracts.last.rent_end.nil? ? "Still under contract" : "Left on: #{flat.contracts.last.rent_end}" %></p>
 <br>
-  </li>
-<% end %>
 
+<div class="container">
+  <% @flats.each do |flat| %>
+  <% flat_active = flat.contracts.select { |contract| contract.active == "Active" }%>
+  <% if flat_active == [] %>
+  <% else %>
+  <li> <p><%= flat_active.last.renter.first_name %>
+    <%= flat_active.last.renter.last_name %> </p>
+    <p>Apartment: <%= link_to flat.flat_name, flat_path(flat.id) %></p>
+    <p>Tenant since: <%= flat_active.last.rent_start %></p>
+    <p><%= flat_active.last.rent_end.nil? ? "Still under contract" : "Left on: #{flat.contracts.last.rent_end}" %></p>
+    <br>
+  </li>
+  <% end %>
+  <% end %>
+</div>
