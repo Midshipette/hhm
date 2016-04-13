@@ -10,6 +10,12 @@
   justify-content: space-between;
 }
 
+.pages-home {
+  .navbar-wagon {
+    box-shadow: none;
+  }
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   position: fixed;
@@ -28,6 +34,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+
+  a {
+    color: #888888;
+
+    &:hover {
+      color: darken(#888888, 20%);
+      text-decoration: none !important;
+    }
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 /* Navbar right section (with form, links, button) */
