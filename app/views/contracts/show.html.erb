@@ -78,7 +78,8 @@
     </div>
     <div class="col-xs-6">
 
-    <%= render 'show.pdf' %>
+    <%= render 'contract' %>
+    <%= link_to 'print', flat_contract_path(@contract.flat.id, @contract.id, format: 'pdf', target: "_blank") %>
 
     </div>
   </div>

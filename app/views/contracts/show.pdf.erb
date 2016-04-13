@@ -1,0 +1,30 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+
+    <h4>CONTRAT DE BAIL - RESIDENCE PRINCIPALE </h4>
+
+
+
+    <p>ENTRE</p>
+    <p>A. Bailleur : <strong><%= current_owner.last_name.upcase %>  <%= current_owner.first_name.capitalize %></strong></p>
+    <p>agissant en qualité de Mandataire, et à défaut, de Porte-fort,</p>
+    <p>ET</p>
+    <p>B. Preneur : <strong><%= @contract.renter.last_name.upcase %> <%= @contract.renter.first_name.capitalize %></strong></p>
+
+    <p>Obligés solidairement et indivisiblement</p>
+    <p>agissant en qualité de Mandataire, et à défaut, de Porte-fort,</p>
+    <p>EST CONVENU CE QUI SUIT :</p>
+    <p>1. OBJET - DESCRIPTION - ETAT</p>
+    <p>Le Bailleur donne en location au preneur le bien décrit comme suit :</p>
+
+    <p>Et situé <%= @contract.flat.address %></p>
+    <br>
+    <p>Le bail est conclu pour une durée de :</p>
+    <p>SOIT : prenant cours le <%= @contract.rent_start %> </p>
+    <p>se terminant le <%= @contract.rent_end %> </p>
+    <p> Il prend fin à l’expiration de la période convenue moyennant congé notifié par l’une ou l’autre
+      partie au moins six mois à l’avance.</p>
+
+
+  </div>
+</div>
