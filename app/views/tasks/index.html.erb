@@ -1,15 +1,76 @@
 <div class='container'>
   <h1>Listing Tasks</h1>
 
-    <div class="table-header">
-        <div class="col-status">Status</div>
-        <div class="col-owner">Owner</div>
-        <div class="col-name">Name</div>
-        <div class="col-description">Description</div>
-        <div class="col-due-date">Due date</div>
-        <div class="col-last-column"> </div>
+  <form id="task-table">
+    <div class="div-table">
+        <div class="div-table-row">
+          <div class="div-table-col" align="center">Status</div>
+          <div  class="div-table-col">Owner</div>
+          <div  class="div-table-col">Name</div>
+          <div  class="div-table-col">Descritpion</div>
+          <div  class="div-table-col">Due date</div>
+          <div  class="div-table-col">Last column</div>
+        </div>
+
+        <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
+        <% open_tasks.each do |task| %>
+          <div class="div-table-row">
+            <div class="div-table-col"><%= link_to  flat_task_status_path(@flat, task) do %>
+              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') if task.status == "open"%>
+              <%= content_tag('span', "awaiting doc", style: 'color:#EE5F5B;') if task.status == "awaiting doc"%>
+            <% end %>
+            </div>
+            <div class="div-table-col"><%= task.owner %></div>
+            <div class="div-table-col"><%= task.name %></div>
+            <div class="div-table-col"><%= task.description %></div>
+
+            <% if task.status == "awaiting doc" %>
+              <div class="div-table-col"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Upload doc</button></div>
+              <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
+            <% elsif Time.now > task.due_date %>
+              <div class="div-table-col btn btn-danger"> Late </div>
+            <% else %>
+              <div class="div-table-col"><%= task.due_date %></div>
+            <% end %>
+
+            <div class="div-table-col"><%= link_to edit_flat_task_path(@flat, task) do %>
+                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
+            <% end %></div>
+
+          </div>
+        <% end %>
+        <div> <%= link_to 'New Task', new_flat_task_path(@flat), class: "btn btn-primary" %> </div>
     </div>
-   <!--
+  </form>
+
+  <div class="links-table-bottom">
+    <%= link_to mydashboard_path(@flat) do %>
+      <div>
+          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
+          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
+      </div>
+    <% end %>
+     <%= link_to flat_documents_path(@flat) do %>
+      <div class="link-table-bottom-right">
+        <%= content_tag('i', nil,  class: 'fa fa-file-text fa-2x') %>
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+<!--
+    <div class="table-header">
+        <div class="col-status header"></div>
+        <div class="col-owner header">Owner</div>
+        <div class="col-name header">Name</div>
+        <div class="col-description header">Description</div>
+        <div class="col-due-date header">Due date</div>
+        <div class="col-last-column header"> </div>
+    </div>
+
     <tbody>
       <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
        <% open_tasks.each do |task| %>
@@ -30,15 +91,14 @@
 
 
           <% if task.status == "awaiting doc" %>
-            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-           Upload doc</button></td>
-
-          <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
+              <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Upload doc</button></td>
+             <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
 
           <% elsif Time.now > task.due_date %>
-            <td class="btn btn-danger"> Late </td>
+              <td class="btn btn-danger"> Late </td>
           <% else %>
-            <td><%= task.due_date %></td>
+              <td><%= task.due_date %></td>
           <% end %>
 
           <td><%= link_to edit_flat_task_path(@flat, task) do %>
@@ -117,5 +177,6 @@
       </div>
     <% end %>
   </div>
- -->
+
 </div>
+ -->

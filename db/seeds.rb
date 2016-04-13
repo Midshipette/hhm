@@ -156,39 +156,40 @@ doc_links = ["http://cdn.ghacks.net/wp-content/uploads/2009/09/pdf_file_viewer-3
 "http://blogs.adobe.com/acrolaw/files/2014/01/001_sample.jpg" ]
 
 #Documents
-doc1 = Document.create(contract_id: c1.id, doc_type: "Rent contract", name: "Bail", attachment: open(doc_links[0]))
+doc1 = Document.create(contract_id: c1.id, doc_type: "Rent contract", name: "Bail")
 doc2 = Document.create(contract_id: c2.id, doc_type: "PEB", name: "Niveau D",
   expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019",
-  days_to_reminder: 60, attachment: open(doc_links[1]))
+  days_to_reminder: 60)
 doc3 = Document.create(contract_id: c3.id, doc_type: "Entretien", name: "Chaudière",
- reminder_sent_date: "15/10/2019", days_to_reminder: 20, attachment: open(doc_links[2]))
+ reminder_sent_date: "15/10/2019", days_to_reminder: 20)
 doc4 = Document.create(contract_id: c3.id, doc_type: "Rent contract", name: "Bail",
   expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014",
-  days_to_reminder: 60,  attachment: open(doc_links[0]))
+  days_to_reminder: 60)
 doc5 = Document.create(contract_id: c3.id, doc_type: "Insurance", name: "Home",
-  expiration_date: "15/12/2016", days_to_reminder: 60, attachment: open(doc_links[1]))
+  expiration_date: "15/12/2016", days_to_reminder: 60)
 doc6 = Document.create(contract_id: c4.id, doc_type: "Rent contract", name: "Bail")
 doc7 = Document.create(contract_id: c5.id, doc_type: "PEB", name: "Niveau D",
   expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019",
-  days_to_reminder: 60, attachment: open(doc_links[2]))
+  days_to_reminder: 60)
 doc8 = Document.create(contract_id: c6.id, doc_type: "Entretien", name: "Chaudière",
- reminder_sent_date: "15/10/2019", days_to_reminder: 20, attachment: open(doc_links[0]))
+ reminder_sent_date: "15/10/2019", days_to_reminder: 20)
 doc9 = Document.create(contract_id: c6.id, doc_type: "Rent contract", name: "Bail",
   expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014",
-  days_to_reminder: 60, attachment: open(doc_links[1]))
+  days_to_reminder: 60)
 doc10 = Document.create(contract_id: c7.id, doc_type: "Insurance", name: "Home",
-  expiration_date: "15/12/2016", days_to_reminder: 60, attachment: open(doc_links[2]))
-doc11 = Document.create(contract_id: c8.id, doc_type: "Rent contract", name: "Bail")
+  expiration_date: "15/12/2016", days_to_reminder: 60)
+doc11 = Document.create(contract_id: c8.id, doc_type: "Rent contract", name: "Bail",
+ expiration_date: "15/12/2016", days_to_reminder: 60)
 doc12 = Document.create(contract_id: c9.id, doc_type: "PEB", name: "Niveau D",
   expiration_date: "15/01/2020", reminder_sent_date: "15/10/2019",
-  days_to_reminder: 60, attachment: open(doc_links[0]))
+  days_to_reminder: 60)
 doc13 = Document.create(contract_id: c10.id, doc_type: "Entretien", name: "Chaudière",
- reminder_sent_date: "15/10/2019", days_to_reminder: 20, attachment: open(doc_links[1]))
+ reminder_sent_date: "15/10/2019", days_to_reminder: 20)
 doc14 = Document.create(contract_id: c10.id, doc_type: "Rent contract", name: "Bail",
   expiration_date: "01/01/2015", reminder_sent_date: "15/10/2014",
-  days_to_reminder: 60, attachment: open(doc_links[2]))
+  days_to_reminder: 60)
 doc15 = Document.create(contract_id: c10.id, doc_type: "Insurance", name: "Home",
-  expiration_date: "15/12/2016", days_to_reminder: 60, attachment: open(doc_links[0]))
+  expiration_date: "15/12/2016", days_to_reminder: 60)
 
 
 #Tasks
