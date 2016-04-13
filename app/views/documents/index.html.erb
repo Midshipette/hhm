@@ -1,11 +1,11 @@
 <div class="container">
-  <h1>Listing Documents - flat <%= Flat.find(params[:flat_id]).flat_name %></h1>
+  <h1>Listing Documents - <%= Flat.find(params[:flat_id]).flat_type %> <%= Flat.find(params[:flat_id]).flat_name %></h1>
 
   <table class="table table-responsive table-striped table-hover">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Doc Name</th>
+        <th class="text-center">Format</th>
         <th>Type</th>
         <th>Expiration date</th>
         <th>Reminder sent</th>
@@ -17,18 +17,19 @@
       <% @documents.each do |document| %>
 
           <tr>
-
               <td><%= document.id %></td>
+              <% if document.attachment.to_s == "" %>
+                <td class="text-center"> no doc </td>
+              <% else %>
+                <td class ="text-center"><%= link_to(flat_document_path(@flat, document)) do %>
+                  <i class="fa fa-file-pdf-o fa-2x"></i>
+                <% end %> </td>
+            <% end %>
 
-            <!--   <td><i class="fa fa-file-pdf-o"></i></td> -->
 
-            <!-- Button trigger modal -->
-             <td type="button" data-toggle="modal" data-target="#myModal">
-              <%= cl_image_tag(document.attachment, :format => :jpg, :width=>100, :height=>140, :border=>"1px_solid_black", :crop=>"fill"  ) %>
-            </td>
-
-             <!-- Modal -->
-             <%= render 'modal', document: document %>
+           <!--   <td>
+              <%= cl_image_tag(document.attachment, :format => :jpg, :width=>70, :height=>90, :border=>"1px_solid_black", :crop=>"fill"  ) %>
+            </td> -->
 
 
 
@@ -46,14 +47,21 @@
 
       <tr>
         <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'New Doc', new_flat_document_path(@flat), class: "btn btn-primary" %></td>
+        <td></td>
 
-          <td class="remove-padding-table">
+          <!-- <td class="remove-padding-table">
           <%= link_to(new_flat_document_path) do %>
           <div class="btn-table-cell text-center">
             <%= content_tag('span', nil,  class: 'glyphicon glyphicon-floppy-open') %>
             </div>
             <% end %>
-          </td>
+          </td> -->
 
       </tr>
     </tbody>
