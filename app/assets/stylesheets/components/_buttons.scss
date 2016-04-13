@@ -4,7 +4,7 @@
   -webkit-box-shadow:inset 0px 1px 0px 0px #667bb5;
   box-shadow:inset 0px 1px 0px 0px #667bb5;
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #17307c), color-stop(1, #3b559c) );
-  background:-moz-linear-gradient( center top, #17307c 5%, #3b559c 100% );
+  background: linear-gradient( center top, #17307c 5%, #17307c 100% );
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#17307c', endColorstr='#3b559c');
   background-color:#17307c;
   -webkit-border-top-left-radius:0px;
@@ -32,6 +32,7 @@
   padding: 0 15px;
   text-decoration:none;
   text-align:center;
+  outline: 0;
   text-shadow:1px 1px 0px #000000;
 }
 .submit-btn:hover {
