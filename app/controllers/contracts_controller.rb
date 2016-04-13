@@ -18,7 +18,7 @@ class ContractsController < ApplicationController
       format.pdf do
         render :pdf => "file_name",
                :template => "contracts/show.pdf.erb",
-               :layout => "renting_pdf.html.erb"
+               :layout => "pdf.html.erb"
       end
     end
 
