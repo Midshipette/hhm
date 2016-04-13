@@ -1,6 +1,6 @@
 <div class="container">
-
- <%= link_to 'Add a new flat', new_flat_path, :class => "submit-btn" %>
+ <br>
+ <%= link_to 'Add a new property', new_flat_path, :class => "submit-btn" %>
 
 </div>
 
@@ -26,7 +26,7 @@
             <div class="col-md-3">
               <%= link_to flat_path(flat.id) do %>
               <div class="square btn">
-                <p>Accomodation</p>
+                <p>Property</p>
                 <% if flat.contracts.select { |contract| contract.active == "Active" }.length < 1 && flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && flat.id == contract.flat_id }.length > 0 %>
                 <p><i class="fa fa-home fa-3x signal-alert"></i></p>
                 <% elsif flat.contracts.select { |contract| contract.active == "Active" }.length < 1 %>
@@ -53,7 +53,7 @@
             <% else %>
             <div class="square btn">
                 <p>Financials</p>
-                <p><i class="fa fa-eur fa-3x signal-nothing"></i></p>
+                <p><i class="fa fa-eur fa-3x signal-noaccess"></i></p>
                 <p>No active contract
                 </p>
               </div>

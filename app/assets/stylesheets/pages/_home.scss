@@ -204,4 +204,19 @@
 
 }
 
+.modal-login {
+  .modal-dialog {
+    max-width: 342px;
+    margin: 30px auto;
+  }
+
+  .btn {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .modal-body {
+    padding: 0 10px;
+  }
+}
 

@@ -1,87 +1,124 @@
-<div class='container'>
-  <h2 class="text-center">Rental contract</h2>
-  <div class="row">
-    <div class="col-xs-6">
+<div class = "finance_container">
+  <br>
 
-      <h4>Renter information</h4>
-
-      <p>
-        <strong>Renter:</strong>
+  <div class='finance-rows'>
+    <h3>Tenant information</h3>
+    <div class = "finance_row">
+      <div class="finance-key">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </div>
+      <div class = "finance_value">
         <%= @contract.renter.first_name %> <%= @contract.renter.last_name %>
-      </p>
+      </div>
+    </div>
 
-      <p>
-        <strong>Renter email:</strong>
+    <div class = "finance_row">
+      <div class="finance-key">
+        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+      </div>
+      <div class = "finance_value">
         <%= @contract.renter.email %>
-      </p>
+      </div>
+    </div>
 
-      <p>
-        <strong>Renter gender:</strong>
+    <div class = "finance_row">
+      <div class="finance-key">
+        <i class="fa fa-transgender" aria-hidden="true"></i>
+      </div>
+      <div class = "finance_value">
         <%= @contract.renter.gender %>
-      </p>
+      </div>
+    </div>
 
-      <p>
-        <strong>Renter birthday:</strong>
+    <div class = "finance_row">
+      <div class="finance-key">
+        <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+      </div>
+      <div class = "finance_value">
         <%= @contract.renter.birthday %>
-      </p>
+      </div>
+    </div>
 
-      <br>
 
-      <h4>Contract information</h4>
+<br>
 
-      <p>
-        <strong>Rent start:</strong>
+
+    <h3>Contract information</h3>
+
+    <div class = "finance_row" style ="border-bottom: 0px; padding-bottom: 0px">
+      <div class="finance-key">
+        Rent start
+      </div>
+      <div class = "finance_value">
+        Rent end
+      </div>
+    </div>
+
+    <div class = "finance_row">
+      <div class="finance-key">
         <%= @contract.rent_start %>
-      </p>
-
-      <p>
-        <strong>Rent end:</strong>
+      </div>
+      <div class = "finance_value">
         <%= @contract.rent_end %>
-      </p>
+      </div>
+    </div>
 
+    <div class = "finance_row">
+      <div class="finance-key">
+        Rent amount
+      </div>
+      <div class = "finance_value">
+        <%= @contract.rent_amount.round %>
+      </div>
+    </div>
 
+    <div class = "finance_row">
+      <div class="finance-key">
+        Provision
+      </div>
+      <div class = "finance_value">
+        <%= @contract.provision.round %>
+      </div>
+    </div>
 
-      <p>
-        <strong>Rent amount:</strong>
-        <%= @contract.rent_amount %>
-      </p>
+    <div class = "finance_row">
+      <div class="finance-key">
+        Warranty amount
+      </div>
+      <div class = "finance_value">
+        <%= @contract.warranty_amount.round %>
+      </div>
+    </div>
 
-      <p>
-        <strong>Provision:</strong>
-        <%= @contract.provision %>
-      </p>
-
-      <p>
-        <strong>Warranty amount:</strong>
-        <%= @contract.warranty_amount %>
-      </p>
-
-      <p>
-        <strong>Pay day:</strong>
+    <div class = "finance_row">
+      <div class="finance-key">
+        Pay day
+      </div>
+      <div class = "finance_value">
         <%= @contract.pay_day %>
-      </p>
+      </div>
+    </div>
 
-      <p>
-        <strong>Active:</strong>
+    <div class = "finance_row">
+      <div class="finance-key">
+        Status
+      </div>
+      <div class = "finance_value">
         <%= @contract.active %>
-      </p>
-
-      <p>
-        <strong>Days to reminder:</strong>
-        <%= @contract.days_to_reminder %>
-      </p>
-
-
-
-      <%= link_to 'Edit', edit_flat_contract_path, class: 'btn btn-default' %>
-      <%= link_to 'Back', flat_path(@contract.flat_id), class: 'btn btn-default' %>
+      </div>
     </div>
-    <div class="col-xs-6">
 
-    <%= render 'contract' %>
-    <%= link_to 'print', flat_contract_path(@contract.flat.id, @contract.id, format: 'pdf', target: "_blank") %>
+<br>
+    <%= link_to 'Back', flat_path(@contract.flat_id), class: 'btn btn-default' %>
+    <%= link_to 'Edit', edit_flat_contract_path, class: 'btn btn-default' %>
+    <%= link_to flat_contract_path(@contract.flat.id, @contract.id, format: 'pdf', target: "_blank"), class: "btn btn-default" do %>
+    Render contract as PDF <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+    <% end %>
 
-    </div>
+<br>
+<br>
+<br>
+<br>
   </div>
 </div>
 

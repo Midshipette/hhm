@@ -1,13 +1,14 @@
 .finance_container {
 	max-width: 600px;
 	margin: auto;
+  padding: 0 20px;
 }
 
 .finance_row {
 	display: flex;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 	padding: 20px 0;
-  
+
 	&:last-child {
 		border-bottom: 0;
 	}
@@ -18,7 +19,7 @@
 }
 
 .finance_line {
-  
+
 }
 
 .finance_value {
