@@ -54,10 +54,11 @@
   margin-bottom: 20px;
   }
   hr {
-    border-top: 1px solid #17317c;
+    border-top: 1px solid #a8b8e6;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 70px;
+    width: 80%;
   }
   hr:after {
     content: image_url('house-mini-blue.jpg');
@@ -65,7 +66,7 @@
     position: relative;
     top: -14px;
     padding: 0 10px;
-    color: #17317c;
+    color: #a8b8e6;
     font-size: 18px;
   }
   td {
