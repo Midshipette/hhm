@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :name, placeholder: "ex. Invoice - Boiler maintenance 2016" %>
-    <%= f.input :doc_type, collection: ["PEB", "Bail", "Garantie locative", "Compteur électrictié", "Compteur eau", "Compteur gaz", "Entretien"], selected: "PEB" %>
+    <%= f.input :doc_type, collection: ["PEB", "Rent contract", "Warranty", "Electricity", "Water meter", "Gas meter", "Maintenance"], selected: "PEB" %>
     <div id="form-expiration-date">
       <ul>
         <li><%= f.input :expiration, collection: ["Yes", "No"], selected: "No", id: 'expiration-select', label: "Document has an expiration date?" %></li>
