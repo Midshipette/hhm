@@ -41,7 +41,7 @@
     font-family: Arial;
     font-size: 30px;
     font-weight: bold;
-    color: #17307c;
+    color: black;
     text-align: center;
     margin-bottom: 25px;
   }
@@ -49,7 +49,7 @@
   font-family: Arial;
   font-size: 18px;
   font-weight: bold;
-  color: #17307c;
+  color: black;
   text-align: center;
   margin-bottom: 20px;
   }
@@ -94,6 +94,7 @@
   font-family: Arial;
   font-size: 16px;
   margin-bottom: 20px;
+  opacity: 0.8;
 }
 
 .home-items{
@@ -193,6 +194,7 @@
 
 .pricing-item-body-description {
   padding-top: 30px;
+  opacity: 0.8;
 }
 
 .pricing-item-body-image {
