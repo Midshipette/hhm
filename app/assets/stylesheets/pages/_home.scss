@@ -104,6 +104,10 @@
   margin: 0px;
   padding: 0px;
 }
+.pricing-container:nth-child(2){
+  border-left: none;
+  border-right: none;
+}
 
 .pricing-item {
   height: 740px;
