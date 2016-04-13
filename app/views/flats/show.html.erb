@@ -13,6 +13,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class = "finance_container">
+
           <div class = "finance_row">
             <div class="finance-key">
               Type
@@ -52,239 +53,241 @@
             </div>
             <div class = "finance_value">
              <%= @flat.flat_number %>
-           </div>
-         </div>
-         <% end %>
-
-
-         <div class = "finance_row">
-          <div class="finance-key">
-            Address
+            </div>
           </div>
-          <div class = "finance_value">
-           <%= @flat.address %>
-         </div>
-       </div>
+          <% end %>
 
-       <div class = "finance_row">
-        <div class="finance-key">
-          Postal code
+
+          <div class = "finance_row">
+            <div class="finance-key">
+              Address
+            </div>
+            <div class = "finance_value">
+            <%= @flat.address %>
+            </div>
+          </div>
+
+          <div class = "finance_row">
+            <div class="finance-key">
+              Postal code
+            </div>
+            <div class = "finance_value">
+             <%= @flat.postal_code %>
+            </div>
+          </div>
+
+
+          <div class = "finance_row">
+            <div class="finance-key">
+              City
+            </div>
+            <div class = "finance_value">
+             <%= @flat.city %>
+            </div>
+          </div>
+
+          <div class = "finance_row">
+            <div class="finance-key">
+              Country
+            </div>
+            <div class = "finance_value">
+              <%= @flat.country %>
+            </div>
+          </div>
+
+          <% if @flat.syndicate != "" %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Syndicate
+            </div>
+            <div class = "finance_value">
+              <%= @flat.syndicate %>
+            </div>
+          </div>
+          <% end %>
+
+          <% if @flat.loan_cost != nil %>
+
+          <div class = "finance_row">
+            <div class="finance-key">
+              Loan cost
+            </div>
+            <div class = "finance_value">
+              <%= @flat.loan_cost %>
+            </div>
+          </div>
+          <% end %>
+
+          <% if @flat.tax_cost != nil %>
+
+          <div class = "finance_row">
+            <div class="finance-key">
+              Tax cost
+            </div>
+            <div class = "finance_value">
+              <%= @flat.tax_cost %>
+            </div>
+          </div>
+          <% end %>
+
+          <br>
+          <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-default' %>
+          <%= link_to 'Delete', flat_destroy_path(@flat), class: 'btn btn-danger', method: :delete %>
+          <%= link_to 'Back', flats_path, class: 'btn btn-default' %>
+
         </div>
-        <div class = "finance_value">
-         <%= @flat.postal_code %>
-       </div>
-     </div>
-
-
-     <div class = "finance_row">
-      <div class="finance-key">
-        City
       </div>
-      <div class = "finance_value">
-       <%= @flat.city %>
-     </div>
-   </div>
 
-   <div class = "finance_row">
-    <div class="finance-key">
-      Country
-    </div>
-    <div class = "finance_value">
-      <%= @flat.country %>
-    </div>
-  </div>
+      <div class="col-md-6">
 
-  <% if @flat.syndicate != "" %>
+        <% flat_active = @flat.contracts.select { |contract| contract.active == 'Active' } %>
+        <%if @flat.contracts.last.nil? %>
+        <%else %>
+        <div class = "finance_container">
+          <div class = "finance_row">
+            <div class="finance-key">
+              Current tenant
+            </div>
+            <div class = "finance_value">
+              <%= flat_active.last.renter.first_name %> <%= flat_active.last.renter.last_name %> <%= link_to 'Details', flat_renter_path(@flat.id,@flat.contracts.last.renter_id), class: 'btn btn-default' %>
+            </div>
+          </div>
+        </div>
 
-
-  <div class = "finance_row">
-    <div class="finance-key">
-      Syndicate
-    </div>
-    <div class = "finance_value">
-      <%= @flat.syndicate %>
-    </div>
-  </div>
-  <% end %>
-
-  <% if @flat.loan_cost != nil %>
-
-  <div class="finance-key">
-    Loan cost
-  </div>
-  <div class = "finance_value">
-    <%= @flat.loan_cost %>
-  </div>
-</div>
-<% end %>
-
-<% if @flat.tax_cost != nil %>
+        <%end%>
+        <br>
 
 
-<div class="finance-key">
-  Tax cost
-</div>
-<div class = "finance_value">
-  <%= @flat.tax_cost %>
-</div>
-</div>
-
-<% end %>
-<br>
-<%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-default' %>
-<%= link_to 'Delete', flat_destroy_path(@flat), class: 'btn btn-danger', method: :delete %>
-<%= link_to 'Back', flats_path, class: 'btn btn-default' %>
-
-</div>
-</div>
 
 
-<div class="col-md-6">
+        <%= link_to new_flat_contract_path(@flat) do %>
+        <button type="button" class="btn btn-block btn-primary">
+          Add a new contract agreement
+        </button>
+        <% end %>
 
-  <% flat_active = @flat.contracts.select { |contract| contract.active == 'Active' } %>
-  <%if @flat.contracts.last.nil? %>
-  <%else %>
-  <div class = "finance_container">
-    <div class = "finance_row">
-      <div class="finance-key">
-        Current tenant
+
+        <% if @flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && @flat.id == contract.flat_id }.length > 0 %>
+        <h3>Unassigned pending contracts: </h3>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+                Rent
+              </th>
+
+              <th>
+                Contract starts
+              </th>
+
+              <th>
+                Status
+              </th>
+              <th>
+
+              </th>
+              <th>
+
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <% @flat.contracts.unscoped.each do |contract| %>
+            <% if contract.active == 'Unassigned' && contract.flat_id == @flat.id %>
+            <div class = "finance_container">
+              <div class = "finance_row">
+                <tr>
+                  <td>
+                    <%= contract.id %>
+                  </td>
+                  <td>
+                    <%= contract.rent_amount.round %>
+                  </td>
+                  <td>
+                    <%= contract.rent_start %>
+                  </td>
+                  <td>
+                    <%= contract.active  %>
+                  </td>
+                  <td>
+                    <%= link_to "Assign", flat_contract_assign_renter_path(@flat, contract.id), class: 'btn btn-default' %>
+                  </td>
+                  <td>
+                    <%= link_to "Delete", flat_contract_path(@flat.id, contract.id), class: 'btn btn-danger', method: :delete  %>
+                  </td>
+                </tr>
+              </div>
+            </div>
+            <% end %>
+            <%end%>
+            <%end%>
+          </tbody>
+        </table>
+
+
+
+
+
+        <h3>Renting contract history</h3>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+                Renter Name
+              </th>
+              <th>
+                Contract starts
+              </th>
+              <th>
+                Contract ends
+              </th>
+              <th>
+                Status
+              </th>
+              <th>
+
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @flat.contracts.order(:rent_start).each do |contract| %>
+            <tr>
+              <td>
+                <%= contract.id %>
+              </td>
+              <td>
+                <%= contract.renter.first_name %>
+                <%= contract.renter.last_name %>
+              </td>
+              <td>
+                <%= contract.rent_start %>
+              </td>
+              <td>
+                <%= contract.rent_end %>
+              </td>
+              <td>
+                <%= contract.active %>
+              </td>
+              <td>
+                <%= link_to "view", flat_contract_path(contract.flat_id, contract.id), class:'btn btn-default'  %>
+              </td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+
       </div>
-      <div class = "finance_value">
-        <%= flat_active.last.renter.first_name %> <%= flat_active.last.renter.last_name %> <%= link_to 'Details', flat_renter_path(@flat.id,@flat.contracts.last.renter_id), class: 'btn btn-default' %>
-      </div>
     </div>
   </div>
-
-  <%end%>
-  <br>
-
-
-
-
-  <%= link_to new_flat_contract_path(@flat) do %>
-  <button type="button" class="btn btn-block btn-primary">
-    Add a new contract agreement
-  </button>
-  <% end %>
-
-
-  <% if @flat.contracts.unscoped.select { |contract| contract.active == "Unassigned" && @flat.id == contract.flat_id }.length > 0 %>
-  <h3>Unassigned pending contracts: </h3>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>
-          #
-        </th>
-        <th>
-          Rent
-        </th>
-
-        <th>
-          Contract starts
-        </th>
-
-        <th>
-          Status
-        </th>
-        <th>
-
-        </th>
-        <th>
-
-        </th>
-      </tr>
-    </thead>
-
-    <tbody>
-
-      <% @flat.contracts.unscoped.each do |contract| %>
-      <% if contract.active == 'Unassigned' && contract.flat_id == @flat.id %>
-      <tr>
-        <td>
-          <%= contract.id %>
-        </td>
-        <td>
-          <%= contract.rent_amount.round %>
-        </td>
-        <td>
-          <%= contract.rent_start %>
-        </td>
-        <td>
-          <%= contract.active  %>
-        </td>
-        <td>
-          <%= link_to "Assign", flat_contract_assign_renter_path(@flat, contract.id), class: 'btn btn-default' %>
-        </td>
-        <td>
-          <%= link_to "Delete", flat_contract_path(@flat.id, contract.id), class: 'btn btn-danger', method: :delete  %>
-        </td>
-      </tr>
-      <% end %>
-      <%end%>
-      <%end%>
-    </tbody>
-  </table>
-
-
-
-
-
-  <h3>Renting contract history</h3>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>
-          #
-        </th>
-        <th>
-          Renter Name
-        </th>
-        <th>
-          Contract starts
-        </th>
-        <th>
-          Contract ends
-        </th>
-        <th>
-          Status
-        </th>
-        <th>
-
-        </th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @flat.contracts.order(:rent_start).each do |contract| %>
-      <tr>
-        <td>
-          <%= contract.id %>
-        </td>
-        <td>
-          <%= contract.renter.first_name %>
-          <%= contract.renter.last_name %>
-        </td>
-        <td>
-          <%= contract.rent_start %>
-        </td>
-        <td>
-          <%= contract.rent_end %>
-        </td>
-        <td>
-          <%= contract.active %>
-        </td>
-        <td>
-          <%= link_to "view", flat_contract_path(contract.flat_id, contract.id), class:'btn btn-default'  %>
-        </td>
-      </tr>
-      <%end%>
-    </tbody>
-  </table>
-
-</div>
-</div>
-</div>
 </div>
