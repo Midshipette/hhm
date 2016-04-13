@@ -1,15 +1,19 @@
 <div class='container'>
   <h1>Listing Tasks</h1>
 
-    <div class="table-header">
-        <div class="col-status">Status</div>
-        <div class="col-owner">Owner</div>
-        <div class="col-name">Name</div>
-        <div class="col-description">Description</div>
-        <div class="col-due-date">Due date</div>
-        <div class="col-last-column"> </div>
-    </div>
-   <!--
+  <table class="table table-responsive table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Owner</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Due date</th>
+
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
     <tbody>
       <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
        <% open_tasks.each do |task| %>
@@ -117,5 +121,5 @@
       </div>
     <% end %>
   </div>
- -->
+
 </div>

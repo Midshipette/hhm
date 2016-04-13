@@ -33,13 +33,11 @@ class DocumentsController < ApplicationController
     task = Task.find(params[:document][:task_id]) unless params[:document][:task_id].nil? # checks if was coming from task manager
 
     today = Date.today.strftime('%Y-%m-%d')
-
-    expiration = "Yes" if (params[:document][:expiration] == "Yes" && params[:document][:expiration_date] != Date.today)# will define is expiration date or not (for task creation))
-
-    STOP
-
     @flat = Flat.find(params[:flat_id])
     @document = Document.new(document_params)
+
+    expiration = params[:document][:expiration]
+
     @contract = Contract.where(flat_id: @flat.id, active: "Active")[0]
     @document.contract_id = @contract.id
 
