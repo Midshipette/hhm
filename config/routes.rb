@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   delete 'flats/:id' => 'flats#destroy' , as: 'flat_destroy'
 
 
-
   resources :flats do
     resources :contracts do
       get "assign_renter", to: "renters#new"
@@ -45,6 +44,8 @@ Rails.application.routes.draw do
 
 
   get '/mydashboard' => "flats#index"
+
+  get 'flats/:flat_id/newtaskdesign' => "tasks#indexdiv"  , as: 'flat_indexdiv'
 
   post 'contact_form', to: 'pages#contact_form'
   root to: 'pages#home'
