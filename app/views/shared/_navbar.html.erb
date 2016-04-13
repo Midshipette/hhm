@@ -100,9 +100,9 @@
         <h4 class="modal-title" id="myModalLabel">Who are you?</h4>
       </div>
       <div class="modal-body">
-        <%= link_to t(".sign_in", default: "Login as an owner"), new_owner_session_path, class: "submit-btn" %>
+        <%= link_to t(".sign_in", default: "Login as an owner"), new_owner_session_path, :class => "btn default btn" %>
         <!-- Login text link -->
-        <%= link_to t(".sign_in", default: "Login as a renter"), new_renter_session_path, class: "submit-btn" %>
+        <%= link_to t(".sign_in", default: "Login as a renter"), new_renter_session_path, :class => "submit-btn" %>
       </div>
       <div class="modal-footer">
       </div>
