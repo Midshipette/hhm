@@ -14,78 +14,78 @@
 
 
   <div class = "finance_container">
-  <i class="mdi mdi-account md-36 md-dark"></i> 
-    <h4 class = "renter_name"><%= @contract.renter.first_name %> 
+  <i class="mdi mdi-account md-36 md-dark"></i>
+    <h4 class = "renter_name"><%= @contract.renter.first_name %>
     <%= @contract.renter.last_name %></h4>
       <div class='finance-rows'>
         <div class = "finance_row">
           <div class="finance-key">
                 <strong>Period from </strong>
-          </div>     
+          </div>
           <div class = "finance_value">
                <strong><%= Date::MONTHNAMES[start_month.month]%> <%= start_month.year %> to <%= Date::MONTHNAMES[end_month.month] %> <%= end_month.year %></strong>
           </div>
         </div>
         <div class = "finance_row">
           <div class="finance-key">
-                 Number of months: 
-          </div>     
+                 Number of months:
+          </div>
           <div class = "finance_value">
                 <%= @periods %>
           </div>
         </div>
         <div class = "finance_row">
           <div class="finance-key">
-                 Renter private charges: 
-          </div>     
+                 Renter private charges:
+          </div>
           <div class = "finance_value">
                 <%= @renter_private_sum %>
           </div>
         </div>
         <div class = "finance_row">
           <div class="finance-key">
-                 Electricity: 
-          </div>     
+                 Electricity:
+          </div>
           <div class = "finance_value">
                 <%= @electricity_sum %>
           </div>
         </div>
         <div class = "finance_row">
           <div class="finance-key">
-                 Property management cost: 
-          </div>     
+                 Property management cost:
+          </div>
           <div class = "finance_value">
                 <%= @property_mngt_sum %>
           </div>
         </div>
         <div class = "finance_row">
           <div class="finance-key">
-                 Cleaning & maintenance cost: 
-          </div>     
+                 Cleaning & maintenance cost:
+          </div>
           <div class = "finance_value">
                 <%= @cleaning_sum %>
           </div>
         </div>
         <div class = "finance_row">
           <div class="finance-key">
-                 Elevator: 
-          </div>     
+                 Elevator:
+          </div>
           <div class = "finance_value">
                 <%= @elevator_sum %>
           </div>
         </div>
          <div class = "finance_row">
           <div class="finance-key">
-                 Water: 
-          </div>     
+                 Water:
+          </div>
           <div class = "finance_value">
                 <%= @water_sum %>
           </div>
         </div>
          <div class = "finance_row">
           <div class="finance-key">
-                 Heating: 
-          </div>     
+                 Heating:
+          </div>
           <div class = "finance_value">
                 <%= @heating_sum %>
           </div>
@@ -93,7 +93,7 @@
           <div class = "finance_row">
           <div class="finance-key">
                  <strong>Total costs:</strong>
-          </div>     
+          </div>
           <div class = "finance_value">
                 <strong><%= @renter_cost_total %></strong>
           </div>
@@ -107,7 +107,7 @@
       <div class = "finance_row">
         <div class="finance-key">
           <strong>Total provision for the period:</strong>
-        </div>     
+        </div>
         <div class = "finance_value">
           <% provisions = @contract.provision * @periods %>
           <strong><%= provisions %></strong>
@@ -123,18 +123,18 @@
       <div class = "finance_row">
         <div class="finance-key">
           <% if net_balance > 0 %>
-           <p><strong> Your tenant owes you</strong></p> 
+           <p><strong> Your tenant owes you</strong></p>
             <% else %>
             <p><strong> You owe the tenant </strong></p>
           <% end %>
-        </div>     
+        </div>
         <div class = "finance_value">
          <strong><%= net_balance.abs %></strong>
         </div>
       </div>
     </div>
   </div>
-  
 
-<%= link_to 'Back', contract_costs_path, class: 'btn btn-default' %>
+
+<%= link_to 'Back', contract_costs_path, class: 'submit-btn' %>
 
