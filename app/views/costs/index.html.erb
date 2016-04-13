@@ -6,7 +6,7 @@
 <h4 class = "renter_name"><%= @contract.renter.first_name %>
     <%= @contract.renter.last_name %></h4>
   <div class='finance-rows'>
-        <h3>Montly entries</h3>
+        <h3>Monthly entries</h3>
           <div class = "finance_row">
             <div class="finance-key">
               Monthly rent
@@ -63,14 +63,34 @@
 <%=  link_to 'Clear provisions & real charges', openclearsumcosts_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %></p>
 <p>Real charges are the ones that your property manager provided you with.</p>
 
-
-
-
-
         <% end %>
 <%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'submit-btn' %>
 <%= link_to 'Back', flats_path, class: 'submit-btn' %>
 
+  </div>
+</div>
+
+
+</br>
+<div class = "finance_container">
+  <div class='finance-rows'>
+    <h3>Unpaid due & next upcoming rents: </h3>
+      <div class = "finance_row">
+        <div class="finance-key">
+
+          <% @revenues.each do |revenue| %>
+            <% if revenue.rent_month < Time.now.next_month %>
+              <%= revenue.rent_month.strftime("%B %Y") %>
+            <% else %>
+              <% "" %>
+            <% end %> 
+          <% end %>
+        </div>
+        <div class = "finance_value">
+<!--           <%= render 'revenuepaid' %> -->
+        </div>
+
+      </div>
   </div>
 </div>
 

@@ -10,6 +10,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 require "date"
+require "active_support"
 
 
 # Require the gems listed in Gemfile, including any gems
