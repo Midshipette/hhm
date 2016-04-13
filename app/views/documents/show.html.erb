@@ -1,40 +1,7 @@
-<div class="container">
-
-  <p>
-    <strong>Contract:</strong>
-    <%= @document.contract %>
-  </p>
-
-  <p>
-    <strong>Type:</strong>
-    <%= @document.doc_type %>
-  </p>
-
-  <p>
-    <strong>Expiration date:</strong>
-    <%= @document.expiration_date %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= @document.name %>
-  </p>
-
-  <p>
-    <strong>Reminder sent date:</strong>
-    <%= @document.reminder_sent_date %>
-  </p>
-
-  <p>
-    <strong>Days to reminder:</strong>
-    <%= @document.days_to_reminder %>
-  </p>
-
-  <p><strong>Preview:</strong></p>
-
-  <%= cl_image_tag(@document.attachment, :format => :jpg, :width=>200, :height=>250, :border=>"1px_solid_black", :crop=>"fill" ) %>
 
 
-  <%= link_to 'Edit', edit_flat_document_path(@flat, @document) %> |
+<%= cl_image_tag(@document.attachment, :format => :jpg, :page=> 1) %>
+<%= cl_image_tag(@document.attachment, :format => :jpg, :page=> 2 ) %>
+<%= cl_image_tag(@document.attachment, :format => :jpg, :page=> 3 ) %>
+<%= cl_image_tag(@document.attachment, :format => :jpg, :page=> 4 ) %>
 
-</div>
