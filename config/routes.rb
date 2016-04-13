@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'revenues/show'
+
+  get 'revenues/new'
+
+  get 'revenues/create'
+
+  get 'revenues/index'
+
+  get 'revenues/edit'
+
+  get 'revenues/update'
+
   resources :tasks
   devise_for :renters, :controllers => { registrations: 'renters/registrations' }
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
@@ -32,6 +44,7 @@ Rails.application.routes.draw do
 
 
   resources :contracts do
+    resources :revenues
     resources :costs do
       member do
         get :realcharge
