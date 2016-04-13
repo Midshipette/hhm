@@ -12,94 +12,148 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
+        <div class = "finance_container">
 
-        <p>
-          <strong>Type:</strong>
-          <%= @flat.flat_type %>
-        </p>
-        <% if @flat.description != "" %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Type
+            </div>
+            <div class = "finance_value">
+              <%= @flat.flat_type %>
+            </div>
+          </div>
 
-        <p>
-          <strong>Description:</strong>
-          <%= @flat.description %>
-        </p>
+          <% if @flat.description != "" %>
 
-        <% end %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Description
+            </div>
+            <div class = "finance_value">
+              <%= @flat.description %>
+            </div>
+          </div>
+          <% end %>
 
-        <% if @flat.floor != "" %>
+          <% if @flat.floor != "" %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Floor
+            </div>
+            <div class = "finance_value">
+              <%= @flat.floor %>
+            </div>
+          </div>
+          <% end %>
 
-        <p>
-          <strong>Floor:</strong>
-          <%= @flat.floor %>
-        </p>
+          <% if @flat.flat_number != "" %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Flat number
+            </div>
+            <div class = "finance_value">
+             <%= @flat.flat_number %>
+            </div>
+          </div>
+          <% end %>
 
-        <% end %>
 
-        <% if @flat.flat_number != "" %>
-        <p>
-          <strong>Flat number:</strong>
-          <%= @flat.flat_number %>
-        </p>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Address
+            </div>
+            <div class = "finance_value">
+            <%= @flat.address %>
+            </div>
+          </div>
 
-        <% end %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Postal code
+            </div>
+            <div class = "finance_value">
+             <%= @flat.postal_code %>
+            </div>
+          </div>
 
-        <p>
-          <strong>Address:</strong>
-          <%= @flat.address %>
-        </p>
 
-        <p>
-          <strong>Postal code:</strong>
-          <%= @flat.postal_code %>
-        </p>
+          <div class = "finance_row">
+            <div class="finance-key">
+              City
+            </div>
+            <div class = "finance_value">
+             <%= @flat.city %>
+            </div>
+          </div>
 
-        <p>
-          <strong>City:</strong>
-          <%= @flat.city %>
-        </p>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Country
+            </div>
+            <div class = "finance_value">
+              <%= @flat.country %>
+            </div>
+          </div>
 
-        <p>
-          <strong>Country:</strong>
-          <%= @flat.country %>
-        </p>
+          <% if @flat.syndicate != "" %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Syndicate
+            </div>
+            <div class = "finance_value">
+              <%= @flat.syndicate %>
+            </div>
+          </div>
+          <% end %>
 
-        <% if @flat.syndicate != "" %>
-        <p>
-          <strong>Syndicate:</strong>
-          <%= @flat.syndicate %>
-        </p>
-        <% end %>
+          <% if @flat.loan_cost != nil %>
 
-        <% if @flat.loan_cost != nil %>
-        <p>
-          <strong>Loan cost:</strong>
-          <%= @flat.loan_cost %>
-        </p>
-        <% end %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Loan cost
+            </div>
+            <div class = "finance_value">
+              <%= @flat.loan_cost %>
+            </div>
+          </div>
+          <% end %>
 
-        <% if @flat.tax_cost != nil %>
-        <p>
-          <strong>Tax cost:</strong>
-          <%= @flat.tax_cost %>
-        </p>
-        <% end %>
+          <% if @flat.tax_cost != nil %>
 
-        <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-default' %>
-        <%= link_to 'Delete', flat_destroy_path(@flat), class: 'btn btn-danger', method: :delete %>
-        <%= link_to 'Back', flats_path, class: 'btn btn-default' %>
+          <div class = "finance_row">
+            <div class="finance-key">
+              Tax cost
+            </div>
+            <div class = "finance_value">
+              <%= @flat.tax_cost %>
+            </div>
+          </div>
+          <% end %>
 
+          <br>
+          <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-default' %>
+          <%= link_to 'Delete', flat_destroy_path(@flat), class: 'btn btn-danger', method: :delete %>
+          <%= link_to 'Back', flats_path, class: 'btn btn-default' %>
+
+        </div>
       </div>
-
 
       <div class="col-md-6">
 
         <% flat_active = @flat.contracts.select { |contract| contract.active == 'Active' } %>
         <%if @flat.contracts.last.nil? %>
         <%else %>
-        <p><strong>Current tenant:</strong>
-          <%= flat_active.last.renter.first_name %>
-          <%= flat_active.last.renter.last_name %> <%= link_to 'Details', flat_renter_path(@flat.id,@flat.contracts.last.renter_id), class: 'btn btn-default' %>
-        </p>
+        <div class = "finance_container">
+          <div class = "finance_row">
+            <div class="finance-key">
+              Current tenant
+            </div>
+            <div class = "finance_value">
+              <%= flat_active.last.renter.first_name %> <%= flat_active.last.renter.last_name %> <%= link_to 'Details', flat_renter_path(@flat.id,@flat.contracts.last.renter_id), class: 'btn btn-default' %>
+            </div>
+          </div>
+        </div>
+
         <%end%>
         <br>
 
@@ -146,26 +200,30 @@
 
             <% @flat.contracts.unscoped.each do |contract| %>
             <% if contract.active == 'Unassigned' && contract.flat_id == @flat.id %>
-            <tr>
-              <td>
-                <%= contract.id %>
-              </td>
-              <td>
-                <%= contract.rent_amount.round %>
-              </td>
-              <td>
-                <%= contract.rent_start %>
-              </td>
-              <td>
-                <%= contract.active  %>
-              </td>
-              <td>
-                <%= link_to "Assign", flat_contract_assign_renter_path(@flat, contract.id), class: 'btn btn-default' %>
-              </td>
-              <td>
-                <%= link_to "Delete", flat_contract_path(@flat.id, contract.id), class: 'btn btn-danger', method: :delete  %>
-              </td>
-            </tr>
+            <div class = "finance_container">
+              <div class = "finance_row">
+                <tr>
+                  <td>
+                    <%= contract.id %>
+                  </td>
+                  <td>
+                    <%= contract.rent_amount.round %>
+                  </td>
+                  <td>
+                    <%= contract.rent_start %>
+                  </td>
+                  <td>
+                    <%= contract.active  %>
+                  </td>
+                  <td>
+                    <%= link_to "Assign", flat_contract_assign_renter_path(@flat, contract.id), class: 'btn btn-default' %>
+                  </td>
+                  <td>
+                    <%= link_to "Delete", flat_contract_path(@flat.id, contract.id), class: 'btn btn-danger', method: :delete  %>
+                  </td>
+                </tr>
+              </div>
+            </div>
             <% end %>
             <%end%>
             <%end%>
@@ -222,7 +280,7 @@
                 <%= contract.active %>
               </td>
               <td>
-                <%= link_to "view", flat_contract_path(contract.flat_id, contract.id)  %>
+                <%= link_to "view", flat_contract_path(contract.flat_id, contract.id), class:'btn btn-default'  %>
               </td>
             </tr>
             <%end%>

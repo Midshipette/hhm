@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :due_date %>
-    <%= f.association :contract, as: :hidden %>
+    <%= f.association :contract, as: :hidden, :input_html => { value: @contract.id } %>
     <%= f.input :owner, collection: ["owner", "renter"], selected: "owner", label: "Person responsible" %>
 
   </div>

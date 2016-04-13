@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'revenues/show'
+
+  get 'revenues/new'
+
+  get 'revenues/create'
+
+  get 'revenues/index'
+
+  get 'revenues/edit'
+
+  get 'revenues/update'
+
   resources :tasks
   devise_for :renters, :controllers => { registrations: 'renters/registrations' }
   devise_for :owners, :controllers => { registrations: 'owners/registrations' }
@@ -8,7 +20,6 @@ Rails.application.routes.draw do
 
   get 'flats/:flat_id/history' => 'contracts#history' , as: 'flat_history'
   delete 'flats/:id' => 'flats#destroy' , as: 'flat_destroy'
-
 
 
   resources :flats do
@@ -32,6 +43,7 @@ Rails.application.routes.draw do
 
 
   resources :contracts do
+    resources :revenues
     resources :costs do
       member do
         get :realcharge
@@ -45,6 +57,8 @@ Rails.application.routes.draw do
 
 
   get '/mydashboard' => "flats#index"
+
+  get 'flats/:flat_id/newtaskdesign' => "tasks#indexdiv"  , as: 'flat_indexdiv'
 
   post 'contact_form', to: 'pages#contact_form'
   root to: 'pages#home'

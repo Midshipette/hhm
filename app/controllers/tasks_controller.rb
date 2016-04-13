@@ -6,8 +6,12 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.where(contract_id: @contract.id)
-
   end
+
+  def indexdiv
+    @tasks = Task.where(contract_id: @contract.id)
+  end
+
 
   # GET /tasks/1
   # GET /tasks/1.json

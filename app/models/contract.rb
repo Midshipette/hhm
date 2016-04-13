@@ -4,6 +4,7 @@ class Contract < ActiveRecord::Base
   has_many :documents
   has_many :tasks
   has_many :costs
+  has_many :revenues
 
   validates :rent_start, :rent_end, :rent_amount, :warranty_amount, :pay_day, presence: true
 
