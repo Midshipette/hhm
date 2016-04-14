@@ -1,8 +1,6 @@
  <%= simple_form_for [@contract, @cost] do |f| %>
       <%= f.error_notification %>
-      <div class="form-actions">
-        <%= f.button :submit, :class => "submit-btn" %>
-      </div>
+      
 
       <div class="form-inputs">
         <%= f.input :start_month_year, order: [:month, :year] %>
