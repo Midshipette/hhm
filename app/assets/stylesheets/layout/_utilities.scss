@@ -27,3 +27,11 @@
 .is-hidden {
   display: none !important;
 }
+
+.flex-item-20 {
+  flex: 0 0 20%;
+}
+
+.flex-body {
+  flex: 1 0 auto
+}
