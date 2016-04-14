@@ -5,7 +5,7 @@ class CostsController < ApplicationController
     @contract = Contract.find(params[:contract_id])
     @costs = @contract.costs
     @revenues = @contract.revenues
-    @revenue = Revenue.find(params[:contract_id])
+   
 
 
   end
