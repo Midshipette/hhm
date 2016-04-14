@@ -7,19 +7,60 @@ justify-content: space-between;
   margin-left: 0;
 }
 
- .glyphicon-home {
-    font-size: 34px !important;
+// TABLE DESIGN
+
+.background-gray-main {
+  background-color: #EDEFED;
+}
+
+.table-space {
+  background-color: white;
+  padding-bottom: 3px;
+  background: #4E7B9F; /* fallback for old browsers */
+  background: -webkit -linear-gradient(to left, #4E7B9F  , #507EA2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #4E7B9F , #507EA2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.header {
 }
 
 .div-table-row {
   display: flex;
+  color: rgb(86, 90, 92);
+  border-color: rgb(86, 90, 92);
+  border-width: 1px;
+  background-color: white;
+  margin: 1px;
+
 }
+
+.background-instagram {
+  background: #4E7B9F; /* fallback for old browsers */
+  background: -webkit -linear-gradient(to left, #4E7B9F  , #507EA2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #4E7B9F , #507EA2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ }
 
 .div-table-col {
   flex: 1;
   padding: 11px;
+  color: rgb(86, 90, 92);
+  border-color: rgb(86, 90, 92);
+  border-width: 1px;
+
 }
 
 .div-table-col.description {
-  flex: 2;
+  flex: 10;
+}
+
+.div-table-col.name {
+  flex: 3;
+}
+
+.div-table-col.status {
+  text-align: center;
+}
+
+.div-table-col.last-column {
+   text-align: center;
 }

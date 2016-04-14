@@ -7,9 +7,9 @@
         <th>ID</th>
         <th class="text-center">Format</th>
         <th>Type</th>
+        <th>Description</th>
         <th>Expiration date</th>
         <th>Reminder sent</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
 
@@ -18,6 +18,8 @@
 
           <tr>
               <td><%= document.id %></td>
+
+              <!-- Format !-->
               <% if document.attachment.to_s == "" %>
                 <td class="text-center"> no doc </td>
               <% else %>
@@ -26,22 +28,19 @@
                 <% end %> </td>
             <% end %>
 
-
            <!--   <td>
               <%= cl_image_tag(document.attachment, :format => :jpg, :width=>70, :height=>90, :border=>"1px_solid_black", :crop=>"fill"  ) %>
             </td> -->
 
 
-
-              <td><%= document.name %></td>
               <td><%= document.doc_type %></td>
+              <td><%= document.name %></td>
               <td><%= document.expiration_date %></td>
               <td><%= document.reminder_sent_date %></td>
-              <td><%= link_to(flat_document_path(@flat, document)) do %>
-                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-search') %>
-               <% end %></td>
-              <% document.days_to_reminder %>
-            </tr>
+              <td><%= link_to(edit_flat_document_path(@flat, document)) do %>
+                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
+                <% end %></td>
+        </tr>
 
       <% end %>
 
@@ -52,7 +51,7 @@
         <td></td>
         <td></td>
         <td></td>
-        <td><%= link_to 'New Doc', new_flat_document_path(@flat), class: "submit-btn" %></td>
+        <td><%= link_to 'New', new_flat_document_path(@flat), class: "submit-btn" %></td>
         <td></td>
 
           <!-- <td class="remove-padding-table">

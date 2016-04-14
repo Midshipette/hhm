@@ -1,182 +1,63 @@
-<div class='container'>
+<div class='container background-gray-main'>
   <h1>Listing Tasks</h1>
 
-  <form id="task-table">
-    <div class="div-table">
-        <div class="div-table-row">
-          <div class="div-table-col status" align="center">Status</div>
-          <div  class="div-table-col owner header">Owner</div>
-          <div  class="div-table-col name header">Name</div>
-          <div  class="div-table-col description header">Descritpion</div>
-          <div  class="div-table-col due-date header">Due date</div>
-          <div  class="div-table-col last-column header">Last column</div>
-        </div>
-
-        <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
-        <% open_tasks.each do |task| %>
+<div class="background-instagram">
+    <form id="task-table">
+      <div class="div-table">
           <div class="div-table-row">
-            <div class="div-table-col status"><%= link_to  flat_task_status_path(@flat, task) do %>
-              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') if task.status == "open"%>
-              <%= content_tag('span', "awaiting doc", style: 'color:#EE5F5B;') if task.status == "awaiting doc"%>
-            <% end %>
-            </div>
-            <div class="div-table-col owner"><%= task.owner %></div>
-            <div class="div-table-col name"><%= task.name %></div>
-            <div class="div-table-col description"><%= task.description %></div>
-
-            <% if task.status == "awaiting doc" %>
-              <div class="div-table-col due-date"><button type="button" class="submit-btn" data-toggle="modal" data-target="#myModal">
-              Upload doc</button></div>
-              <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
-            <% elsif Time.now > task.due_date %>
-              <div class="div-table-col due-date btn btn-danger"> Late </div>
-            <% else %>
-              <div class="div-table-co due-date"><%= task.due_date %></div>
-            <% end %>
-
-            <div class="div-table-col last-column"><%= link_to edit_flat_task_path(@flat, task) do %>
-                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
-            <% end %></div>
-
+            <div class="div-table-col status" align="center">Status</div>
+            <div  class="div-table-col owner header">Owner</div>
+            <div  class="div-table-col name header">Name</div>
+            <div  class="div-table-col description header">Descritpion</div>
+            <div  class="div-table-col due-date header">Due date</div>
+            <div  class="div-table-col last-column header">Last column</div>
           </div>
-        <% end %>
-        <div> <%= link_to 'New Task', new_flat_task_path(@flat), class: "submit-btn" %> </div>
-    </div>
-  </form>
 
-  <div class="links-table-bottom">
-    <%= link_to mydashboard_path(@flat) do %>
-      <div>
-          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
-          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
+          <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
+          <% open_tasks.each do |task| %>
+            <div class="div-table-row">
+              <div class="div-table-col status"><%= link_to  flat_task_status_path(@flat, task) do %>
+                <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') if task.status == "open"%>
+                <%= content_tag('span', "awaiting doc", style: 'color:#EE5F5B;') if task.status == "awaiting doc"%>
+              <% end %>
+              </div>
+              <div class="div-table-col owner"><%= task.owner %></div>
+              <div class="div-table-col name"><%= task.name %></div>
+              <div class="div-table-col description"><%= task.description %></div>
+
+              <% if task.status == "awaiting doc" %>
+                <div class="div-table-col due-date"><button type="button" class="submit-btn" data-toggle="modal" data-target="#myModal">
+                Upload doc</button></div>
+                <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
+              <% elsif Time.now > task.due_date %>
+                <div class="div-table-col due-date btn btn-danger"> Late </div>
+              <% else %>
+                <div class="div-table-co due-date"><%= task.due_date %></div>
+              <% end %>
+
+              <div class="div-table-col last-column"><%= link_to edit_flat_task_path(@flat, task) do %>
+                    <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
+              <% end %></div>
+
+            </div>
+           <% end %>
+          <div> <%= link_to 'New Task', new_flat_task_path(@flat), class: "submit-btn" %> </div>
       </div>
-    <% end %>
-     <%= link_to flat_documents_path(@flat) do %>
-      <div class="link-table-bottom-right">
-        <%= content_tag('i', nil,  class: 'fa fa-file-text fa-2x') %>
-        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
-      </div>
-    <% end %>
-  </div>
+    </form>
 
-</div>
-
-<!--
-    <div class="table-header">
-        <div class="col-status header"></div>
-        <div class="col-owner header">Owner</div>
-        <div class="col-name header">Name</div>
-        <div class="col-description header">Description</div>
-        <div class="col-due-date header">Due date</div>
-        <div class="col-last-column header"> </div>
-    </div>
-
-    <tbody>
-      <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
-       <% open_tasks.each do |task| %>
-
-       <tr>
-            <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
-              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-unchecked') if task.status == "open"%>
-              <%= content_tag('span', "awaiting doc", style: 'color:#EE5F5B;') if task.status == "awaiting doc"%>
-            <% end %>
-            </td>
-
-          <td><%= task.owner %></td>
-          <td><%= task.name %></td>
-          <td><%= task.description %></td>
-
-
-
-
-
-          <% if task.status == "awaiting doc" %>
-              <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-              Upload doc</button></td>
-             <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
-
-          <% elsif Time.now > task.due_date %>
-              <td class="btn btn-danger"> Late </td>
-          <% else %>
-              <td><%= task.due_date %></td>
-          <% end %>
-
-          <td><%= link_to edit_flat_task_path(@flat, task) do %>
-                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
-            <% end %></td>
-
-        </tr>
+    <div class="links-table-bottom">
+      <%= link_to mydashboard_path(@flat) do %>
+        <div>
+            <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
+            <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
+        </div>
       <% end %>
-      <tr>
-        <td></td>
-         <td></td>
-          <td></td>
-           <td></td>
-
-        <td><%= link_to 'New Task', new_flat_task_path(@flat), class: "submit-btn" %></td>
-        <td></td>
-      </tr>
-
-    </tbody>
-  </table>
-
-
-    <h1>History</h1>
-
-    <table class="table table-responsive table-striped table-hover">
-    <thead>
-      <tr>
-        <th>Status</th>
-        <th>Owner</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Date closed</th>
-
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% open_tasks = @tasks.select { |t| t.status == "done" || t.status == "doc uploaded"} %>
-       <% open_tasks.each do |task| %>
-
-       <tr>
-            <td class="text-center"><%= link_to  flat_task_status_path(@flat, task) do %>
-              <%= content_tag('span', nil,  class: 'glyphicon glyphicon-check') %>
-            <% end %>
-            </td>
-
-          <td><%= task.owner %></td>
-          <td><%= task.name %></td>
-          <td><%= task.description %></td>
-
-          <td><%= task.updated_at.strftime("%Y-%m-%d") %> </td>
-
-          <td><%= link_to edit_flat_task_path(@flat, task) do %>
-                  <%= content_tag('span', nil,  class: 'glyphicon glyphicon-edit') %>
-            <% end %></td>
-
-        </tr>
+       <%= link_to flat_documents_path(@flat) do %>
+        <div class="link-table-bottom-right">
+          <%= content_tag('i', nil,  class: 'fa fa-file-text fa-2x') %>
+          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-
-
-
-  <div class="links-table-bottom">
-    <%= link_to mydashboard_path(@flat) do %>
-      <div>
-          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
-          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
-      </div>
-    <% end %>
-     <%= link_to flat_documents_path(@flat) do %>
-      <div class="link-table-bottom-right">
-        <%= content_tag('i', nil,  class: 'fa fa-file-text fa-2x') %>
-        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
-      </div>
-    <% end %>
+    </div>
   </div>
-
 </div>
- -->
