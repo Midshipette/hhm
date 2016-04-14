@@ -32,12 +32,13 @@ class RevenuesController < ApplicationController
   end
 
   def update
-   
-    @revenue.paid == true
+    @contract = Contract.find(params[:contract_id])
+    @revenue = Revenue.find(params[:id])
+    @revenue.paid = true
 
     respond_to do |format|
       if @revenue.save
-        format.html { redirect_to contract_revenues_path(@contract.id, @revenue.id), notice: 'Rent payment was successfully updated.' }
+        format.html { redirect_to contract_costs_path(@contract.id), notice: 'Rent payment was successfully updated.' }
         format.json { render :show, status: :ok, location: @revenue }
       else
         format.html { render :edit }

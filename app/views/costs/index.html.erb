@@ -2,70 +2,92 @@
 
 
 <div class = "finance_container">
-<i class="mdi mdi-account md-36 md-dark"></i>
-<h4 class = "renter_name"><%= @contract.renter.first_name %>
+  <i class="mdi mdi-account md-36 md-dark"></i>
+  <h4 class = "renter_name"><%= @contract.renter.first_name %>
     <%= @contract.renter.last_name %></h4>
-  <div class='finance-rows'>
-        <h3>Monthly entries</h3>
-          <div class = "finance_row">
-            <div class="finance-key">
-              Monthly rent
-            </div>
-            <div class = "finance_value">
-              <% rent = @contract.rent_amount.round(2) %>
-              <%= rent %>
-            </div>
-          </div>
-              <!-- finance_row -->
-          <div class = "finance_row">
-            <div class="finance-key">
-              Monthly provision
-            </div>
-            <div class = "finance_value">
-              <% provision = @contract.provision %>
-              <%= @contract.provision.nil? ? provision = 0 : provision.round(2) %>
-            </div>
-          </div>
-              <!-- finance_row -->
-              <div class="finance_row">
-                <div class="finance-key total">
-                 Total
-                </div>
-
-                <div class="finance_value total">
-                  <% monthly_total = rent + provision %>
-                  <%= monthly_total.round(2)%>
-                </div>
-              </div>
-                  <!-- finance_row -->
-          </div>
-
-      <% @costs.each do |cost| %>
-    <div class = "finance_container" >
-
-
-<p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %>
-<%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'btn btn-default' %>
-<%=  link_to 'Clear provisions & real charges', openclearsumcosts_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %></p>
-<p>Real charges are the ones that your property manager provided you with.</p>
-
-        <% end %>
-<%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'submit-btn' %>
-<%= link_to 'Back', flats_path, class: 'submit-btn' %>
-
-  </div>
-</div>
-
-
-</br>
-<div class = "finance_container">
-  <div class='finance-rows'>
-    <h3>Unpaid due & next upcoming rents: </h3>
-      <div class = "finance-rent-month">
-           <%= render 'revenuepaid' %>
+    <div class='finance-rows'>
+      <h3>Monthly entries</h3>
+      <div class = "finance_row">
+        <div class="finance-key">
+          Monthly rent
+        </div>
+        <div class = "finance_value">
+          <% rent = @contract.rent_amount.round(2) %>
+          <%= rent %>
+        </div>
       </div>
+      <!-- finance_row -->
+      <div class = "finance_row">
+        <div class="finance-key">
+          Monthly provision
+        </div>
+        <div class = "finance_value">
+          <% provision = @contract.provision %>
+          <%= @contract.provision.nil? ? provision = 0 : provision.round(2) %>
+        </div>
+      </div>
+      <!-- finance_row -->
+      <div class="finance_row">
+        <div class="finance-key total">
+         Total
+       </div>
+
+       <div class="finance_value total">
+        <% monthly_total = rent + provision %>
+        <%= monthly_total.round(2)%>
+      </div>
+    </div>
+    <!-- finance_row -->
   </div>
+
+  <% @costs.each do |cost| %>
+  <div class = "finance_container" >
+
+
+    <p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %>
+      <%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'btn btn-default' %>
+      <%=  link_to 'Clear provisions & real charges', openclearsumcosts_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %></p>
+      <p>Real charges are the ones that your property manager provided you with.</p>
+
+      <% end %>
+      <%= link_to 'Back', flats_path, class: 'btn btn-default' %>
+      <%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'btn btn-default' %>
+
+
+    </div>
+  </div>
+
+
+<br>
+
+<div class = "finance_container">
+
+    <h3>Unpaid due &amp; next upcoming rents: </h3>
+    <% @revenues.reverse.each do |revenue| %>
+      <% if revenue.rent_month < Time.now.next_month %>
+        <div class='finance_row'>
+
+          <div class="finance-key">
+            <%= revenue.rent_month.strftime("%B %Y") %>
+          </div>
+
+          <div class="finance_value">
+
+            <% if revenue.paid %>
+              Paid on <%= revenue.updated_at.day %>/<%= revenue.updated_at.month %>/<%= revenue.updated_at.year %>
+            <% else %>
+              <%= simple_form_for [@contract, revenue] do |f| %>
+                <%= f.error_notification %>
+        <%#= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false, label: false %>
+                <%= f.button :submit, 'Paid'%>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+  <% end %>
 </div>
+
 
 
 
