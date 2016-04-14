@@ -80,6 +80,8 @@
       </div>
     </div>
 
+    <%if @contract.provision != nil %>
+
     <div class = "finance_row">
       <div class="finance-key">
         Provision
@@ -88,6 +90,8 @@
         <%= @contract.provision.round %>
       </div>
     </div>
+    <%end%>
+
 
     <div class = "finance_row">
       <div class="finance-key">

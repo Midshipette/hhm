@@ -62,14 +62,16 @@ class ContractsController < ApplicationController
       if @contract.save
         format.html { redirect_to @flat, notice: 'Contract was successfully created.' }
         format.json { render :show, status: :created, location: @contract }
-        
-        rent_period = (@contract.rent_end.month - @contract.rent_start.month) + 1
-        
+
+        rent_period = (@contract.rent_end.month - @contract.rent_start.month) + (@contract.rent_end.year - @contract.rent_start.year) * 12
+
         contract_rent_month = @contract.rent_start.to_date
+
         rent_period.times do
           Revenue.create(rent_month: contract_rent_month, contract_id: @contract.id, paid: false)
           contract_rent_month = contract_rent_month.next_month
         end
+
       else
         format.html { render :new }
         format.json { render json: @contract.errors, status: :unprocessable_entity }
