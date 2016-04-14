@@ -1,4 +1,7 @@
 class RevenuesController < ApplicationController
+  before_action :set_revenue, only: [:show, :edit, :update,  :destroy]
+
+
   def show
   end
 
@@ -12,10 +15,10 @@ class RevenuesController < ApplicationController
     respond_to do |format|
       if @revenue.save!
         format.html { redirect_to contract_revenues_path(@contract.id, @revenue.id), notice: 'Periodical charges were successfully created.' }
-        format.json { render :show, status: :created, location: @cost }
+        format.json { render :show, status: :created, location: @revenue }
       else
         format.html { render :new }
-        format.json { render json: @cost.errors, status: :unprocessable_entity }
+        format.json { render json: @revenue.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -29,5 +32,28 @@ class RevenuesController < ApplicationController
   end
 
   def update
+   
+    @revenue.paid == true
+
+    respond_to do |format|
+      if @revenue.save
+        format.html { redirect_to contract_revenues_path(@contract.id, @revenue.id), notice: 'Rent payment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @revenue }
+      else
+        format.html { render :edit }
+        format.json { render json: @revenue.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
+
+
+
+
+
+  private
+
+    def set_revenue
+      @revenue = Revenue.find(params[:id])
+    end
 end
