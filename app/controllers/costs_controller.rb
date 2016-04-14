@@ -26,7 +26,7 @@ class CostsController < ApplicationController
     @cost.contract_id = @contract.id
     respond_to do |format|
       if @cost.save!
-        format.html { redirect_to contract_cost_path(@contract.id, @cost.id), notice: 'Periodical charges were successfully created.' }
+        format.html { redirect_to contract_costs_path(@contract.id), notice: 'Periodical charges were successfully created.' }
         format.json { render :show, status: :created, location: @cost }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class CostsController < ApplicationController
 
     respond_to do |format|
       if @cost.update(cost_params)
-        format.html { redirect_to contract_cost_path(@contract.id, @cost.id), notice: 'Charges were successfully updated.' }
+        format.html { redirect_to contract_costs_path(@contract.id), notice: 'Charges were successfully updated.' }
         format.json { render :show, status: :ok, location: @cost }
       else
         format.html { render :edit }

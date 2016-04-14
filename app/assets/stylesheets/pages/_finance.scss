@@ -53,3 +53,14 @@
 .info_real_charges {
 	font-size: 14px;
 }
+
+.finance_row_unpaid_rent {
+	display: flex;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 1px 0;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+}
