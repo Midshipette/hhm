@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
   <style>
 
   body {
@@ -31,12 +33,8 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  .banner {
-    text-align: center;
-  }
-
   h1 {
-    font-family: Arial, sans-serif;
+    font-family: Amaranth, sans-serif;
     font-weight: bold;
     font-size: 45px;
     color: rgba(black, .8);
@@ -54,8 +52,6 @@
     text-align: center;
     color: rgba(0, 0, 0, 0.42);
     font-size: 22px;
-  }
-
   }
 
   div.dialog > p {
@@ -79,34 +75,103 @@
     opacity: 0.5;
   }
 
+  .banner {
+    text-align: center;
+  }
 
+  .logo {
+  }
+
+  .logo img {
+    max-width: 160px;
+  }
+
+  .horizontal-space {
+    margin-top: 40px;
+  }
+
+  .submit-btn {
+    -moz-box-shadow:inset 0px 1px 0px 0px #667bb5;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #667bb5;
+    box-shadow:inset 0px 1px 0px 0px #667bb5;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #17307c), color-stop(1, #3b559c) );
+    background: linear-gradient( center top, #17307c 5%, #17307c 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#17307c', endColorstr='#3b559c');
+    background-color:#17307c;
+    -webkit-border-top-left-radius:0px;
+    -moz-border-radius-topleft:0px;
+    border-top-left-radius:0px;
+    -webkit-border-top-right-radius:0px;
+    -moz-border-radius-topright:0px;
+    border-top-right-radius:0px;
+    -webkit-border-bottom-right-radius:0px;
+    -moz-border-radius-bottomright:0px;
+    border-bottom-right-radius:0px;
+    -webkit-border-bottom-left-radius:0px;
+    -moz-border-radius-bottomleft:0px;
+    border-bottom-left-radius:0px;
+    text-indent:0;
+    border:1px solid #17307c;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    font-style:normal;
+    height:38px;
+    line-height:38px;
+    padding: 0 15px;
+    text-decoration:none;
+    text-align:center;
+    outline: 0;
+    text-shadow:1px 1px 0px #000000;
+  }
+  .submit-btn:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #3b559c), color-stop(1, #17307c) );
+    background:-moz-linear-gradient( center top, #3b559c 5%, #17307c 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#3b559c', endColorstr='#17307c');
+    background-color:#3b559c;
+    color: #ffffff;
+  }
+  .submit-btn:active {
+    position:relative;
+    top:1px;
+  }
 
   </style>
 </head>
 
+
+
 <body>
   <!-- This file lives in public/404.html -->
 
-
-
-<!--   <div class="dialog">
+  <div class="dialog">
     <div>
-      <h2>404<br><br>
-      <p>We suppose  the dead pages where not what you where looking for.<br><br></p>
-      <h2>Please, click in the link below to continue on our homepage</h2>
+      <h2>404</h2>
+      <p>The page you're looking for doesn't exist.</p>
+      <h2>Please, click in the link below to continue on our</h2>
+      <a class="submit-btn" href="/">home page</a><br><br>
     </div>
-  </div> -->
+  </div>
 
   <div class="banner">
+    <div class="horizontal-space"></div>
 
-<p></p>
-    <img src="tmp/logo.png">
+    </div>
+    <div class="logo">
+      <a href="/"><img src="/logo.png"></a>
+    </div>
 
     <h1>Happy Home Management<br></h1>
 
     <h2>Efficient and seamless rental management</h2>
 
-    <a class="submit-btn" href="https://app/views/pages/home.html.erb">Continue on the home page</a>
+    <div class="horizontal-space"></div>
+
+    <a class="submit-btn" href="/">Continue on the home page</a>
+
+    <div class="horizontal-space"></div>
   </div>
 
 
