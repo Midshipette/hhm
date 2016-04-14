@@ -11,4 +11,9 @@ table.table tr td span {
   color: $gray-dark;
 }
 
+.table-history {
+  & > tbody > tr > td {
+    vertical-align: middle;
+  }
+}
 
