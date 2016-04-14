@@ -44,20 +44,6 @@
     <div class = "finance_container" >
 
 
-
-
-
-        <h3>Montly projected charges</h3>
-
-
-
-
-        <%= cost.contract.renter.first_name %>
-        <%= cost.start_month_year %>
-        <%= cost.end_month_year %>
-        <%= cost.owner_charge %>
-        <%= cost.owner_charge %>
-
 <p><%= link_to 'Edit', edit_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %>
 <%= link_to 'Add real charges', new_contract_cost_path(@contract.id), class: 'btn btn-default' %>
 <%=  link_to 'Clear provisions & real charges', openclearsumcosts_contract_cost_path(@contract.id, cost.id), class: 'btn btn-default' %></p>
@@ -76,7 +62,7 @@
   <div class='finance-rows'>
     <h3>Unpaid due & next upcoming rents: </h3>
       <div class = "finance-rent-month">
-  <!--         <%= render 'revenuepaid' %> -->
+           <%= render 'revenuepaid' %>
       </div>
   </div>
 </div>
