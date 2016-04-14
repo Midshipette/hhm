@@ -1,16 +1,34 @@
-<div class='container background-gray-main'>
-  <h1>Listing Tasks</h1>
+<div class='container'>
+  <div class="links-table-top">
+    <%= link_to mydashboard_path(@flat) do %>
+      <div class="flex-item-20">
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
+      </div>
+    <% end %>
+    <div class="flex-body">
+      <h1>Listing Tasks</h1>
+    </div>
 
-<div class="background-instagram">
+    <%= link_to flat_documents_path(@flat) do %>
+      <div class="link-table-bottom-right flex-time-20">
+        <%= content_tag('i', nil,  class: 'fa fa-file-text fa-2x') %>
+        <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
+       <% end %>
+      </div>
+   </div>
+
+
+<div>
     <form id="task-table">
       <div class="div-table">
-          <div class="div-table-row">
-            <div class="div-table-col status" align="center">Status</div>
-            <div  class="div-table-col owner header">Owner</div>
-            <div  class="div-table-col name header">Name</div>
-            <div  class="div-table-col description header">Descritpion</div>
-            <div  class="div-table-col due-date header">Due date</div>
-            <div  class="div-table-col last-column header">Last column</div>
+          <div class="div-table-row task-row-header">
+            <div class="div-table-col status task-row-header" ><i class="fa fa-check fa-2x" aria-hidden="true"></i></div>
+            <div  class="div-table-col owner task-row-header">Owner</div>
+            <div  class="div-table-col name task-row-header">Name</div>
+            <div  class="div-table-col description task-row-header">Descritpion</div>
+            <div  class="div-table-col due-date task-row-header">Due date</div>
+            <div  class="div-table-col last-column task-row-header"></div>
           </div>
 
           <% open_tasks = @tasks.select { |t| ["open", "awaiting doc"].include?(t.status)} %>
@@ -30,9 +48,9 @@
                 Upload doc</button></div>
                 <%= render 'modal', { document: Document.find(task.document_id), task: task } %>
               <% elsif Time.now > task.due_date %>
-                <div class="div-table-col due-date btn btn-danger"> Late </div>
+                <div class="div-table-col due-date red-underlined"><%= task.due_date %></div>
               <% else %>
-                <div class="div-table-co due-date"><%= task.due_date %></div>
+                <div class="div-table-col due-date"><%= task.due_date %></div>
               <% end %>
 
               <div class="div-table-col last-column"><%= link_to edit_flat_task_path(@flat, task) do %>
@@ -41,23 +59,49 @@
 
             </div>
            <% end %>
-          <div> <%= link_to 'New Task', new_flat_task_path(@flat), class: "btn btn-default" %> </div>
+
+          <div class="bottom-task-table"> <%= link_to new_flat_task_path(@flat) do %>
+              <div class="btn-newtask"><%= content_tag('i', nil,  class: 'fa fa-plus-circle ') %></div>
+          <% end %> </div>
       </div>
     </form>
 
-    <div class="links-table-bottom">
-      <%= link_to mydashboard_path(@flat) do %>
-        <div>
-            <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-left') %>
-            <%= content_tag('span', nil,  class: 'glyphicon glyphicon-home') %>
-        </div>
-      <% end %>
-       <%= link_to flat_documents_path(@flat) do %>
-        <div class="link-table-bottom-right">
-          <%= content_tag('i', nil,  class: 'fa fa-file-text fa-2x') %>
-          <%= content_tag('span', nil,  class: 'glyphicon glyphicon-arrow-right') %>
-        </div>
-      <% end %>
+    <div class="space-before-history">
     </div>
+    <div>
+      <h1>History</h1>
+    </div>
+
+    <div>
+    <form id="task-table">
+      <div class="div-table">
+          <div class="div-table-row task-row-header">
+            <div class="div-table-col status task-row-header" ></div>
+            <div  class="div-table-col owner task-row-header">Owner</div>
+            <div  class="div-table-col name task-row-header">Name</div>
+            <div  class="div-table-col description task-row-header">Descritpion</div>
+            <div  class="div-table-col due-date task-row-header">Closed date</div>
+            <div  class="div-table-col last-column task-row-header"></div>
+          </div>
+
+         <% open_tasks = @tasks.select { |t| t.status == "done" || t.status == "doc uploaded"} %>
+         <% open_tasks.each do |task| %>
+            <div class="div-table-row">
+              <div class="div-table-col status"><%= link_to  flat_task_status_path(@flat, task) do %>
+                <%= content_tag('span', nil,  class: 'glyphicon glyphicon-check') if task.status == "done"%>
+              <% end %></div>
+              <div class="div-table-col owner"><%= task.owner %></div>
+              <div class="div-table-col name"><%= task.name %></div>
+              <div class="div-table-col description"><%= task.description %></div>
+
+
+              <div class="div-table-col due-date"><%= task.updated_at.strftime("%Y-%m-%d") %></div>
+              <div class="div-table-col last-column" ></div>
+            </div>
+          <% end %>
+        </div>
+    </form>
+
+
   </div>
 </div>

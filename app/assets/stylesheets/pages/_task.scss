@@ -1,53 +1,57 @@
+.links-table-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+
 .links-table-bottom {
 display: flex;
 justify-content: space-between;
 }
 
-.link-table-bottom-left {
+.link-table-bottom-right {
   margin-left: 0;
 }
 
 // TABLE DESIGN
 
-.background-gray-main {
-  background-color: #EDEFED;
-}
-
-.table-space {
-  background-color: white;
-  padding-bottom: 3px;
-  background: #4E7B9F; /* fallback for old browsers */
-  background: -webkit -linear-gradient(to left, #4E7B9F  , #507EA2); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4E7B9F , #507EA2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.header {
+.div-table {
+  box-shadow: 2px 2px 72px rgba(128, 128, 128, 0.15);
+  border: 1px solid rgba(128, 128, 128, 0.1);
 }
 
 .div-table-row {
   display: flex;
   color: rgb(86, 90, 92);
-  border-color: rgb(86, 90, 92);
-  border-width: 1px;
   background-color: white;
-  margin: 1px;
-
+  height: 72px;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.15);
 }
 
-.background-instagram {
-  background: #4E7B9F; /* fallback for old browsers */
-  background: -webkit -linear-gradient(to left, #4E7B9F  , #507EA2); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #4E7B9F , #507EA2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- }
+.task-row-header {
+  background-color: rgba(23, 38, 82, 0.82);
+  border-radius: 6px 6px 0 0;
+  color: white !important;
+  text-transform: uppercase;
+  height: 60px !important;
+  align-items: center;
+  font-weight: 500;
+}
 
 .div-table-col {
   flex: 1;
-  padding: 11px;
+  padding: 2px;
   color: rgb(86, 90, 92);
   border-color: rgb(86, 90, 92);
   border-width: 1px;
+  height: 50px;
+  display: flex;
 
+  align-items: center;
 }
+
 
 .div-table-col.description {
   flex: 10;
@@ -55,12 +59,52 @@ justify-content: space-between;
 
 .div-table-col.name {
   flex: 3;
+  padding-left: 12px;
+}
+
+.div-table-col.name {
+  flex: 3;
+
 }
 
 .div-table-col.status {
-  text-align: center;
+  padding-left: 12px;
+
 }
 
 .div-table-col.last-column {
-   text-align: center;
+
+}
+.div-table-col.due-date {
+  flex:2;
+}
+
+.space-before-history {
+  width:auto;
+  height: 16px;
+ }
+
+.bottom-task-table {
+   display:flex;
+   width:auto;
+   height: 40px;
+   justify-content: space-around;
+}
+
+
+.btn-newtask {
+  font-size: 30px !important;
+  align-items: center;
+  color: rgba(128, 128, 128, 0.20);
+}
+
+.btn-newtask:hover > i  {
+  color: rgba(23, 38, 82, 0.82) !important;
+  box-shadow: 3px solid rgba(128, 128, 128, 1);
+  transition: all 0.7s ease;
+}
+
+.red-underlined {
+  text-decoration: underlined;
+  color: red;
 }
