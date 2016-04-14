@@ -5,6 +5,7 @@
     <%= f.input :email, required: false, autofocus: true %>
     <%= f.input :password, required: false %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= render "owners/shared/links" %>
   </div>
 
   <div class="form-actions">
@@ -12,5 +13,4 @@
   </div>
   <% end %>
 
-  <%= render "owners/shared/links" %>
 </div>
