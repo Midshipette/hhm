@@ -18,6 +18,10 @@
 	width: 250px;
 }
 
+.finance-key2 {
+	margin-left: auto;
+}
+
 .finance_line {
 
 }
@@ -34,4 +38,14 @@
 
 .total {
 	font-size: 20px;
+}
+
+.finance-rent-month {
+	display: flex;
+    flex-direction: column;
+}
+
+.month {
+	display: flex;
+	align-items: baseline;
 }
