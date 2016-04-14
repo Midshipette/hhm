@@ -75,21 +75,8 @@
 <div class = "finance_container">
   <div class='finance-rows'>
     <h3>Unpaid due & next upcoming rents: </h3>
-      <div class = "finance_row">
-        <div class="finance-key">
-
-          <% @revenues.each do |revenue| %>
-            <% if revenue.rent_month < Time.now.next_month %>
-              <%= revenue.rent_month.strftime("%B %Y") %>
-            <% else %>
-              <% "" %>
-            <% end %> 
-          <% end %>
-        </div>
-        <div class = "finance_value">
-<!--           <%= render 'revenuepaid' %> -->
-        </div>
-
+      <div class = "finance-rent-month">
+          <%= render 'revenuepaid' %>
       </div>
   </div>
 </div>
