@@ -1,8 +1,6 @@
 class Cost < ActiveRecord::Base
   belongs_to :contract
 
-  validates_uniqueness_of :start_month_year
-  validates_uniqueness_of :end_month_year
-
-
+  validates :start_month_year, uniqueness: { scope: :contract_id }
+  validates :end_month_year, uniqueness: { scope: :contract_id }
 end
