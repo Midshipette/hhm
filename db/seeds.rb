@@ -11,8 +11,8 @@ puts "Cleaning database..."
 Owner.destroy_all
 Renter.destroy_all
 
-Contract.destroy_all
 Flat.destroy_all
+Contract.destroy_all
 
 Task.destroy_all
 Document.destroy_all
